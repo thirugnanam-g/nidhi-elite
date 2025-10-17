@@ -23,7 +23,7 @@ export function PlotsIntro() {
   return (
     <section
       id="plots"
-      className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden"
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden"
     >
       {/* Background Accents */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 blur-3xl rounded-full opacity-30" />
@@ -31,7 +31,7 @@ export function PlotsIntro() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* HEADER */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16 px-4">
           <div className="flex justify-center mb-4">
             <div className="inline-flex items-center px-5 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium shadow-sm">
               Premium Plots
@@ -49,16 +49,16 @@ export function PlotsIntro() {
         {/* IMAGE + FEATURES */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 lg:mb-20">
           {/* Left — Layout Image */}
-          <div className="relative group rounded-2xl overflow-hidden shadow-2xl bg-white">
-            <Card className="relative overflow-hidden border-0 rounded-2xl p-0 bg-transparent">
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[480px] bg-white flex items-center justify-center">
+          <div className="relative group rounded-2xl overflow-hidden shadow-2xl">
+            <Card className="relative overflow-hidden border-0 rounded-2xl p-0 bg-white">
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[480px]">
                 <Image
                   src="/images/site-layout.jpg"
                   alt="Nidhi Elite plots master plan with greenery and amenities"
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain absolute inset-0 rounded-2xl p-2 md:p-4 transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+                  className="object-cover absolute inset-0 rounded-2xl transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 />
               </div>
             </Card>

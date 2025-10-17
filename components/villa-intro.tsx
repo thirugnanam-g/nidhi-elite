@@ -64,7 +64,7 @@ export function VillaIntro() {
   return (
     <section
       id="customized-villas"
-      className="w-full py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
+      className="w-full py-10 sm:py-12 lg:py-16 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
     >
       {/* Subtle glowing backdrop */}
       <div className="absolute top-0 right-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-primary/10 blur-3xl rounded-full opacity-30" />
@@ -74,7 +74,7 @@ export function VillaIntro() {
         {/* SECTION 1: VILLA INTRO */}
         <div className="mb-12 sm:mb-16 lg:mb-20">
           {/* Centered Header */}
-          <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+          <div className="text-center mb-8 sm:mb-10 lg:mb-12 px-4">
             <div className="flex justify-center mb-3 sm:mb-4">
               <div className="inline-flex items-center px-4 sm:px-5 py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium shadow-sm">
                 Customized Villas, Floor Plans & Interiors

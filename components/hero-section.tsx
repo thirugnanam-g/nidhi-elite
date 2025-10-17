@@ -22,7 +22,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative w-full overflow-hidden bg-gradient-to-br from-[#fefcf9] via-[#ffffff] to-primary/5 min-h-screen flex items-center"
+      className="relative w-full overflow-hidden bg-gradient-to-br from-[#fefcf9] via-[#ffffff] to-primary/5 min-h-[85vh] sm:min-h-screen flex items-center"
     >
       {/* Background Image with minimal overlay */}
       <div className="absolute inset-0 z-0">

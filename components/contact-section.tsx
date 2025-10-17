@@ -46,7 +46,7 @@ ${formData.message}
   return (
     <section
       id="contact"
-      className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden"
+      className="py-10 sm:py-12 lg:py-16 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden"
     >
       {/* Background glow accents */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 blur-3xl rounded-full opacity-30" />

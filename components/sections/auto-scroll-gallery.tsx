@@ -41,6 +41,27 @@ const images = [
   "/images/IMG-20250929-WA0027.jpg",
   "/images/IMG-20250929-WA0028.jpg",
   "/images/IMG-20250929-WA0029.jpg",
+  "/images/IMG-20250929-WA0030.jpg",
+  "/images/IMG-20250929-WA0031.jpg",
+  "/images/IMG-20250929-WA0032.jpg",
+  "/images/IMG-20250929-WA0033.jpg",
+  "/images/IMG-20250929-WA0034.jpg",
+  "/images/IMG-20250929-WA0035.jpg",
+  "/images/IMG-20250929-WA0036.jpg",
+  "/images/IMG-20250929-WA0037.jpg",
+  "/images/IMG-20250929-WA0038.jpg",
+  "/images/IMG-20250929-WA0039.jpg",
+  "/images/IMG-20250929-WA0040.jpg",
+  "/images/IMG-20250929-WA0041.jpg",
+  "/images/IMG-20250929-WA0042.jpg",
+  "/images/IMG-20250929-WA0043.jpg",
+  "/images/IMG-20250929-WA0044.jpg",
+  "/images/IMG-20250929-WA0045.jpg",
+  "/images/IMG-20250929-WA0046.jpg",
+  "/images/IMG-20250929-WA0047.jpg",
+  "/images/IMG-20250929-WA0048.jpg",
+  "/images/IMG-20250929-WA0049.jpg",
+  "/images/IMG-20250929-WA0050.jpg",
 ]
 
 export function AutoScrollGallery() {
@@ -65,17 +86,17 @@ export function AutoScrollGallery() {
   const onFocusOut = () => setIsPaused(false)
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-b from-background via-primary/5 to-background">
+    <section id="gallery" className="py-10 sm:py-12 lg:py-16 bg-gradient-to-b from-background via-primary/5 to-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center px-5 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="inline-flex items-center px-4 sm:px-5 py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
             Gallery
           </div>
-          <h2 className="text-4xl md:text-5xl font-serif font-light mb-4 text-foreground leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-light mb-3 sm:mb-4 text-foreground leading-tight px-4">
             Site <span className="text-primary italic font-semibold">Highlights</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
             Explore real photos from Nidhi Elite’s premium gated community — see the landscape, roads, and progress in
             every detail.
           </p>
@@ -97,8 +118,7 @@ export function AutoScrollGallery() {
                 className="carousel-item pl-2 md:pl-4 basis-3/4 md:basis-1/3 lg:basis-1/4"
               >
                 <Card className="overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-500">
-                  {/* 👇 Fixed height container */}
-                  <div className="relative w-full h-[420px] md:h-[480px] lg:h-[520px] overflow-hidden">
+                  <div className="relative w-full h-[320px] sm:h-[380px] md:h-[420px] lg:h-[460px] overflow-hidden">
                     <Image
                       src={src}
                       alt="Nidhi Elite real site photo"

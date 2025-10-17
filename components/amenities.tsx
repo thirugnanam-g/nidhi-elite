@@ -47,7 +47,7 @@ export function Amenities() {
   return (
     <section
       id="amenities"
-      className="py-12 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
+      className="py-10 sm:py-12 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
     >
       {/* Soft ambient glow for luxury look */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,215,100,0.05),transparent_70%)] pointer-events-none"></div>
@@ -69,7 +69,7 @@ export function Amenities() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {amenities.map((amenity, index) => {
             const IconComponent = amenity.icon
             return (

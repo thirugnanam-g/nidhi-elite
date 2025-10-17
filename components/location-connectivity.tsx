@@ -60,20 +60,20 @@ export function LocationConnectivity() {
   return (
     <section
       id="location"
-      className="py-20 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
+      className="py-10 sm:py-12 lg:py-16 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
     >
       {/* Soft background accent */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,215,100,0.05),_transparent_70%)] pointer-events-none"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto animate-fade-up">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16 max-w-3xl mx-auto animate-fade-up px-4">
           <div className="flex justify-center mb-6">
             <div className="inline-flex items-center px-5 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium shadow-sm">
               Prime Location
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-serif font-light mb-4 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-light mb-3 sm:mb-4 leading-tight">
             Perfectly Connected to{" "}
             <span className="text-primary italic font-semibold">Everything You Need</span>
           </h2>
