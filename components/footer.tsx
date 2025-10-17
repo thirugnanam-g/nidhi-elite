@@ -70,20 +70,17 @@ export function Footer() {
 
           {/* Quick Links */}
           <nav aria-label="Footer navigation">
-            <h4 className="font-semibold mb-4 text-sm">Quick Links</h4>
-            <ul className="space-y-2 text-sm opacity-80">
-              {["home", "plots", "customized-villas", "amenities"].map((id) => (
-                <li key={id}>
-                  <button
-                    onClick={() => handleNavClick(id)}
-                    className="hover:text-primary transition-colors text-left hover:translate-x-1 duration-300"
-                  >
-                    {id.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <h4 className="font-semibold mb-4">Quick Links</h4>
+          <ul className="space-y-2 text-sm opacity-80">
+            {["home", "plots", "customized-villas", "amenities", "location", "about", "contact"].map((id) => (
+              <li key={id}>
+                <button onClick={() => handleNavClick(id)} className="hover:text-primary transition-colors text-left">
+                  {id.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
           {/* Contact Info */}
           <address className="not-italic">
