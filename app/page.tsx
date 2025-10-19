@@ -37,7 +37,7 @@ export default function Home() {
         </div>
 
         {/* ABOUT */}
-        <div id="about" aria-labelledby="about-heading" className="relative -mt-12 sm:-mt-16">
+        <div id="about" aria-labelledby="about-heading" className="relative">
           <h2 id="about-heading" className="sr-only">
             About Nidhi Elite Real Estate Developers
           </h2>
@@ -52,9 +52,8 @@ export default function Home() {
           <PlotsIntro />
         </div>
 
-
+        
         <VillaIntro />
-        <InteriorFeatures />
 
         {/* AMENITIES */}
         <div id="amenities" aria-labelledby="amenities-heading" className="relative">
@@ -65,7 +64,7 @@ export default function Home() {
         </div>
 
         {/* LOCATION */}
-        <div id="location" aria-labelledby="location-heading" className="relative">
+        <div id="location" aria-labelledby="location-heading" className="bg-gray-50 relative">
           <h2 id="location-heading" className="sr-only">
             Prime Location and Connectivity from Hosur to Bangalore
           </h2>
@@ -73,7 +72,7 @@ export default function Home() {
         </div>
 
         {/* GALLERY */}
-        <div id="gallery" aria-labelledby="gallery-heading" className="relative">
+        <div id="gallery" aria-labelledby="gallery-heading" className="bg-gray-50 relative">
           <h2 id="gallery-heading" className="sr-only">
             Real Site Images of Nidhi Elite Layout in Hosur
           </h2>
@@ -81,7 +80,7 @@ export default function Home() {
         </div>
 
         {/* CONTACT */}
-        <div id="contact" aria-labelledby="contact-heading" className="relative">
+        <div id="contact" aria-labelledby="contact-heading" className="bg-gray-50 relative">
           <h2 id="contact-heading" className="sr-only">
             Contact Nidhi Elite for Site Visit or Brochure
           </h2>

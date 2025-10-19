@@ -7,7 +7,10 @@ import { Download, MapPin, TreePine, CheckCircle } from "lucide-react"
 
 export function AboutSection() {
   const handleBrochureDownload = () => {
-    window.open("https://drive.google.com/file/d/1JgqyFQDsNJV9Tj12iadmpdUt4w1p32nJ/view?usp=sharing", "_blank")
+    window.open(
+      "https://drive.google.com/file/d/1JgqyFQDsNJV9Tj12iadmpdUt4w1p32nJ/view?usp=sharing",
+      "_blank"
+    )
   }
 
   return (
@@ -20,55 +23,46 @@ export function AboutSection() {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/10 blur-3xl rounded-full opacity-20" />
 
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+        {/* Heading */}
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light leading-tight mb-4">
-            Redefining <span className="text-primary italic font-semibold">Luxury Living</span>
+            Redefining{" "}
+            <span className="text-primary italic font-semibold">Luxury Living</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground font-light">
             Hosur's exclusive gated community with premium plots and customized villas
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 items-start mb-12">
-          {/* Left — Main Description (2 columns) */}
-          <div className="md:col-span-2 space-y-4 sm:space-y-6">
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-light">
-              Nidhi Elite is Hosur's only exclusive gated community on Thali Road, offering affordable premium plots in
-              a fast-growing neighborhood. Perfectly connected to NH844 and Electronic City.
-            </p>
-
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-light">
-              Premium villa plots with options to customize simplex and duplex villas. Top-notch amenities, strong
-              investment potential, and vibrant, secure environment.
-            </p>
-
-            <div className="relative group rounded-2xl overflow-hidden shadow-xl">
-              <Card className="relative overflow-hidden border-0 rounded-2xl p-0 bg-transparent">
-                <div className="relative w-full h-[300px] sm:h-[350px]">
-                  <Image
-                    src="/images/IMG-20250929-WA0010.jpg"
-                    alt="Nidhi Elite luxury gated community"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 66vw"
-                    className="object-cover absolute inset-0 rounded-2xl group-hover:scale-[1.02] transition-transform duration-700"
-                  />
-                </div>
-              </Card>
+        {/* ✅ Two-column layout with equal height */}
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch mb-12">
+          {/* LEFT — Text + Centered Download Button */}
+          <div className="flex flex-col justify-between bg-white/5 rounded-2xl p-6 sm:p-8 border border-primary/10 backdrop-blur-sm">
+            <div>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-light text-justify sm:text-left">
+                Nidhi Elite is Hosur's exclusive gated community offering affordable
+                premium plots and customizable villas on Thali Road. Perfectly connected to
+                NH844 and Electronic City, it’s the ideal blend of comfort, security, and
+                investment growth.
+              </p>
             </div>
 
-            <Button
-              onClick={handleBrochureDownload}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center gap-2 w-full sm:w-auto"
-            >
-              <Download className="w-4 h-4" />
-              Download Brochure
-            </Button>
+            {/* ✅ Centered & Enhanced Download Button */}
+            <div className="pt-8 flex justify-center">
+              <Button
+                onClick={handleBrochureDownload}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg px-8 sm:px-10 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3"
+              >
+                <Download className="w-5 h-5 sm:w-6 sm:h-6" />
+                Download Brochure
+              </Button>
+            </div>
           </div>
 
-          <div className="md:col-span-1">
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 p-6 sm:p-8 rounded-2xl border border-primary/20 backdrop-blur-sm sticky top-24">
-              <h3 className="text-lg sm:text-xl font-serif font-semibold text-foreground mb-6">
+          {/* RIGHT — Why Choose Nidhi Elite */}
+          <div className="flex flex-col justify-between bg-gradient-to-br from-primary/10 to-secondary/10 p-6 sm:p-8 rounded-2xl border border-primary/20 backdrop-blur-sm">
+            <div>
+              <h3 className="text-lg sm:text-xl font-serif font-semibold text-foreground mb-6 text-center sm:text-left">
                 Why Choose <span className="text-primary italic">Nidhi Elite?</span>
               </h3>
               <div className="space-y-4">
@@ -76,21 +70,27 @@ export function AboutSection() {
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium text-sm text-foreground">Prime Location</p>
-                    <p className="text-xs text-muted-foreground">Close to Electronic City & IT hubs</p>
+                    <p className="text-xs text-muted-foreground">
+                      Close to Electronic City & IT hubs
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-3">
                   <TreePine className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium text-sm text-foreground">Green Environment</p>
-                    <p className="text-xs text-muted-foreground">Landscaped parks & open spaces</p>
+                    <p className="text-xs text-muted-foreground">
+                      Landscaped parks & open spaces
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium text-sm text-foreground">Approved & Secure</p>
-                    <p className="text-xs text-muted-foreground">TNRERA & HNTDA approved</p>
+                    <p className="text-xs text-muted-foreground">
+                      TNRERA & HNTDA approved
+                    </p>
                   </div>
                 </div>
               </div>

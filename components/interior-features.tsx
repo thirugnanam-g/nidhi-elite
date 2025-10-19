@@ -42,7 +42,7 @@ export function InteriorFeatures() {
   return (
     <section
       id="interiors"
-      className="py-10 sm:py-12 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
+      className="py-12 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
     >
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 blur-3xl rounded-full opacity-30" />

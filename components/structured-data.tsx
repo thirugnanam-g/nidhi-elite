@@ -52,7 +52,7 @@ export function StructuredData() {
         url: "https://v0-nidhi-elite.vercel.app",
         name: "Nidhi Elite - Premium Luxury Plots & Customized Villas",
         description:
-          "Discover luxury living at Nidhi Elite — HNTDA & TN RERA approved premium residential plots (1200-2400 sq ft) and 3BHK customized villas in Hosur near Bangalore. Starting from ₹21 Lakhs with modern amenities.",
+          "Discover luxury living at Nidhi Elite — premium plots and customized villas in Hosur with DTCP and RERA approvals, close to Bangalore.",
         publisher: { "@id": "https://v0-nidhi-elite.vercel.app/#organization" },
         potentialAction: [
           {
@@ -71,7 +71,7 @@ export function StructuredData() {
         priceRange: "₹₹₹",
         url: "https://v0-nidhi-elite.vercel.app",
         description:
-          "HNTDA & TN RERA approved luxury villa and residential plot project in Hosur with 106 plots, secure gated community, 30ft roads, underground sewage, CCTV surveillance, and premium amenities. Easy access to Bangalore IT hubs.",
+          "DTCP and RERA approved luxury villa and plot project located in Hosur, offering premium amenities and easy access to Bangalore.",
         geo: {
           "@type": "GeoCoordinates",
           latitude: "12.7365",
@@ -102,7 +102,7 @@ export function StructuredData() {
         "@id": "https://v0-nidhi-elite.vercel.app/#plots",
         name: "Nidhi Elite Luxury Plots & Customized Villas",
         description:
-          "HNTDA & TN RERA approved luxury residential plots (1200-2400 sq ft) and 3BHK customized villas in Hosur. Strategically located in Poonapalli Village near Electronic City and Bangalore IT corridors, with world-class connectivity and modern amenities. Starting from ₹21 Lakhs.",
+          "DTCP and RERA approved luxury plots and customized villas in Hosur. Strategically located near Electronic City and Bangalore, with top-class connectivity and amenities.",
         category: "Real Estate",
         brand: { "@type": "Brand", name: "Nidhi Elite" },
         image: [
@@ -112,9 +112,9 @@ export function StructuredData() {
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "INR",
-          lowPrice: "2100000",
-          highPrice: "4200000",
-          offerCount: "106",
+          lowPrice: "5000000",
+          highPrice: "15000000",
+          offerCount: "50",
           availability: "https://schema.org/InStock"
         }
       }
