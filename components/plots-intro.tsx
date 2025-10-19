@@ -18,52 +18,49 @@ export function PlotsIntro() {
   return (
     <section
       id="plots"
-      className="relative w-full min-h-screen flex items-center bg-gradient-to-b from-background via-primary/5 to-background overflow-hidden pt-0 -mt-10"
+      className="relative w-full pb-12 pt-8 flex items-center bg-gradient-to-b from-background via-primary/5 to-background overflow-hidden"
     >
       {/* Soft glow background */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 blur-3xl rounded-full opacity-20" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/10 blur-3xl rounded-full opacity-20" />
+      <div className="absolute top-0 right-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-primary/10 blur-3xl rounded-full opacity-20" />
+      <div className="absolute bottom-0 left-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-secondary/10 blur-3xl rounded-full opacity-20" />
 
       {/* Main container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Header */}
-        <div className="text-center mb-6 sm:mb-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light leading-tight mb-3">
-            Build Your Dream on{" "}
-            <span className="text-primary italic font-semibold">Solid Ground</span>
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light leading-tight mb-2 sm:mb-3">
+            Build Your Dream on <span className="text-primary italic font-semibold">Solid Ground</span>
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
             Premium residential plots designed for comfort, growth, and peace of mind.
           </p>
         </div>
 
-        {/* ✅ Equal height grid */}
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-12 items-center h-[calc(100vh-200px)]">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
           {/* Left — Features */}
-          <div className="space-y-6 sm:space-y-8 order-2 lg:order-1 flex flex-col justify-center">
-            <ul className="space-y-3 sm:space-y-4">
+          <div className="space-y-4 sm:space-y-5 lg:space-y-6 order-2 lg:order-1">
+            <ul className="space-y-2 sm:space-y-3">
               {plotFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start space-x-3">
+                <li key={index} className="flex items-start space-x-2 sm:space-x-3">
                   <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <p className="text-sm sm:text-base text-foreground leading-relaxed">
-                    {feature}
-                  </p>
+                  <p className="text-xs sm:text-sm lg:text-base text-foreground leading-relaxed">{feature}</p>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Right — Full-fit Image (never cropped) */}
-          <div className="order-1 lg:order-2 relative w-full h-full flex items-center justify-center">
-            <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-[85%] shadow-xl bg-background flex items-center justify-center">
-              <div className="relative w-full h-full p-2 sm:p-3 lg:p-4">
+          <div className="order-1 lg:order-2 relative w-full h-[250px] sm:h-[350px] lg:h-[400px] flex items-center justify-center">
+            <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-full shadow-xl bg-background flex items-center justify-center">
+              <div className="relative w-full h-full">
                 <Image
                   src="/images/site-layout.jpg"
-                  alt="Nidhi Elite master plan"
+                  alt="Nidhi Elite master plan and layout"
                   fill
                   priority
                   className="object-contain object-center rounded-2xl"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                  quality={85}
                 />
               </div>
             </Card>

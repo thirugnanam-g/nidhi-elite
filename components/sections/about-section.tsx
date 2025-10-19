@@ -16,7 +16,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
+      className="pt-8 pb-12 bg-gradient-to-b from-background via-secondary/5 to-background relative overflow-hidden"
     >
       {/* Soft glowing accents */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/10 blur-3xl rounded-full opacity-20" />

@@ -15,64 +15,64 @@ export function VillaIntro() {
   return (
     <section
       id="customized-villas"
-      className="relative w-full min-h-screen flex items-center bg-gradient-to-b from-background via-secondary/5 to-background overflow-hidden pt-0"
+      className="relative w-full pt-8 pb-12 flex items-center bg-gradient-to-b from-background via-secondary/5 to-background overflow-hidden"
     >
       {/* Soft background glows */}
-      <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-primary/10 blur-3xl rounded-full opacity-30" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/10 blur-3xl rounded-full opacity-30" />
+      <div className="absolute top-0 right-0 w-[300px] sm:w-[350px] h-[300px] sm:h-[350px] bg-primary/10 blur-3xl rounded-full opacity-30" />
+      <div className="absolute bottom-0 left-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-secondary/10 blur-3xl rounded-full opacity-30" />
 
       {/* Content container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Header */}
-        <div className="text-center mb-6 sm:mb-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light leading-tight mb-3">
-            Your Dream Villa,{" "}
-            <span className="text-primary italic font-semibold">Beautifully Crafted</span>
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light leading-tight mb-2 sm:mb-3">
+            Your Dream Villa, <span className="text-primary italic font-semibold">Beautifully Crafted</span>
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
             Experience personalization and luxury — every corner reflects your lifestyle.
           </p>
         </div>
 
-        {/* ✅ Layout: Left (Image) | Right (Features) */}
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-12 items-center h-[calc(100vh-220px)]">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
           {/* Left — Villa Image */}
-          <div className="relative flex justify-center items-center order-1 lg:order-1 w-full h-full">
-            <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-[80%] shadow-xl">
+          <div className="relative flex justify-center items-center order-1 lg:order-1 w-full h-[250px] sm:h-[350px] lg:h-[400px]">
+            <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-full shadow-xl">
               <Image
                 src="/images/minimal-villa-exterior-render.jpg"
-                alt="Modern luxury villa exterior"
+                alt="Modern luxury villa exterior at Nidhi Elite"
                 fill
                 priority
-                className="object-cover object-center absolute inset-0 rounded-2xl transition-transform duration-700 ease-out hover:scale-[1.03]"
+                className="object-cover object-center rounded-2xl transition-transform duration-700 ease-out hover:scale-[1.03]"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                quality={85}
               />
             </Card>
           </div>
 
           {/* Right — Features */}
-          <div className="order-2 lg:order-2 flex flex-col justify-center space-y-4 sm:space-y-5">
-            <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-foreground mb-3">
+          <div className="order-2 lg:order-2 flex flex-col justify-center space-y-3 sm:space-y-4 lg:space-y-5">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-semibold text-foreground">
               Tailored to Your Lifestyle
             </h3>
-            <ul className="space-y-2 sm:space-y-3">
+            <ul className="space-y-2 sm:space-y-2.5">
               {features.map((feature, index) => (
-                <li key={index} className="flex items-start space-x-3">
+                <li key={index} className="flex items-start space-x-2 sm:space-x-3">
                   <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <p className="text-sm sm:text-base text-foreground leading-relaxed">{feature}</p>
+                  <p className="text-xs sm:text-sm lg:text-base text-foreground leading-relaxed">{feature}</p>
                 </li>
               ))}
             </ul>
 
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-3 sm:p-4 rounded-xl border border-primary/20 backdrop-blur-sm">
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-2.5 sm:p-3 lg:p-4 rounded-xl border border-primary/20 backdrop-blur-sm">
               <p className="text-xs sm:text-sm text-foreground font-medium">
-                <strong>Note:</strong> All villas are constructed by Nidhi Elite’s expert contractors, ensuring superior quality and timely delivery.
+                <strong>Note:</strong> All villas are constructed by Nidhi Elite's expert contractors, ensuring superior
+                quality and timely delivery.
               </p>
             </div>
           </div>
         </div>
 
-        {/* ✅ Process Cards (Compact & Centered) */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-8 sm:mt-10 lg:mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 mt-8 sm:mt-10 lg:mt-12">
           {[
             {
               icon: Home,
@@ -94,11 +94,9 @@ export function VillaIntro() {
               key={index}
               className="p-3 sm:p-4 text-center rounded-2xl hover:shadow-lg transition-shadow border border-border/40 bg-background/80 backdrop-blur-sm"
             >
-              <Icon className="w-6 sm:w-8 h-6 sm:h-8 text-primary mx-auto mb-2 sm:mb-3" />
-              <h4 className="text-sm sm:text-base font-semibold font-serif text-foreground">
-                {title}
-              </h4>
-              <p className="text-muted-foreground mt-1 text-xs sm:text-sm leading-relaxed">{desc}</p>
+              <Icon className="w-5 sm:w-6 lg:w-8 h-5 sm:h-6 lg:h-8 text-primary mx-auto mb-2 sm:mb-3" />
+              <h4 className="text-xs sm:text-sm lg:text-base font-semibold font-serif text-foreground">{title}</h4>
+              <p className="text-muted-foreground mt-1 text-xs leading-relaxed">{desc}</p>
             </Card>
           ))}
         </div>
