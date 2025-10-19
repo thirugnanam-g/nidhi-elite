@@ -17,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/"],
       },
     ],
-    sitemap: "https://v0-nidhi-elite.vercel.app/sitemap.xml",
-    host: "https://v0-nidhi-elite.vercel.app",
+    sitemap: "https://nidhielite.com/sitemap.xml",
+    host: "https://nidhielite.com",
   }
 }

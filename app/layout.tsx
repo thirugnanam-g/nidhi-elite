@@ -58,15 +58,15 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://v0-realestateapp1.vercel.app"),
+  metadataBase: new URL("https://nidhielite.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://nidhielite.com",
   },
   openGraph: {
     title: "Nidhi Elite | HNTDA & TNRERA Approved Plots & Customized Villas in Hosur, Near Bangalore",
     description:
       "Own HNTDA & TN TERA approved plots and customized villas in Hosur with Nidhi Elite. Experience luxury living, expert-built homes, and prime connectivity to Bangalore.",
-    url: "https://v0-realestateapp1.vercel.app",
+    url: "https://nidhielite.com",
     siteName: "Nidhi Elite",
     images: [
       {
@@ -144,7 +144,7 @@ export default function RootLayout({
               name: "Nidhi Elite",
               description:
                 "HNTDA & TN TERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
-              image: "https://v0-realestateapp1.vercel.app/images/nidhi-elite-hosur-layout.jpg",
+              image: "https://nidhielite.com/images/nidhi-elite-hosur-layout.jpg",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Sy. No: 750, Poonapalli Village",
@@ -158,7 +158,7 @@ export default function RootLayout({
                 latitude: 12.7409,
                 longitude: 77.8253,
               },
-              url: "https://v0-realestateapp1.vercel.app",
+              url: "https://nidhielite.com",
               telephone: "+91-9360299919",
               priceRange: "₹21L - ₹42L+",
               openingHours: "Mo-Sa 09:00-18:00",
