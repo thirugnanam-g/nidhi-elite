@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Facebook, Instagram, Youtube } from "lucide-react"
+import { Facebook, Instagram, Youtube, Mail, Phone } from "lucide-react"
 
 export function Footer() {
   const handleNavClick = (sectionId: string) => {
@@ -26,6 +26,16 @@ export function Footer() {
       icon: Youtube,
     },
   ]
+
+  const encodeEmail = (email: string) => {
+    return email
+      .split("")
+      .map((char) => `&#${char.charCodeAt(0)};`)
+      .join("")
+  }
+
+  const email = "nidhielitelayout@gmail.com"
+  const encodedEmail = encodeEmail(email)
 
   return (
     <footer
@@ -70,30 +80,39 @@ export function Footer() {
 
           {/* Quick Links */}
           <nav aria-label="Footer navigation">
-          <h4 className="font-semibold mb-4">Quick Links</h4>
-          <ul className="space-y-2 text-sm opacity-80">
-            {["home", "plots", "customized-villas", "amenities", "location", "about", "contact"].map((id) => (
-              <li key={id}>
-                <button onClick={() => handleNavClick(id)} className="hover:text-primary transition-colors text-left">
-                  {id.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
+            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm opacity-80">
+              {["home", "plots", "customized-villas", "amenities", "location", "about", "contact"].map((id) => (
+                <li key={id}>
+                  <button onClick={() => handleNavClick(id)} className="hover:text-primary transition-colors text-left">
+                    {id.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           {/* Contact Info */}
           <address className="not-italic">
             <h4 className="font-semibold mb-4 text-sm">Contact</h4>
             <ul className="space-y-2 text-sm opacity-80">
               <li>
-                <a href="tel:+919360299919" className="hover:text-primary transition-colors">
+                <a href="tel:+919360299919" className="hover:text-primary transition-colors flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
                   +91 93602 99919
                 </a>
               </li>
               <li>
-                <a href="mailto:nidhielitelayout@gmail.com" className="hover:text-primary transition-colors">
-                  nidhielitelayout@gmail.com
+                <a
+                  href={`mailto:${email}`}
+                  className="hover:text-primary transition-colors flex items-center gap-2"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    window.location.href = `mailto:${email}`
+                  }}
+                >
+                  <Mail className="w-4 h-4" />
+                  <span dangerouslySetInnerHTML={{ __html: encodedEmail }} />
                 </a>
               </li>
               <li className="text-xs">750, Poonapalli Village, Hosur, TN 635110</li>

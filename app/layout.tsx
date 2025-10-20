@@ -25,30 +25,22 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nidhi Elite | HNTDA & TNRERA Approved Plots & Customized Villas in Hosur, Near Bangalore",
-    template: "%s | Nidhi Elite Plots & Customized Villas, Hosur",
+    default: "Nidhi Elite | Premium Plots & Villas in Hosur",
+    template: "%s | Nidhi Elite",
   },
   description:
-    "Nidhi Elite offers HNTDA & TN RERA approved premium residential plots and customized villas in Hosur near Bangalore. Experience luxury living with modern amenities, green surroundings, and expert construction from Nidhi Elite contract builders.",
+    "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore. Starting from ₹21 Lakhs with modern amenities.",
   keywords: [
     "Nidhi Elite Hosur",
-    "Nidhi Elite plots",
-    "Nidhi Elite customized villas",
     "plots in Hosur",
     "villas in Hosur",
-    "luxury villas near Bangalore",
-    "plots near Bangalore",
-    "TNRERA approved plots Hosur",
-    "HNTDA approved layout Hosur",
+    "luxury villas Bangalore",
+    "TNRERA approved plots",
+    "HNTDA approved layout",
     "gated community Hosur",
-    "Nidhi Elite real estate",
-    "Hosur real estate projects",
-    "premium residential layouts Hosur",
-    "Nidhi Elite layout",
-    "luxury plots for sale Hosur",
-    "affordable luxury plots Hosur",
-    "villa plots near Electronic City",
-    "residential plots Thali Road Hosur",
+    "residential plots Hosur",
+    "premium villas Hosur",
+    "plots near Electronic City",
   ],
   authors: [{ name: "Nidhi Elite" }],
   creator: "Nidhi Elite",
@@ -63,9 +55,9 @@ export const metadata: Metadata = {
     canonical: "https://nidhielite.com",
   },
   openGraph: {
-    title: "Nidhi Elite | HNTDA & TNRERA Approved Plots & Customized Villas in Hosur, Near Bangalore",
+    title: "Nidhi Elite | Premium Plots & Villas in Hosur",
     description:
-      "Own HNTDA & TN TERA approved plots and customized villas in Hosur with Nidhi Elite. Experience luxury living, expert-built homes, and prime connectivity to Bangalore.",
+      "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore. Starting from ₹21 Lakhs.",
     url: "https://nidhielite.com",
     siteName: "Nidhi Elite",
     images: [
@@ -73,7 +65,7 @@ export const metadata: Metadata = {
         url: "/images/nidhi-elite-hosur-layout.jpg",
         width: 1200,
         height: 630,
-        alt: "Nidhi Elite - HNTDA & TNRERA Approved Plots and Villas in Hosur near Bangalore",
+        alt: "Nidhi Elite - Premium Plots and Villas in Hosur",
       },
     ],
     locale: "en_IN",
@@ -81,9 +73,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nidhi Elite | HNTDA & TNRERA Approved Plots & Customized Villas in Hosur, Near Bangalore",
-    description:
-      "Nidhi Elite - Discover premium customized villas and plots near Bangalore. HNTDA & TN TERA approved with world-class amenities.",
+    title: "Nidhi Elite | Premium Plots & Villas in Hosur",
+    description: "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore.",
     images: ["/images/nidhi-elite-hosur-layout.jpg"],
     creator: "@nidhielite",
   },
@@ -112,6 +103,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        <link rel="canonical" href="https://nidhielite.com" />
+
         {/* 🌍 Local SEO Geo Tags */}
         <meta name="geo.region" content="IN-TN" />
         <meta name="geo.placename" content="Hosur, Tamil Nadu, India" />
@@ -124,15 +120,10 @@ export default function RootLayout({
         <meta name="coverage" content="Worldwide" />
         <meta name="theme-color" content="#E9C46A" />
 
-        {/* Performance Preconnects */}
-        <link rel="preconnect" href="https://www.google.com" />
-        <link rel="preconnect" href="https://maps.googleapis.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
         <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="" />
-        <link rel="preconnect" href="https://drive.google.com" />
-        <link rel="preconnect" href="https://lh3.googleusercontent.com" />
-        <link rel="preconnect" href="https://www.instagram.com" />
-        <link rel="preconnect" href="https://www.facebook.com" />
-        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://drive.google.com" />
 
         {/* 🔍 Schema Markup for Rich Snippets */}
         <script
@@ -143,7 +134,7 @@ export default function RootLayout({
               "@type": "Residence",
               name: "Nidhi Elite",
               description:
-                "HNTDA & TN TERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
+                "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
               image: "https://nidhielite.com/images/nidhi-elite-hosur-layout.jpg",
               address: {
                 "@type": "PostalAddress",

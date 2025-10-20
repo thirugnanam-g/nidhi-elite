@@ -11,11 +11,13 @@ export function SitePlan() {
   const handleDownloadSitePlan = async () => {
     setIsDownloading(true)
 
+    const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@nidhielite.com"
+
     const subject = encodeURIComponent("Request: Nidhi Elite Site Plan")
     const body = encodeURIComponent(
       "Hi Nidhi Elite Team,\n\nPlease share the detailed Site Plan.\n\nName: \nPhone: \nAny specific requirements: \n\nThanks!",
     )
-    const mailto = `mailto:nidhielitelayout@gmail.com?subject=${subject}&body=${body}`
+    const mailto = `mailto:${contactEmail}?subject=${subject}&body=${body}`
     window.location.href = mailto
 
     setIsDownloading(false)
@@ -37,7 +39,7 @@ export function SitePlan() {
           <Card className="overflow-hidden shadow-lg">
             <CardHeader className="p-0">
               <Image
-                src="/images/site-layout.png"
+                src="/images/site-layout.jpg"
                 alt="Master site plan showing plot layout and amenities"
                 width={600}
                 height={500}
@@ -80,7 +82,7 @@ export function SitePlan() {
             <Card className="overflow-hidden">
               <CardHeader className="p-0">
                 <Image
-                  src="/images/site-dimensions.png"
+                  src="/images/site-layout.jpg"
                   alt="Site dimensions and plot sizes"
                   width={600}
                   height={400}

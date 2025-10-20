@@ -27,6 +27,8 @@ export function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
+    const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@nidhielite.com"
+
     const subject = encodeURIComponent(`Contact Form Submission from ${formData.name}`)
     const body = encodeURIComponent(`
 Name: ${formData.name}
@@ -37,7 +39,7 @@ Message:
 ${formData.message}
     `)
 
-    const mailtoUrl = `mailto:nidhielitelayout@gmail.com?subject=${subject}&body=${body}`
+    const mailtoUrl = `mailto:${contactEmail}?subject=${subject}&body=${body}`
     window.location.href = mailtoUrl
 
     setSubmitStatus("success")
@@ -88,7 +90,7 @@ ${formData.message}
               <Mail className="w-5 sm:w-6 h-5 sm:h-6 text-primary mt-1 flex-shrink-0" />
               <div>
                 <h3 className="font-semibold text-foreground text-sm sm:text-base">Email Us</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">nidhielitelayout@gmail.com</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Contact via form below</p>
               </div>
             </div>
 
