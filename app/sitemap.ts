@@ -1,44 +1,26 @@
 import type { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://nidhielite.com"
+  const baseUrl = "https://nidhi-elite.vercel.app"
 
   return [
     {
-      url: `${baseUrl}`,
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 1.0,
+      priority: 1,
     },
     {
-      url: `${baseUrl}/plots`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/customized-villas`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/amenities`,
+      url: `${baseUrl}/upload`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/location`,
+      url: `${baseUrl}/properties`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/contact`,
@@ -47,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/gallery`,
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,

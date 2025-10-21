@@ -10,20 +10,14 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60 * 60 * 24 * 365,
-    unoptimized: false,
+    minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'blob.v0.app',
         port: '',
         pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: '*.supabase.co',
-        port: '',
-        pathname: '/storage/v1/object/public/**',
       },
     ],
   },
@@ -33,15 +27,12 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
+  // Security headers
   async headers() {
     return [
       {
         source: '/(.*)',
         headers: [
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=31536000; includeSubDomains; preload',
-          },
           {
             key: 'X-Frame-Options',
             value: 'DENY',
@@ -51,10 +42,6 @@ const nextConfig = {
             value: 'nosniff',
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
           },
@@ -62,29 +49,7 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=86400',
-          },
         ],
-      },
-      {
-        source: '/images/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ]
-  },
-  async redirects() {
-    return [
-      {
-        source: '/index.html',
-        destination: '/',
-        permanent: true,
       },
     ]
   },

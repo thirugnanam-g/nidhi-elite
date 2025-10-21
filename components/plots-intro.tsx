@@ -1,70 +1,104 @@
-"use client"
-
 import { Card } from "@/components/ui/card"
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, MapPin, Ruler, TreePine } from "lucide-react"
 import Image from "next/image"
-import { getImageUrl } from "@/lib/image-config"
 
 export function PlotsIntro() {
   const plotFeatures = [
     "Premium residential plots starting from 1200 sq ft",
-    "30 feet concrete road connectivity for smooth access",
-    "Underground drainage and modern sewage system",
-    "Individual electricity and street lighting provisions",
-    "Secure gated community with 24/7 surveillance",
+    "TNRERA approved with clear title deeds",
+    "30 feet CC road connectivity for easy access",
+    "Underground drainage and sewage system",
+    "Electricity connection and street lighting",
+    "Gated community with 24/7 security",
     "Surrounded by lush greenery and open spaces",
-    "Flexible and transparent payment plans available",
+    "Flexible payment plans available",
+  ]
+
+  const plotSizes = [
+    { size: "30x40", area: "1200 sq ft", price: "₹21 lakhs+" },
+    { size: "30x50", area: "1500 sq ft", price: "₹26 lakhs+" },
+    { size: "40x60", area: "2400 sq ft", price: "₹42 lakhs+" },
   ]
 
   return (
-    <section
-      id="plots"
-      className="relative w-full pb-12 pt-8 flex items-center bg-gradient-to-b from-background via-primary/5 to-background overflow-hidden"
-    >
-      {/* Soft glow background */}
-      <div className="absolute top-0 right-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-primary/10 blur-3xl rounded-full opacity-20" />
-      <div className="absolute bottom-0 left-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-secondary/10 blur-3xl rounded-full opacity-20" />
-
-      {/* Main container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        {/* Header */}
-        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light leading-tight mb-2 sm:mb-3">
-            Build Your Dream on <span className="text-primary italic font-semibold">Solid Ground</span>
+    <section className="py-16 bg-gradient-to-br from-background via-primary/5 to-background" id="plots">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+            🏞️ Premium Plots
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Build Your Dream on <span className="text-primary">Solid Ground</span>
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
-            Premium residential plots designed for comfort, growth, and peace of mind.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+            Premium plots designed with world-class infrastructure and connectivity, giving you the perfect foundation
+            for your future home.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
-          {/* Left — Features */}
-          <div className="space-y-4 sm:space-y-5 lg:space-y-6 order-2 lg:order-1">
-            <ul className="space-y-2 sm:space-y-3">
-              {plotFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start space-x-2 sm:space-x-3">
-                  <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <p className="text-xs sm:text-sm lg:text-base text-foreground leading-relaxed">{feature}</p>
-                </li>
-              ))}
-            </ul>
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <Card className="overflow-hidden shadow-lg">
+              <Image
+                src="/images/site-layout.png"
+                alt="Nidhi Elite plots layout with amenities"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+            </Card>
           </div>
 
-          {/* Right — Full-fit Image (never cropped) */}
-          <div className="order-1 lg:order-2 relative w-full h-[250px] sm:h-[350px] lg:h-[400px] flex items-center justify-center">
-            <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-full shadow-xl bg-background flex items-center justify-center">
-              <div className="relative w-full h-full">
-                <Image
-                  src={getImageUrl("/images/site-layout.jpg") || "/placeholder.svg"}
-                  alt="Nidhi Elite master plan and layout"
-                  fill
-                  loading="lazy"
-                  className="object-contain object-center rounded-2xl"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                  quality={85}
-                />
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">Plot Features</h3>
+              <div className="space-y-3">
+                {plotFeatures.map((feature, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <p className="text-foreground">{feature}</p>
+                  </div>
+                ))}
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Plot Sizes */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {plotSizes.map((plot, index) => (
+            <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <Ruler className="w-8 h-8 text-primary mx-auto mb-2" />
+                <h4 className="text-xl font-semibold">{plot.size} ft</h4>
+                <p className="text-muted-foreground">{plot.area}</p>
+              </div>
+              <div className="text-2xl font-bold text-primary mb-2">{plot.price}</div>
+              <p className="text-sm text-muted-foreground">Starting price</p>
             </Card>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-xl border border-primary/20 backdrop-blur-sm max-w-4xl mx-auto">
+            <h4 className="text-lg font-semibold text-foreground mb-3">Why Choose Nidhi Elite Plots?</h4>
+            <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div>
+                <MapPin className="w-6 h-6 text-primary mx-auto mb-2" />
+                <p className="font-medium">Prime Location</p>
+                <p className="text-sm text-muted-foreground">Close to Electronic City & IT hubs</p>
+              </div>
+              <div>
+                <TreePine className="w-6 h-6 text-primary mx-auto mb-2" />
+                <p className="font-medium">Green Environment</p>
+                <p className="text-sm text-muted-foreground">Surrounded by nature & parks</p>
+              </div>
+              <div>
+                <CheckCircle className="w-6 h-6 text-primary mx-auto mb-2" />
+                <p className="font-medium">TNRERA Approved</p>
+                <p className="text-sm text-muted-foreground">Legal & safe investment</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
