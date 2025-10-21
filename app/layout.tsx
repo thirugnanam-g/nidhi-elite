@@ -25,26 +25,22 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nidhi Elite | Premium Luxury Villas - Beginning of a New Dream",
-    template: "%s | Nidhi Elite Luxury Villas",
+    default: "Nidhi Elite | Premium Plots & Villas in Hosur",
+    template: "%s | Nidhi Elite",
   },
   description:
-    "Nidhi Elite - Discover premium luxury 3BHK villas with world-class amenities in an exclusive gated community. Your dream home awaits at Nidhi Elite.",
+    "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore. Starting from ₹21 Lakhs with modern amenities.",
   keywords: [
-    "Nidhi Elite",
-    "Nidhi Elite villas",
-    "Nidhi Elite luxury homes",
-    "luxury villas",
-    "3BHK villas",
-    "gated community",
-    "premium homes",
-    "real estate",
-    "luxury living",
-    "villa for sale",
-    "luxury properties",
-    "residential villas",
-    "Nidhi Elite properties",
-    "Nidhi Elite real estate",
+    "Nidhi Elite Hosur",
+    "plots in Hosur",
+    "villas in Hosur",
+    "luxury villas Bangalore",
+    "TNRERA approved plots",
+    "HNTDA approved layout",
+    "gated community Hosur",
+    "residential plots Hosur",
+    "premium villas Hosur",
+    "plots near Electronic City",
   ],
   authors: [{ name: "Nidhi Elite" }],
   creator: "Nidhi Elite",
@@ -54,45 +50,38 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://nidhi-elite.vercel.app"),
+  metadataBase: new URL("https://nidhielite.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://nidhielite.com",
   },
   openGraph: {
-    title: "Nidhi Elite | Premium Luxury Plots - Beginning of a New Dream",
+    title: "Nidhi Elite | Premium Plots & Villas in Hosur",
     description:
-      "Nidhi Elite - Discover premium luxury 3BHK plota with world-class amenities in an exclusive gated community. Your dream home awaits.",
-    url: "https://nidhi-elite.vercel.app",
+      "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore. Starting from ₹21 Lakhs.",
+    url: "https://nidhielite.com",
     siteName: "Nidhi Elite",
     images: [
       {
-        url: "/images/exterior-villas.png",
+        url: "/images/nidhi-elite-hosur-layout.jpg",
         width: 1200,
         height: 630,
-        alt: "Nidhi Elite Luxury Plots - Premium Exterior Design",
-      },
-      {
-        url: "/images/property-1.png",
-        width: 1200,
-        height: 630,
-        alt: "Nidhi Elite Plots Interior - Luxury Living Spaces",
+        alt: "Nidhi Elite - Premium Plots and Villas in Hosur",
       },
     ],
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nidhi Elite | Premium Luxury Villas - Beginning of a New Dream",
-    description:
-      "Nidhi Elite - Discover premium luxury 3BHK plots with world-class amenities in an exclusive gated community.",
-    images: ["/images/exterior-villas.png"],
-    creator: "@nidhi_elite",
+    title: "Nidhi Elite | Premium Plots & Villas in Hosur",
+    description: "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore.",
+    images: ["/images/nidhi-elite-hosur-layout.jpg"],
+    creator: "@nidhielite",
   },
   robots: {
     index: true,
     follow: true,
-    nocache: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -102,13 +91,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
-  },
   category: "real estate",
-    generator: 'v0.app'
+  generator: "Next.js + Vercel",
 }
 
 export default function RootLayout({
@@ -118,8 +102,71 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        <link rel="canonical" href="https://nidhielite.com" />
+
+        {/* 🌍 Local SEO Geo Tags */}
+        <meta name="geo.region" content="IN-TN" />
+        <meta name="geo.placename" content="Hosur, Tamil Nadu, India" />
+        <meta name="geo.position" content="12.7409;77.8253" />
+        <meta name="ICBM" content="12.7409,77.8253" />
+        <meta name="rating" content="General" />
+        <meta name="subject" content="Premium Plots and Customized Villas in Hosur near Bangalore" />
+        <meta name="copyright" content="© 2025 Nidhi Elite" />
+        <meta name="distribution" content="global" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="theme-color" content="#E9C46A" />
+
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://drive.google.com" />
+
+        {/* 🔍 Schema Markup for Rich Snippets */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Residence",
+              name: "Nidhi Elite",
+              description:
+                "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
+              image: "https://nidhielite.com/images/nidhi-elite-hosur-layout.jpg",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Sy. No: 750, Poonapalli Village",
+                addressLocality: "Hosur",
+                addressRegion: "Tamil Nadu",
+                postalCode: "635110",
+                addressCountry: "India",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 12.7409,
+                longitude: 77.8253,
+              },
+              url: "https://nidhielite.com",
+              telephone: "+91-9360299919",
+              priceRange: "₹21L - ₹42L+",
+              openingHours: "Mo-Sa 09:00-18:00",
+              sameAs: [
+                "https://www.instagram.com/nidhi.elite/",
+                "https://www.facebook.com/profile.php?id=61580792931426",
+                "https://www.youtube.com/@NidhiElite/videos",
+              ],
+            }),
+          }}
+        />
+      </head>
+
       <body className={`font-sans ${inter.variable} ${playfair.variable} ${GeistMono.variable}`}>
+        {/* Google Analytics + Tracking */}
         <GoogleAnalytics />
+
         <Suspense fallback={null}>
           {children}
           <Analytics />

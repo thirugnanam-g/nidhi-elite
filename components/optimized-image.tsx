@@ -42,7 +42,7 @@ export function OptimizedImage({
           alt={alt}
           width={width}
           height={height}
-          className={`transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
           priority={priority}
           sizes={sizes}
           quality={quality}

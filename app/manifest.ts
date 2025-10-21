@@ -12,10 +12,14 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#0891b2",
     icons: [
       {
-        src: "/images/butterfly-logo.png",
+        src: "/images/butterfly-logo.jpg",
         sizes: "any",
-        type: "image/png",
+        type: "image/jpeg",
       },
     ],
+    scope: "/",
+    lang: "en",
+    dir: "ltr",
+    categories: ["real estate", "housing", "luxury homes", "plots", "villas"],
   }
 }

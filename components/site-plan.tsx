@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { getImageUrl } from "@/lib/image-config"
 
 export function SitePlan() {
   const [isDownloading, setIsDownloading] = useState(false)
@@ -11,33 +12,16 @@ export function SitePlan() {
   const handleDownloadSitePlan = async () => {
     setIsDownloading(true)
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstName: "Site Plan",
-          lastName: "Download",
-          email: "download@example.com",
-          phone: "To be provided",
-          message: "Requesting site plan download",
-          type: "brochure",
-        }),
-      })
+    const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@nidhielite.com"
 
-      if (response.ok) {
-        alert("Site plan request sent! We will email you the detailed site plan shortly.")
-      } else {
-        alert("Failed to send request. Please contact us directly for the site plan.")
-      }
-    } catch (error) {
-      console.error("[v0] Site plan download error:", error)
-      alert("Failed to send request. Please contact us directly for the site plan.")
-    } finally {
-      setIsDownloading(false)
-    }
+    const subject = encodeURIComponent("Request: Nidhi Elite Site Plan")
+    const body = encodeURIComponent(
+      "Hi Nidhi Elite Team,\n\nPlease share the detailed Site Plan.\n\nName: \nPhone: \nAny specific requirements: \n\nThanks!",
+    )
+    const mailto = `mailto:${contactEmail}?subject=${subject}&body=${body}`
+    window.location.href = mailto
+
+    setIsDownloading(false)
   }
 
   return (
@@ -56,11 +40,14 @@ export function SitePlan() {
           <Card className="overflow-hidden shadow-lg">
             <CardHeader className="p-0">
               <Image
-                src="/images/site-layout.png"
+                src={getImageUrl("/images/site-layout.jpg") || "/placeholder.svg"}
                 alt="Master site plan showing plot layout and amenities"
                 width={600}
                 height={500}
+                loading="lazy"
                 className="w-full h-auto object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
               />
             </CardHeader>
           </Card>
@@ -99,21 +86,20 @@ export function SitePlan() {
             <Card className="overflow-hidden">
               <CardHeader className="p-0">
                 <Image
-                  src="/images/site-dimensions.png"
+                  src={getImageUrl("/images/site-layout.jpg") || "/placeholder.svg"}
                   alt="Site dimensions and plot sizes"
                   width={600}
                   height={400}
+                  loading="lazy"
                   className="w-full h-auto object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={85}
                 />
               </CardHeader>
             </Card>
 
-            <Button
-              className="w-full bg-primary hover:bg-primary/90"
-              onClick={handleDownloadSitePlan}
-              disabled={isDownloading}
-            >
-              {isDownloading ? "Sending Request..." : "Download Site Plan"}
+            <Button className="w-full bg-primary hover:bg-primary/90" onClick={handleDownloadSitePlan}>
+              Download Site Plan
             </Button>
           </div>
         </div>

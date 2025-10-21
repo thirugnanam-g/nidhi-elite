@@ -6,7 +6,7 @@ export function PerformanceOptimizer() {
   useEffect(() => {
     // Preload critical resources
     const preloadCriticalImages = () => {
-      const criticalImages = ["/images/exterior-villas.png", "/images/butterfly-logo.png", "/images/hero-interior.png"]
+      const criticalImages = ["/images/butterfly-logo.png", "/images/IMG-20250929-WA0008.jpg"]
 
       criticalImages.forEach((src) => {
         const link = document.createElement("link")
@@ -19,11 +19,13 @@ export function PerformanceOptimizer() {
 
     // Optimize third-party scripts
     const optimizeThirdPartyScripts = () => {
-      // Add resource hints for external domains
       const resourceHints = [
         { rel: "dns-prefetch", href: "//fonts.googleapis.com" },
         { rel: "dns-prefetch", href: "//fonts.gstatic.com" },
         { rel: "preconnect", href: "https://vitals.vercel-insights.com" },
+        { rel: "preconnect", href: "https://www.google.com" },
+        { rel: "preconnect", href: "https://maps.googleapis.com" },
+        { rel: "preconnect", href: "https://maps.gstatic.com" },
       ]
 
       resourceHints.forEach((hint) => {

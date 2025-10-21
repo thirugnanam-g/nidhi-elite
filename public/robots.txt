@@ -1,0 +1,20 @@
+# Nidhi Elite - SEO Robots Configuration
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /*.json$
+Disallow: /private
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://nidhielite.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
