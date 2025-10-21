@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { Facebook, Instagram, Youtube, Mail, Phone } from "lucide-react"
+import { getImageUrl } from "@/lib/image-config"
 
 export function Footer() {
   const handleNavClick = (sectionId: string) => {
@@ -125,7 +126,7 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <Image
-                  src="/images/tnrera-logo.jpg"
+                  src={getImageUrl("/images/tnrera-logo.jpg") || "/placeholder.svg"}
                   alt="TNRERA Approved"
                   width={36}
                   height={36}
@@ -138,7 +139,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Image
-                  src="/images/hntda-logo.jpg"
+                  src={getImageUrl("/images/hntda-logo.jpg") || "/placeholder.svg"}
                   alt="HNTDA Layout Approval"
                   width={36}
                   height={36}

@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { CheckCircle } from "lucide-react"
 import Image from "next/image"
+import { getImageUrl } from "@/lib/image-config"
 
 export function PlotsIntro() {
   const plotFeatures = [
@@ -54,10 +55,10 @@ export function PlotsIntro() {
             <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-full shadow-xl bg-background flex items-center justify-center">
               <div className="relative w-full h-full">
                 <Image
-                  src="/images/site-layout.jpg"
+                  src={getImageUrl("/images/site-layout.jpg") || "/placeholder.svg"}
                   alt="Nidhi Elite master plan and layout"
                   fill
-                  priority
+                  loading="lazy"
                   className="object-contain object-center rounded-2xl"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                   quality={85}

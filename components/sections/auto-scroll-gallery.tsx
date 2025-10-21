@@ -11,6 +11,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel"
 import { Card } from "@/components/ui/card"
+import { getImageUrl } from "@/lib/image-config"
 
 export function AutoScrollGallery() {
   const [api, setApi] = React.useState<CarouselApi | null>(null)
@@ -33,10 +34,10 @@ export function AutoScrollGallery() {
   const onFocusIn = () => setIsPaused(true)
   const onFocusOut = () => setIsPaused(false)
 
-  // Auto-generate 50 image filenames
   const images = Array.from({ length: 50 }, (_, i) => {
     const num = (i + 1).toString().padStart(2, "0")
-    return `/images/IMG-20250929-WA00${num}.jpg`
+    const localPath = `/images/IMG-20250929-WA00${num}.jpg`
+    return getImageUrl(localPath) || localPath
   })
 
   return (
@@ -51,7 +52,8 @@ export function AutoScrollGallery() {
             Site <span className="text-primary italic font-semibold">Highlights</span>
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Explore real photos from Nidhi Elite’s premium gated community — see the landscape, roads, and ongoing progress.
+            Explore real photos from Nidhi Elite's premium gated community — see the landscape, roads, and ongoing
+            progress.
           </p>
         </div>
 
@@ -65,21 +67,18 @@ export function AutoScrollGallery() {
         >
           <Carousel className="w-full" setApi={setApi}>
             <CarouselContent className="-ml-2 md:-ml-3">
-              {images.map((src) => (
-                <CarouselItem
-                  key={src}
-                  className="pl-2 md:pl-3 basis-3/4 sm:basis-1/3 lg:basis-1/4"
-                >
+              {images.map((src, idx) => (
+                <CarouselItem key={idx} className="pl-2 md:pl-3 basis-3/4 sm:basis-1/3 lg:basis-1/4">
                   <Card className="overflow-hidden rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-500">
-                    {/* 👇 Reduced heights to fit better */}
                     <div className="relative w-full h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px] overflow-hidden">
                       <Image
-                        src={src}
+                        src={src || "/placeholder.svg"}
                         alt="Nidhi Elite real site photo"
                         fill
                         loading="lazy"
                         sizes="(max-width: 768px) 80vw, (max-width: 1200px) 33vw, 25vw"
                         className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out hover:scale-[1.03]"
+                        quality={80}
                       />
                     </div>
                   </Card>

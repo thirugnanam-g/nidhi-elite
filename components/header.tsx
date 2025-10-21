@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Mail, Menu, X } from "lucide-react"
 import { BookingModal } from "./booking-modal"
 import Image from "next/image"
+import { getImageUrl } from "@/lib/image-config"
 
 export function Header() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
@@ -13,17 +14,17 @@ export function Header() {
   const handleBookNowClick = () => {
     const phoneNumber = "919360299919"
     const message = encodeURIComponent(
-      "Hi! I'm interested in Nidhi Elite plots and customized villas. Please provide more information."
+      "Hi! I'm interested in Nidhi Elite plots and customized villas. Please provide more information.",
     )
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
     window.open(whatsappUrl, "_blank")
   }
 
   const handleEnquireClick = () => {
-    const contactSection = document.getElementById("contact") 
-    if (contactSection) { 
-      contactSection.scrollIntoView({behavior:"smooth" }) 
-    } 
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
+    }
   }
 
   const handleNavClick = (sectionId: string) => {
@@ -46,7 +47,7 @@ export function Header() {
               <div className="relative w-12 h-12 flex-shrink-0">
                 <div className="w-12 h-12 rounded-full bg-card shadow-sm border border-border/20 flex items-center justify-center overflow-hidden">
                   <Image
-                    src="/images/butterfly-logo.jpg"
+                    src={getImageUrl("/images/butterfly-logo.jpg") || "/placeholder.svg"}
                     alt="Nidhi Elite Logo – DTCP & RERA Approved Luxury Plots and Villas"
                     width={28}
                     height={28}
@@ -59,17 +60,12 @@ export function Header() {
                 <h1 className="text-xl font-serif font-semibold text-foreground tracking-tight leading-tight">
                   Nidhi Elite
                 </h1>
-                <p className="text-xs text-muted-foreground font-medium">
-                  Luxury Plots & Villas
-                </p>
+                <p className="text-xs text-muted-foreground font-medium">Luxury Plots & Villas</p>
               </div>
             </div>
 
             {/* Desktop Navigation */}
-            <nav
-              className="hidden lg:flex items-center space-x-8"
-              aria-label="Primary Site Navigation"
-            >
+            <nav className="hidden lg:flex items-center space-x-8" aria-label="Primary Site Navigation">
               {[
                 { label: "Home", id: "home" },
                 { label: "About", id: "about" },
@@ -112,7 +108,14 @@ export function Header() {
                 </svg>
                 Book Now
               </Button>
-              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm" onClick={handleEnquireClick} > <Mail className="w-4 h-4 mr-2" /> Enquire </Button>
+              <Button
+                size="sm"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm"
+                onClick={handleEnquireClick}
+              >
+                {" "}
+                <Mail className="w-4 h-4 mr-2" /> Enquire{" "}
+              </Button>
 
               {/* Mobile Menu Button */}
               <Button
@@ -134,10 +137,7 @@ export function Header() {
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
             <div className="lg:hidden mt-4 pb-4 border-t border-border/50">
-              <nav
-                className="flex flex-col space-y-3 pt-4"
-                aria-label="Mobile Menu Navigation"
-              >
+              <nav className="flex flex-col space-y-3 pt-4" aria-label="Mobile Menu Navigation">
                 {[
                   { label: "Home", id: "home" },
                   { label: "Plots", id: "plots" },
@@ -156,7 +156,7 @@ export function Header() {
                   </button>
                 ))}
 
-                {/* Mobile “Book Now” Button */}
+                {/* Mobile "Book Now" Button */}
                 <Button
                   size="sm"
                   className="bg-green-600 hover:bg-green-700 text-white font-medium mt-2"
@@ -170,10 +170,7 @@ export function Header() {
         </div>
       </header>
 
-      <BookingModal
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-      />
+      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
     </>
   )
 }

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { getImageUrl } from "@/lib/image-config"
 
 export function SitePlan() {
   const [isDownloading, setIsDownloading] = useState(false)
@@ -39,11 +40,14 @@ export function SitePlan() {
           <Card className="overflow-hidden shadow-lg">
             <CardHeader className="p-0">
               <Image
-                src="/images/site-layout.jpg"
+                src={getImageUrl("/images/site-layout.jpg") || "/placeholder.svg"}
                 alt="Master site plan showing plot layout and amenities"
                 width={600}
                 height={500}
+                loading="lazy"
                 className="w-full h-auto object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
               />
             </CardHeader>
           </Card>
@@ -82,11 +86,14 @@ export function SitePlan() {
             <Card className="overflow-hidden">
               <CardHeader className="p-0">
                 <Image
-                  src="/images/site-layout.jpg"
+                  src={getImageUrl("/images/site-layout.jpg") || "/placeholder.svg"}
                   alt="Site dimensions and plot sizes"
                   width={600}
                   height={400}
+                  loading="lazy"
                   className="w-full h-auto object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={85}
                 />
               </CardHeader>
             </Card>

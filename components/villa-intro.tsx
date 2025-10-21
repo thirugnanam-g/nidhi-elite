@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { CheckCircle, Home, Wrench, Users } from "lucide-react"
 import Image from "next/image"
+import { getImageUrl } from "@/lib/image-config"
 
 export function VillaIntro() {
   const features = [
@@ -38,10 +39,10 @@ export function VillaIntro() {
           <div className="relative flex justify-center items-center order-1 lg:order-1 w-full h-[250px] sm:h-[350px] lg:h-[400px]">
             <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-full shadow-xl">
               <Image
-                src="/images/minimal-villa-exterior-render.jpg"
+                src={getImageUrl("/images/minimal-villa-exterior-render.jpg") || "/placeholder.svg"}
                 alt="Modern luxury villa exterior at Nidhi Elite"
                 fill
-                priority
+                loading="lazy"
                 className="object-cover object-center rounded-2xl transition-transform duration-700 ease-out hover:scale-[1.03]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                 quality={85}

@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { getImageUrl } from "@/lib/image-config"
 
 export function HeroSection() {
   const handleWhatsAppClick = () => {
@@ -27,7 +28,7 @@ export function HeroSection() {
       {/* ✅ Full background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-bg.jpg"
+          src={getImageUrl("/images/hero-bg.jpg") || "/placeholder.svg"}
           alt="Nidhi Elite Luxury Villas and Plots in Hosur"
           fill
           priority
@@ -82,14 +83,14 @@ export function HeroSection() {
           <div className="hidden lg:flex flex-col items-center justify-center space-y-4 relative">
             <div className="flex items-center justify-center gap-4 flex-wrap">
               <Image
-                src="/images/rera-approved.png"
+                src={getImageUrl("/images/rera-approved.png") || "/placeholder.svg"}
                 alt="RERA Approved"
                 width={120}
                 height={120}
                 className="object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
               />
               <Image
-                src="/images/hntda-approved.png"
+                src={getImageUrl("/images/hntda-approved.png") || "/placeholder.svg"}
                 alt="HNTDA Approved"
                 width={150}
                 height={150}
