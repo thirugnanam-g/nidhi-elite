@@ -53,10 +53,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nidhielite.com"),
   alternates: {
     canonical: "https://nidhielite.com",
-    languages: {
-      "en-IN": "https://nidhielite.com",
-      "ta-IN": "https://nidhielite.com/ta",
-    },
   },
   openGraph: {
     title: "Nidhi Elite | Premium Plots & Villas in Hosur",
@@ -70,14 +66,6 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Nidhi Elite - Premium Plots and Villas in Hosur",
-        type: "image/jpeg",
-      },
-      {
-        url: "/images/IMG-20250929-WA0003.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Nidhi Elite Layout Overview",
-        type: "image/jpeg",
       },
     ],
     locale: "en_IN",
@@ -89,7 +77,6 @@ export const metadata: Metadata = {
     description: "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore.",
     images: ["/images/nidhi-elite-hosur-layout.jpg"],
     creator: "@nidhielite",
-    site: "@nidhielite",
   },
   robots: {
     index: true,
@@ -106,16 +93,6 @@ export const metadata: Metadata = {
   },
   category: "real estate",
   generator: "Next.js + Vercel",
-  verification: {
-    google: "google-site-verification-code",
-    yandex: "yandex-verification-code",
-    yahoo: "yahoo-site-verification-code",
-  },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "black-translucent",
-    title: "Nidhi Elite",
-  },
 }
 
 export default function RootLayout({
@@ -131,21 +108,6 @@ export default function RootLayout({
 
         <link rel="canonical" href="https://nidhielite.com" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.google.com" />
-        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
-        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://drive.google.com" />
-
-        <link
-          rel="preload"
-          as="image"
-          href="/images/nidhi-elite-hosur-layout.jpg"
-          imagesrcset="/images/nidhi-elite-hosur-layout.jpg"
-        />
-
         {/* 🌍 Local SEO Geo Tags */}
         <meta name="geo.region" content="IN-TN" />
         <meta name="geo.placename" content="Hosur, Tamil Nadu, India" />
@@ -158,15 +120,10 @@ export default function RootLayout({
         <meta name="coverage" content="Worldwide" />
         <meta name="theme-color" content="#E9C46A" />
 
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Nidhi Elite" />
-
-        <meta name="language" content="English" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="author" content="Nidhi Elite" />
-        <meta name="owner" content="Nidhi Elite" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://drive.google.com" />
 
         {/* 🔍 Schema Markup for Rich Snippets */}
         <script

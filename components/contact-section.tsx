@@ -90,7 +90,7 @@ ${formData.message}
               <Mail className="w-5 sm:w-6 h-5 sm:h-6 text-primary mt-1 flex-shrink-0" />
               <div>
                 <h3 className="font-semibold text-foreground text-sm sm:text-base">Email Us</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Contact via form below</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">nidhielitelayout@gmail.com</p>
               </div>
             </div>
 
