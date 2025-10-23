@@ -93,7 +93,7 @@ export function Header() {
                 aria-label="Book Now via WhatsApp"
                 variant="ghost"
                 size="sm"
-                className="hidden sm:flex text-muted-foreground hover:text-foreground bg-green-500/10 hover:bg-green-500/20 text-green-600"
+                className="hidden sm:flex text-muted-foreground hover:text-foreground bg-green-500 hover:bg-green-600 text-white"
                 onClick={handleBookNowClick}
               >
                 <svg
