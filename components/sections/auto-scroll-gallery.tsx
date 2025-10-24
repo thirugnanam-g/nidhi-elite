@@ -17,7 +17,7 @@ export function AutoScrollGallery() {
   const [api, setApi] = React.useState<CarouselApi | null>(null)
   const [isPaused, setIsPaused] = React.useState(false)
 
-  // Auto-scroll logic
+  // ✅ Continuous Auto-Scroll (Infinite Loop)
   React.useEffect(() => {
     if (!api) return
     const media = window.matchMedia("(prefers-reduced-motion: reduce)")
@@ -25,9 +25,10 @@ export function AutoScrollGallery() {
 
     const interval = setInterval(() => {
       if (!isPaused) {
-        api.scrollNext()
+        api.scrollNext({ behavior: "smooth" })
       }
     }, 3000)
+
     return () => clearInterval(interval)
   }, [api, isPaused])
 
@@ -36,11 +37,14 @@ export function AutoScrollGallery() {
   const onFocusIn = () => setIsPaused(true)
   const onFocusOut = () => setIsPaused(false)
 
-  const images = Array.from({ length: 50 }, (_, i) => {
+  // ✅ Duplicate image list for seamless looping
+  const baseImages = Array.from({ length: 15 }, (_, i) => {
     const num = (i + 1).toString().padStart(4, "0")
     const localPath = `/images/IMG-20250929-WA${num}.jpg`
     return getImageUrl(localPath) || localPath
   })
+
+  const images = [...baseImages, ...baseImages] // double array → seamless loop
 
   return (
     <section
@@ -67,7 +71,14 @@ export function AutoScrollGallery() {
           onBlurCapture={onFocusOut}
           className="relative"
         >
-          <Carousel className="w-full" setApi={setApi}>
+          <Carousel
+            className="w-full"
+            setApi={setApi}
+            opts={{
+              loop: true, // ✅ enables infinite looping
+              align: "start",
+            }}
+          >
             <CarouselContent className="-ml-2 md:-ml-3">
               {images.map((src, idx) => (
                 <CarouselItem key={idx} className="pl-2 md:pl-3 basis-3/4 sm:basis-1/3 lg:basis-1/4">

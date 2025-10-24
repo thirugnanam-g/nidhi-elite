@@ -190,7 +190,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Nidhi Elite",
               url: "https://nidhielite.com/",
-              logo: "https://nidhielite.com/images/butterfly-logo.png",
+              logo: "https://nidhielite.com/images/butterfly-logo.jpg",
               description:
                 "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
               address: {
@@ -226,7 +226,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "Nidhi Elite",
-              image: "https://nidhielite.com/images/butterfly-logo.png",
+              image: "https://nidhielite.com/images/butterfly-logo.jpg",
               description:
                 "Premium HNTDA & TNRERA approved residential plots and customized villas in Hosur near Bangalore",
               address: {
