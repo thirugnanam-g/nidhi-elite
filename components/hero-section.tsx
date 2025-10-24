@@ -38,14 +38,11 @@ export function HeroSection() {
         />
       </div>
 
-      {/* ✅ Darker overlay for better text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50 z-[1]" />
-
       {/* ✅ Hero Content */}
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 flex flex-col justify-center">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
           {/* LEFT SIDE — Text Section */}
-          <div className="text-white space-y-4 sm:space-y-5 lg:space-y-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+          <div className="text-white space-y-4 sm:space-y-5 lg:space-y-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light leading-tight">
               Experience <span className="text-yellow-300 italic font-medium">Luxury</span>
               <br />
