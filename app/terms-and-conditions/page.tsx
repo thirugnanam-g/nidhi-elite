@@ -1,15 +1,15 @@
-"use client"
-
-import { useEffect } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 
-export default function TermsAndConditions() {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+export const metadata = {
+  title: "Terms and Conditions | Nidhi Elite",
+  description: "Terms and Conditions for Nidhi Elite premium plots and customized villas in Hosur.",
+  robots: "index, follow",
+  canonical: "https://nidhielite.com/terms-and-conditions",
+}
 
+export default function TermsAndConditions() {
   return (
     <>
       <Header />

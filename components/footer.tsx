@@ -1,21 +1,14 @@
 "use client"
 
 import Image from "next/image"
-import { useRouter } from "next/navigation"
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react"
+import Link from "next/link"
+import { Facebook, Instagram, Youtube, Mail, Phone } from "lucide-react"
 import { getImageUrl } from "@/lib/image-config"
 
 export function Footer() {
-  const router = useRouter()
-
   const handleNavClick = (sectionId: string) => {
     const section = document.getElementById(sectionId)
     if (section) section.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const handleLegalPageClick = (path: string) => {
-    router.push(path)
-    setTimeout(() => window.scrollTo(0, 0), 100)
   }
 
   const socialLinks = [
@@ -57,7 +50,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-md">
+              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">NE</span>
               </div>
               <div>
@@ -65,10 +58,10 @@ export function Footer() {
                 <p className="text-xs opacity-80">Premium Plots & Villas</p>
               </div>
             </div>
-            <p className="text-sm opacity-80 leading-relaxed mb-4">
-              HNTDA & TNRERA approved gated community with world-class amenities near Bangalore.
+            <p className="text-sm opacity-80 leading-relaxed">
+              HNTDA & TNRERA approved gated community with world-class amenities.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-3 mt-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon
                 return (
@@ -78,7 +71,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit Nidhi Elite on ${social.name}`}
-                    className="w-9 h-9 bg-background/20 hover:bg-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                    className="w-8 h-8 bg-background/20 hover:bg-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -89,14 +82,11 @@ export function Footer() {
 
           {/* Quick Links */}
           <nav aria-label="Footer navigation">
-            <h4 className="font-semibold mb-4 text-base">Quick Links</h4>
-            <ul className="space-y-2.5 text-sm opacity-80">
+            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm opacity-80">
               {["home", "plots", "customized-villas", "amenities", "location", "about", "contact"].map((id) => (
                 <li key={id}>
-                  <button
-                    onClick={() => handleNavClick(id)}
-                    className="hover:text-primary transition-colors text-left hover:translate-x-1 duration-200"
-                  >
+                  <button onClick={() => handleNavClick(id)} className="hover:text-primary transition-colors text-left">
                     {id.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
                   </button>
                 </li>
@@ -106,12 +96,12 @@ export function Footer() {
 
           {/* Contact Info */}
           <address className="not-italic">
-            <h4 className="font-semibold mb-4 text-base">Contact</h4>
-            <ul className="space-y-3 text-sm opacity-80">
+            <h4 className="font-semibold mb-4 text-sm">Contact</h4>
+            <ul className="space-y-2 text-sm opacity-80">
               <li>
                 <a href="tel:+919360299919" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>+91 93602 99919</span>
+                  <Phone className="w-4 h-4" />
+                  +91 93602 99919
                 </a>
               </li>
               <li>
@@ -123,27 +113,24 @@ export function Footer() {
                     window.location.href = `mailto:${email}`
                   }}
                 >
-                  <Mail className="w-4 h-4 flex-shrink-0" />
+                  <Mail className="w-4 h-4" />
                   <span dangerouslySetInnerHTML={{ __html: encodedEmail }} />
                 </a>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span className="text-xs">750, Poonapalli Village, Hosur, TN 635110</span>
-              </li>
+              <li className="text-xs">750, Poonapalli Village, Hosur, TN 635110</li>
             </ul>
           </address>
 
           {/* Regulatory */}
           <div>
-            <h4 className="font-semibold mb-4 text-base">Approvals</h4>
+            <h4 className="font-semibold mb-4 text-sm">Approvals</h4>
             <div className="space-y-3">
-              <div className="flex items-center space-x-2 p-2 rounded-lg bg-background/10 hover:bg-background/20 transition-colors">
+              <div className="flex items-center space-x-2">
                 <Image
                   src={getImageUrl("/images/tnrera-logo.jpg") || "/placeholder.svg"}
                   alt="TNRERA Approved"
-                  width={40}
-                  height={40}
+                  width={36}
+                  height={36}
                   className="bg-white rounded p-0.5"
                 />
                 <div>
@@ -151,12 +138,12 @@ export function Footer() {
                   <p className="text-xs opacity-60">Approved</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-2 p-2 rounded-lg bg-background/10 hover:bg-background/20 transition-colors">
+              <div className="flex items-center space-x-2">
                 <Image
                   src={getImageUrl("/images/hntda-logo.jpg") || "/placeholder.svg"}
                   alt="HNTDA Layout Approval"
-                  width={40}
-                  height={40}
+                  width={36}
+                  height={36}
                   className="bg-white rounded p-0.5"
                 />
                 <div>
@@ -168,28 +155,21 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-background/20 pt-6 mb-6">
-          <div className="flex flex-wrap justify-center gap-6 text-sm">
-            <button
-              onClick={() => handleLegalPageClick("/terms-and-conditions")}
-              className="hover:text-primary transition-colors hover:underline"
-            >
+        <div className="border-t border-background/20 pt-6 mb-6 text-center text-xs opacity-70 space-y-2">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/terms-and-conditions" className="hover:text-primary transition-colors">
               Terms & Conditions
-            </button>
-            <span className="opacity-40">|</span>
-            <button
-              onClick={() => handleLegalPageClick("/privacy-policy")}
-              className="hover:text-primary transition-colors hover:underline"
-            >
+            </Link>
+            <span>|</span>
+            <Link href="/privacy-policy" className="hover:text-primary transition-colors">
               Privacy Policy
-            </button>
+            </Link>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-background/20 pt-6 text-center text-xs opacity-70">
-          <p>© 2025 Nidhi Elite. All rights reserved.</p>
-          <p className="mt-2 opacity-60">HNTDA & TNRERA Approved | Premium Plots & Customized Villas</p>
+          © 2025 Nidhi Elite. All rights reserved.
         </div>
       </div>
     </footer>

@@ -1,15 +1,15 @@
-"use client"
-
-import { useEffect } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 
-export default function PrivacyPolicy() {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+export const metadata = {
+  title: "Privacy Policy | Nidhi Elite",
+  description: "Privacy Policy for Nidhi Elite premium plots and customized villas in Hosur.",
+  robots: "index, follow",
+  canonical: "https://nidhielite.com/privacy-policy",
+}
 
+export default function PrivacyPolicy() {
   return (
     <>
       <Header />

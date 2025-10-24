@@ -67,9 +67,9 @@ ${formData.message}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-stretch">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
           {/* Left — Combined Contact Info */}
-          <Card className="rounded-2xl shadow-lg border border-primary/20 bg-white/90 backdrop-blur-sm p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-5 lg:space-y-6 flex flex-col justify-center">
+          <Card className="rounded-2xl shadow-lg border border-primary/20 bg-white/90 backdrop-blur-sm p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-5 lg:space-y-6">
             <div className="flex items-start space-x-3 sm:space-x-4">
               <MapPin className="w-5 sm:w-6 h-5 sm:h-6 text-primary mt-1 flex-shrink-0" />
               <div>
@@ -104,7 +104,7 @@ ${formData.message}
           </Card>
 
           {/* Right — Contact Form */}
-          <Card className="rounded-2xl shadow-xl border border-primary/20 bg-white/90 backdrop-blur-sm flex flex-col">
+          <Card className="rounded-2xl shadow-xl border border-primary/20 bg-white/90 backdrop-blur-sm">
             <CardContent className="p-4 sm:p-6 lg:p-8">
               {submitStatus === "success" && (
                 <div className="mb-4 sm:mb-6 p-2.5 sm:p-3 lg:p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-2">
