@@ -1,13 +1,13 @@
 export const IMAGE_URLS: Record<string, string> = {
   // Logo and branding
-  "/images/butterfly-logo.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
+  "/images/butterfly-logo.jpg": process.env.SUPABASE_NEXT_PUBLIC_SUPABASE_URL
     ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/butterfly-logo.jpg`
     : "/images/butterfly-logo.jpg",
 
   // Hero and main images
-  "/images/hero-bg.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/hero-bg.jpg`
-    : "/images/hero-bg.jpg",
+  "/images/hero-bg.jpeg": process.env.NEXT_PUBLIC_SUPABASE_URL
+    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/hero-bg.jpeg`
+    : "/images/hero-bg.jpeg",
 
   // Site and layout images
   "/images/site-layout.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -46,9 +46,6 @@ export const IMAGE_URLS: Record<string, string> = {
   "/images/hntda-approved.png": process.env.NEXT_PUBLIC_SUPABASE_URL
     ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/hntda-approved.png`
     : "/images/hntda-approved.png",
-  "/images/tnrera-logo.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/tnrera-logo.jpg`
-    : "/images/tnrera-logo.jpg",
   "/images/hntda-approved.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
     ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/hntda-approved.jpg`
     : "/images/hntda-approved.jpg",

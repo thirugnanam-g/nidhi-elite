@@ -123,14 +123,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const supabaseUrl = process.env.SUPABASE_NEXT_PUBLIC_SUPABASE_URL
+  const supabaseUrl = process.env.SUPABASE_SUPABASE_NEXT_PUBLIC_SUPABASE_URL
 
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
         <link rel="manifest" href="/site.webmanifest" />
 
         <link rel="canonical" href="https://nidhielite.com/" />
@@ -149,13 +149,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://drive.google.com" />
-
-        <link
-          rel="preload"
-          as="font"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
-          crossOrigin="anonymous"
-        />
 
         {/* 🌍 Local SEO Geo Tags */}
         <meta name="geo.region" content="IN-TN" />
