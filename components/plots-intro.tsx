@@ -37,21 +37,10 @@ export function PlotsIntro() {
           </p>
         </div>
 
+        {/* ✅ Swapped Layout: Image Left | Text Right */}
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
-          {/* Left — Features */}
-          <div className="space-y-4 sm:space-y-5 lg:space-y-6 order-2 lg:order-1">
-            <ul className="space-y-2 sm:space-y-3">
-              {plotFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start space-x-2 sm:space-x-3">
-                  <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <p className="text-xs sm:text-sm lg:text-base text-foreground leading-relaxed">{feature}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right — Full-fit Image (never cropped) */}
-          <div className="order-1 lg:order-2 relative w-full h-[250px] sm:h-[350px] lg:h-[400px] flex items-center justify-center">
+          {/* LEFT — Image */}
+          <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[400px] order-1 flex items-center justify-center">
             <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-full shadow-xl bg-background flex items-center justify-center">
               <div className="relative w-full h-full">
                 <Image
@@ -59,12 +48,27 @@ export function PlotsIntro() {
                   alt="Nidhi Elite master plan and layout"
                   fill
                   loading="lazy"
-                  className="object-contain object-center rounded-2xl"
+                  // ✅ Changed from object-contain to object-fill (no black edges)
+                  className="object-fill object-center rounded-2xl"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                  quality={85}
+                  quality={90}
                 />
               </div>
             </Card>
+          </div>
+
+          {/* RIGHT — Features */}
+          <div className="space-y-4 sm:space-y-5 lg:space-y-6 order-2">
+            <ul className="space-y-2 sm:space-y-3">
+              {plotFeatures.map((feature, index) => (
+                <li key={index} className="flex items-start space-x-2 sm:space-x-3">
+                  <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <p className="text-xs sm:text-sm lg:text-base text-foreground leading-relaxed">
+                    {feature}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
