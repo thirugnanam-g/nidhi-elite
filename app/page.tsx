@@ -2,7 +2,6 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { PlotsIntro } from "@/components/plots-intro"
 import { VillaIntro } from "@/components/villa-intro"
-import { InteriorFeatures } from "@/components/interior-features"
 import { Amenities } from "@/components/amenities"
 import { LocationConnectivity } from "@/components/location-connectivity"
 import { ContactSection } from "@/components/contact-section"
@@ -14,6 +13,7 @@ import { SEOMonitor } from "@/components/seo-monitor"
 import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 import { AboutSection } from "@/components/sections/about-section"
 import { AutoScrollGallery } from "@/components/sections/auto-scroll-gallery"
+import { TestimonialsSection } from "@/components/sections/testimonials"
 
 export default function Home() {
   return (
@@ -52,7 +52,6 @@ export default function Home() {
           <PlotsIntro />
         </div>
 
-        
         <VillaIntro />
 
         {/* AMENITIES */}
@@ -77,6 +76,14 @@ export default function Home() {
             Real Site Images of Nidhi Elite Layout in Hosur
           </h2>
           <AutoScrollGallery />
+        </div>
+
+        {/* TESTIMONIALS */}
+        <div id="testimonials" aria-labelledby="testimonials-heading" className="relative">
+          <h2 id="testimonials-heading" className="sr-only">
+            What Our Customers Say
+          </h2>
+          <TestimonialsSection />
         </div>
 
         {/* CONTACT */}
