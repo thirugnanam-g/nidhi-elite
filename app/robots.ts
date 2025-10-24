@@ -16,8 +16,17 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "Bingbot",
         allow: ["/"],
       },
+      {
+        userAgent: "Slurp",
+        allow: ["/"],
+      },
+      {
+        userAgent: "DuckDuckBot",
+        allow: ["/"],
+      },
     ],
     sitemap: "https://nidhielite.com/sitemap.xml",
     host: "https://nidhielite.com",
+    crawlDelay: 0.5,
   }
 }

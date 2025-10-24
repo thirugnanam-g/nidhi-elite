@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { Facebook, Instagram, Youtube, Mail, Phone } from "lucide-react"
 import { getImageUrl } from "@/lib/image-config"
 
@@ -151,6 +152,18 @@ export function Footer() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="border-t border-background/20 pt-6 mb-6 text-center text-xs opacity-70 space-y-2">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/terms-and-conditions" className="hover:text-primary transition-colors">
+              Terms & Conditions
+            </Link>
+            <span>|</span>
+            <Link href="/privacy-policy" className="hover:text-primary transition-colors">
+              Privacy Policy
+            </Link>
           </div>
         </div>
 

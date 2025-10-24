@@ -7,7 +7,7 @@ import { getImageUrl } from "@/lib/image-config"
 
 export function PlotsIntro() {
   const plotFeatures = [
-    "Premium residential plots starting from 600 sq ft",
+    "Premium residential plots starting from 1200 sq ft",
     "30 feet concrete road connectivity for smooth access",
     "Underground drainage and modern sewage system",
     "Individual electricity and street lighting provisions",

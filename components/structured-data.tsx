@@ -115,6 +115,88 @@ export function StructuredData() {
           availability: "https://schema.org/InStock",
         },
       },
+      {
+        "@type": "FAQPage",
+        "@id": "https://nidhielite.com/#faq",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What are the payment plans available at Nidhi Elite?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Nidhi Elite offers flexible payment plans with options for 20% down payment and easy EMI schemes. Contact our sales team for detailed information.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Is Nidhi Elite TNRERA approved?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes, Nidhi Elite is fully TNRERA and HNTDA approved, ensuring complete transparency and buyer protection.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What is the distance from Nidhi Elite to Bangalore?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Nidhi Elite is located in Hosur, approximately 40-50 km from Bangalore, with easy connectivity via NH-44.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What amenities are available at Nidhi Elite?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Nidhi Elite offers premium amenities including 24/7 security, landscaped gardens, community center, sports facilities, and more.",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://nidhielite.com/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://nidhielite.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Plots",
+            item: "https://nidhielite.com/#plots",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Villas",
+            item: "https://nidhielite.com/#customized-villas",
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: "Amenities",
+            item: "https://nidhielite.com/#amenities",
+          },
+          {
+            "@type": "ListItem",
+            position: 5,
+            name: "Location",
+            item: "https://nidhielite.com/#location",
+          },
+        ],
+      },
+      {
+        "@type": "AggregateRating",
+        "@id": "https://nidhielite.com/#rating",
+        ratingValue: "4.8",
+        ratingCount: "150",
+        bestRating: "5",
+        worstRating: "1",
+      },
     ],
   }
 

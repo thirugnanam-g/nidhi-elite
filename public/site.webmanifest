@@ -1,0 +1,32 @@
+{
+  "name": "Nidhi Elite - Premium Plots & Villas in Hosur",
+  "short_name": "Nidhi Elite",
+  "description": "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#E9C46A",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/nidhi-elite-hosur-layout.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ]
+}

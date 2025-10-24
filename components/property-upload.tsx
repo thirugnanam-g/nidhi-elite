@@ -41,17 +41,12 @@ export function PropertyUpload() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
-      console.log(
-        "[v0] Images uploaded:",
-        selectedImages.map((f) => f.name),
-      )
       alert(`Successfully uploaded ${selectedImages.length} images!`)
 
       // Clear selections
       setSelectedImages([])
       setPreviewUrls([])
     } catch (error) {
-      console.error("[v0] Upload error:", error)
       alert("Upload failed. Please try again.")
     } finally {
       setIsUploading(false)

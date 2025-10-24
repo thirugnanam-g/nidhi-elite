@@ -35,8 +35,8 @@ export function AutoScrollGallery() {
   const onFocusOut = () => setIsPaused(false)
 
   const images = Array.from({ length: 50 }, (_, i) => {
-    const num = (i + 1).toString().padStart(2, "0")
-    const localPath = `/images/IMG-20250929-WA00${num}.jpg`
+    const num = (i + 1).toString().padStart(4, "0")
+    const localPath = `/images/IMG-20250929-WA${num}.jpg`
     return getImageUrl(localPath) || localPath
   })
 
@@ -73,7 +73,7 @@ export function AutoScrollGallery() {
                     <div className="relative w-full h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px] overflow-hidden">
                       <Image
                         src={src || "/placeholder.svg"}
-                        alt="Nidhi Elite real site photo"
+                        alt={`Nidhi Elite real site photo ${idx + 1} - Premium residential community in Hosur`}
                         fill
                         loading="lazy"
                         sizes="(max-width: 768px) 80vw, (max-width: 1200px) 33vw, 25vw"

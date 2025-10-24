@@ -104,7 +104,8 @@ export function MyComponent() {
 
 Add to your Vercel project:
 \`\`\`
-SUPABASE_NEXT_PUBLIC_SUPABASE_URL=https://[project].supSUPABASE_NEXT_PUBLIC_SUPABASE_ANON_KEY_ANON_KEY=[your-anon-key]
+SUPABASE_NEXT_PUBLIC_SUPABASE_URL=https://[project].supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=[your-anon-key]
 SUPABASE_SUPABASE_SERVICE_ROLE_KEY=[your-service-role-key]
 \`\`\`
 

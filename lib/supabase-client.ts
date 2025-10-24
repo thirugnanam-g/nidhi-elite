@@ -1,10 +1,19 @@
 import { createBrowserClient } from "@supabase/ssr"
 
-const supabaseUrl = process.env.SUPABASE_NEXT_PUBLIC_SUPABASE_URL
-const supabaseAnonKey = proSUPABASE_NEXT_PUBLIC_SUPABASE_ANON_KEY_ANON_KEY
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Missing Supabase environment variables")
+  console.warn("[v0] Missing Supabase environment variables - using fallback mode")
 }
 
-export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey)
+let supabaseInstance: ReturnType<typeof createBrowserClient> | null = null
+
+export function getSupabaseClient() {
+  if (!supabaseInstance && supabaseUrl && supabaseAnonKey) {
+    supabaseInstance = createBrowserClient(supabaseUrl, supabaseAnonKey)
+  }
+  return supabaseInstance
+}
+
+export const supabase = supabaseUrl && supabaseAnonKey ? createBrowserClient(supabaseUrl, supabaseAnonKey) : null

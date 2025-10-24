@@ -64,12 +64,39 @@ const nextConfig = {
           },
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=86400',
+            value: 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
           },
         ],
       },
       {
         source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable, stale-while-revalidate=31536000',
+          },
+        ],
+      },
+      {
+        source: '/storage/v1/object/public/assets/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable, stale-while-revalidate=31536000',
+          },
+        ],
+      },
+      {
+        source: '/fonts/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.(js|css|woff|woff2)',
         headers: [
           {
             key: 'Cache-Control',
@@ -84,6 +111,11 @@ const nextConfig = {
       {
         source: '/index.html',
         destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/:path*/',
+        destination: '/:path*',
         permanent: true,
       },
     ]

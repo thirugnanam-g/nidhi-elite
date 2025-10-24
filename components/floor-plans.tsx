@@ -44,7 +44,7 @@ export function FloorPlans() {
   ]
 
   const handleViewDetails = (planIndex: number, planTitle: string) => {
-    console.log(`Floor plan ${planTitle} selected`)
+    setSelectedPlan(planIndex)
   }
 
   return (

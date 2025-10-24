@@ -25,21 +25,21 @@ export function HeroSection() {
       id="home"
       className="relative w-full overflow-hidden bg-white min-h-screen md:min-h-[90vh] flex items-center"
     >
-      {/* ✅ Full background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={getImageUrl("/images/hero-bg.jpg") || "/placeholder.svg"}
-          alt="Nidhi Elite Luxury Villas and Plots in Hosur"
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop&q=80"
+          alt="Luxury residential community with modern architecture and green spaces"
           fill
           priority
           className="object-cover object-center"
           sizes="100vw"
           quality={85}
+          loading="eager"
         />
       </div>
 
-      {/* ✅ Slightly darker overlay for better text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent z-[1]" />
+      {/* ✅ Darker overlay for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50 z-[1]" />
 
       {/* ✅ Hero Content */}
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 flex flex-col justify-center">
@@ -84,14 +84,14 @@ export function HeroSection() {
             <div className="flex items-center justify-center gap-4 flex-wrap">
               <Image
                 src={getImageUrl("/images/rera-approved.png") || "/placeholder.svg"}
-                alt="RERA Approved"
+                alt="TNRERA Approved - Tamil Nadu Real Estate Regulatory Authority"
                 width={120}
                 height={120}
                 className="object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
               />
               <Image
                 src={getImageUrl("/images/hntda-approved.png") || "/placeholder.svg"}
-                alt="HNTDA Approved"
+                alt="HNTDA Approved - Hosur Nandyala Town Development Authority"
                 width={150}
                 height={150}
                 className="object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
