@@ -27,7 +27,7 @@ export function HeroSection() {
     >
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop&q=80"
+          src={getImageUrl("/images/hero-bg.jpeg") || "/placeholder.svg"}
           alt="Luxury residential community with modern architecture and green spaces"
           fill
           priority
