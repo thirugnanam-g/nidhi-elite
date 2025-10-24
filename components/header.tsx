@@ -6,10 +6,14 @@ import { Mail, Menu, X } from "lucide-react"
 import { BookingModal } from "./booking-modal"
 import Image from "next/image"
 import { getImageUrl } from "@/lib/image-config"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export function Header() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
 
   const handleBookNowClick = () => {
     const phoneNumber = "919360299919"
@@ -21,15 +25,23 @@ export function Header() {
   }
 
   const handleEnquireClick = () => {
-    const contactSection = document.getElementById("contact")
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" })
+    if (isHomePage) {
+      const contactSection = document.getElementById("contact")
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" })
+      }
+    } else {
+      window.location.href = "/#contact"
     }
   }
 
   const handleNavClick = (sectionId: string) => {
-    const section = document.getElementById(sectionId)
-    if (section) section.scrollIntoView({ behavior: "smooth" })
+    if (isHomePage) {
+      const section = document.getElementById(sectionId)
+      if (section) section.scrollIntoView({ behavior: "smooth" })
+    } else {
+      window.location.href = `/#${sectionId}`
+    }
     setIsMobileMenuOpen(false)
   }
 
@@ -43,7 +55,7 @@ export function Header() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo Section */}
-            <div className="flex items-center space-x-4">
+            <Link href="/" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
               <div className="relative w-12 h-12 flex-shrink-0">
                 <div className="w-12 h-12 rounded-full bg-card shadow-sm border border-border/20 flex items-center justify-center overflow-hidden">
                   <Image
@@ -62,7 +74,7 @@ export function Header() {
                 </h1>
                 <p className="text-xs text-muted-foreground font-medium">Luxury Plots & Villas</p>
               </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8" aria-label="Primary Site Navigation">

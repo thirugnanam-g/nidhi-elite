@@ -40,49 +40,48 @@ export function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden">
+    <section className="py-8 sm:py-10 lg:py-12 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden">
       {/* Background accents */}
       <div className="absolute top-0 left-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-primary/10 blur-3xl rounded-full opacity-30" />
       <div className="absolute bottom-0 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-secondary/10 blur-3xl rounded-full opacity-30" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light mb-3 sm:mb-4 text-foreground leading-tight">
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light mb-2 sm:mb-3 text-foreground leading-tight">
             What Our <span className="text-primary italic font-semibold">Customers</span> Say
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Join hundreds of satisfied customers who have made Nidhi Elite their dream home. Read their inspiring
-            stories and experiences.
+          <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Join hundreds of satisfied customers who have made Nidhi Elite their dream home.
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* Testimonials Grid - Reduced padding and grid to fit in single viewport */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {testimonials.map((testimonial, idx) => (
             <Card
               key={idx}
-              className="rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-primary/10 bg-white/80 backdrop-blur-sm p-4 sm:p-5 lg:p-6 flex flex-col"
+              className="rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-primary/10 bg-white/80 backdrop-blur-sm p-3 sm:p-4 flex flex-col"
             >
               {/* Rating */}
-              <div className="flex gap-1 mb-3 sm:mb-4">
+              <div className="flex gap-1 mb-2">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
 
               {/* Content */}
-              <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-5 flex-grow leading-relaxed italic">
+              <p className="text-xs text-muted-foreground mb-3 flex-grow leading-relaxed italic line-clamp-3">
                 "{testimonial.content}"
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center text-white font-semibold text-sm">
+              <div className="flex items-center gap-2 pt-3 border-t border-gray-200">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center text-white font-semibold text-xs">
                   {testimonial.image}
                 </div>
                 <div>
-                  <p className="font-semibold text-xs sm:text-sm text-foreground">{testimonial.name}</p>
+                  <p className="font-semibold text-xs text-foreground">{testimonial.name}</p>
                   <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                 </div>
               </div>

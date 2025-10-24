@@ -113,11 +113,6 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
-      {
-        source: '/:path*/',
-        destination: '/:path*',
-        permanent: true,
-      },
     ]
   },
 }

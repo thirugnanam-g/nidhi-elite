@@ -24,7 +24,9 @@ export function AutoScrollGallery() {
     if (media.matches) return
 
     const interval = setInterval(() => {
-      if (!isPaused) api.scrollNext()
+      if (!isPaused) {
+        api.scrollNext()
+      }
     }, 3000)
     return () => clearInterval(interval)
   }, [api, isPaused])
