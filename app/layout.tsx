@@ -53,10 +53,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nidhielite.com"),
   alternates: {
     canonical: "https://nidhielite.com/",
-    languages: {
-      "en-IN": "https://nidhielite.com/",
-      "ta-IN": "https://nidhielite.com/ta/",
-    },
   },
   openGraph: {
     title: "Nidhi Elite | Premium Plots & Villas in Hosur",
@@ -123,14 +119,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const supabaseUrl = process.env.SUPABASE_SUPABASE_NEXT_PUBLIC_SUPABASE_URL
+  const supabaseUrl = process.env.SUPABASE_NEXT_PUBLIC_SUPABASE_URL
 
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
         <link rel="manifest" href="/site.webmanifest" />
 
         <link rel="canonical" href="https://nidhielite.com/" />
@@ -144,11 +139,7 @@ export default function RootLayout({
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://maps.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.google.com" />
-        <link rel="dns-prefetch" href="https://drive.google.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
         {/* 🌍 Local SEO Geo Tags */}
         <meta name="geo.region" content="IN-TN" />
@@ -183,7 +174,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Nidhi Elite",
               url: "https://nidhielite.com/",
-              logo: "https://nidhielite.com/images/butterfly-logo.jpg",
+              logo: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
               description:
                 "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
               address: {
@@ -219,7 +210,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "Nidhi Elite",
-              image: "https://nidhielite.com/images/butterfly-logo.jpg",
+              image: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
               description:
                 "Premium HNTDA & TNRERA approved residential plots and customized villas in Hosur near Bangalore",
               address: {
@@ -246,7 +237,6 @@ export default function RootLayout({
       </head>
 
       <body className={`font-sans ${inter.variable} ${playfair.variable} ${GeistMono.variable}`}>
-        {/* Google Analytics + Tracking */}
         <GoogleAnalytics />
 
         <Suspense fallback={null}>

@@ -1,16 +1,10 @@
 "use client"
-
-import Image from "next/image"
-import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Download, MapPin, TreePine, CheckCircle } from "lucide-react"
 
 export function AboutSection() {
   const handleBrochureDownload = () => {
-    window.open(
-      "https://drive.google.com/file/d/1JgqyFQDsNJV9Tj12iadmpdUt4w1p32nJ/view?usp=sharing",
-      "_blank"
-    )
+    window.open("https://drive.google.com/file/d/1HtJrEzHmOXjn6weiQV-NJXvicFkUOzqs/view?usp=sharing", "_blank")
   }
 
   return (
@@ -26,8 +20,7 @@ export function AboutSection() {
         {/* Heading */}
         <div className="text-center mb-12 max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light leading-tight mb-4">
-            Redefining{" "}
-            <span className="text-primary italic font-semibold">Luxury Living</span>
+            Redefining <span className="text-primary italic font-semibold">Luxury Living</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground font-light">
             Hosur's exclusive gated community with premium plots and customized villas
@@ -40,10 +33,9 @@ export function AboutSection() {
           <div className="flex flex-col justify-between bg-white/5 rounded-2xl p-6 sm:p-8 border border-primary/10 backdrop-blur-sm">
             <div>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-light text-justify sm:text-left">
-                Nidhi Elite is Hosur's exclusive gated community offering affordable
-                premium plots and customizable villas on Thali Road. Perfectly connected to
-                NH844 and Electronic City, it’s the ideal blend of comfort, security, and
-                investment growth.
+                Nidhi Elite is Hosur's exclusive gated community offering affordable premium plots and customizable
+                villas on Thali Road. Perfectly connected to NH844 and Electronic City, it's the ideal blend of comfort,
+                security, and investment growth.
               </p>
             </div>
 
@@ -70,27 +62,21 @@ export function AboutSection() {
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium text-sm text-foreground">Prime Location</p>
-                    <p className="text-xs text-muted-foreground">
-                      Close to Electronic City & IT hubs
-                    </p>
+                    <p className="text-xs text-muted-foreground">Close to Electronic City & IT hubs</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
                   <TreePine className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium text-sm text-foreground">Green Environment</p>
-                    <p className="text-xs text-muted-foreground">
-                      Landscaped parks & open spaces
-                    </p>
+                    <p className="text-xs text-muted-foreground">Landscaped parks & open spaces</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium text-sm text-foreground">Approved & Secure</p>
-                    <p className="text-xs text-muted-foreground">
-                      TNRERA & HNTDA approved
-                    </p>
+                    <p className="text-xs text-muted-foreground">TNRERA & HNTDA approved</p>
                   </div>
                 </div>
               </div>

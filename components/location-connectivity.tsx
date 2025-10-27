@@ -72,7 +72,7 @@ export function LocationConnectivity() {
           {/* Left — Map + Key Distances */}
           <div className="space-y-4 sm:space-y-6">
             <Card className="overflow-hidden shadow-xl border-0 rounded-2xl">
-              <div className="w-full h-[250px] sm:h-[300px] lg:h-[350px] relative">
+              <div className="w-full h-[250px] sm:h-[280px] lg:h-[300px] relative">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d297666.1274161688!2d77.68898185068478!3d12.794217924061819!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae7b31a6464c49%3A0xcb83815a66492049!2sNidhi+Elite+Hosur!5e0!3m2!1sen!2sin!4v1758338170645!5m2!1sen!2sin"
                   width="100%"
@@ -89,7 +89,7 @@ export function LocationConnectivity() {
           </div>
 
           {/* Right — Expandable Lists */}
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-3 sm:space-y-4 max-h-[300px] sm:max-h-[350px] overflow-y-auto">
             {Object.entries(proximityData).map(([category, items]) => (
               <Card
                 key={category}

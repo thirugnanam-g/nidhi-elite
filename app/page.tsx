@@ -31,13 +31,13 @@ export default function Home() {
         {/* HERO */}
         <div id="home" aria-labelledby="hero-heading" className="relative overflow-hidden">
           <h1 id="hero-heading" className="sr-only">
-            Nidhi Elite – HNTDA & RERA Approved Plots and Customized Villas in Hosur
+            Nidhi Elite – HNTDA & TERA Approved Plots and Customized Villas in Hosur
           </h1>
           <HeroSection />
         </div>
 
         {/* ABOUT */}
-        <div id="about" aria-labelledby="about-heading" className="relative">
+        <div id="about" aria-labelledby="about-heading" className="relative scroll-mt-20">
           <h2 id="about-heading" className="sr-only">
             About Nidhi Elite Real Estate Developers
           </h2>
@@ -45,17 +45,23 @@ export default function Home() {
         </div>
 
         {/* PLOTS */}
-        <div id="plots" aria-labelledby="plots-heading" className="relative">
+        <div id="plots" aria-labelledby="plots-heading" className="relative scroll-mt-20">
           <h2 id="plots-heading" className="sr-only">
             HNTDA Approved Residential Plots in Hosur
           </h2>
           <PlotsIntro />
         </div>
 
-        <VillaIntro />
+        {/* VILLAS */}
+        <div id="customized-villas" aria-labelledby="villas-heading" className="relative scroll-mt-20">
+          <h2 id="villas-heading" className="sr-only">
+            Your Dream Villa, Beautifully Crafted
+          </h2>
+          <VillaIntro />
+        </div>
 
         {/* AMENITIES */}
-        <div id="amenities" aria-labelledby="amenities-heading" className="relative">
+        <div id="amenities" aria-labelledby="amenities-heading" className="relative scroll-mt-20">
           <h2 id="amenities-heading" className="sr-only">
             Luxury Amenities at Nidhi Elite
           </h2>
@@ -63,7 +69,7 @@ export default function Home() {
         </div>
 
         {/* LOCATION */}
-        <div id="location" aria-labelledby="location-heading" className="bg-gray-50 relative">
+        <div id="location" aria-labelledby="location-heading" className="bg-gray-50 relative scroll-mt-20">
           <h2 id="location-heading" className="sr-only">
             Prime Location and Connectivity from Hosur to Bangalore
           </h2>
@@ -71,7 +77,7 @@ export default function Home() {
         </div>
 
         {/* GALLERY */}
-        <div id="gallery" aria-labelledby="gallery-heading" className="bg-gray-50 relative">
+        <div id="gallery" aria-labelledby="gallery-heading" className="bg-gray-50 relative scroll-mt-20">
           <h2 id="gallery-heading" className="sr-only">
             Real Site Images of Nidhi Elite Layout in Hosur
           </h2>
@@ -79,7 +85,7 @@ export default function Home() {
         </div>
 
         {/* TESTIMONIALS */}
-        <div id="testimonials" aria-labelledby="testimonials-heading" className="relative">
+        <div id="testimonials" aria-labelledby="testimonials-heading" className="relative scroll-mt-20">
           <h2 id="testimonials-heading" className="sr-only">
             What Our Customers Say
           </h2>
@@ -87,34 +93,12 @@ export default function Home() {
         </div>
 
         {/* CONTACT */}
-        <div id="contact" aria-labelledby="contact-heading" className="bg-gray-50 relative">
+        <div id="contact" aria-labelledby="contact-heading" className="bg-gray-50 relative scroll-mt-20">
           <h2 id="contact-heading" className="sr-only">
             Contact Nidhi Elite for Site Visit or Brochure
           </h2>
           <ContactSection />
         </div>
-
-        {/* INTERNAL LINKS FOR SEO */}
-        <nav
-          aria-label="Quick Links"
-          className="flex flex-wrap justify-center gap-x-3 gap-y-2 mt-8 mb-8 text-sm text-gray-700 px-4 border-t border-gray-200 pt-4"
-        >
-          <a href="#plots" className="hover:text-primary transition-colors">
-            HNTDA Approved Plots in Hosur
-          </a>
-          <span>|</span>
-          <a href="#customized-villas" className="hover:text-primary transition-colors">
-            Customized Villas Near Bangalore
-          </a>
-          <span>|</span>
-          <a href="#amenities" className="hover:text-primary transition-colors">
-            Luxury Amenities
-          </a>
-          <span>|</span>
-          <a href="#location" className="hover:text-primary transition-colors">
-            Hosur Location Map
-          </a>
-        </nav>
 
         <Footer />
         <FloatingWhatsApp />

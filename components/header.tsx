@@ -38,7 +38,11 @@ export function Header() {
   const handleNavClick = (sectionId: string) => {
     if (isHomePage) {
       const section = document.getElementById(sectionId)
-      if (section) section.scrollIntoView({ behavior: "smooth" })
+      if (section) {
+        const headerHeight = 80
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY - headerHeight
+        window.scrollTo({ top: sectionTop, behavior: "smooth" })
+      }
     } else {
       window.location.href = `/#${sectionId}`
     }

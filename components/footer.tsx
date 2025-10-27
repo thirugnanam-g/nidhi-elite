@@ -183,6 +183,13 @@ export function Footer() {
             >
               Privacy Policy
             </button>
+            <span className="opacity-40">|</span>
+            <button
+              onClick={() => handleLegalPageClick("/cookies-policy")}
+              className="hover:text-primary transition-colors hover:underline"
+            >
+              Cookies Policy
+            </button>
           </div>
         </div>
 
