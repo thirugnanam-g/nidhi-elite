@@ -15,9 +15,9 @@ export function TestimonialsSection() {
     },
     {
       name: "Priya Sharma",
-      role: "Villa Owner",
+      role: "Plot Owner",
       content:
-        "The customized villa design process was seamless. The team understood our vision perfectly and delivered exactly what we wanted. Best investment decision!",
+        "The plot booking process was smooth and transparent. The team guided us through every step and helped us choose the perfect location. Truly the best investment decision we’ve made!",
       rating: 5,
       image: "PS",
     },
