@@ -13,6 +13,10 @@ export function FloatingWhatsApp() {
     window.open(whatsappUrl, "_blank")
   }
 
+  const handleDownloadBrochure = () => {
+    window.open("https://drive.google.com/file/d/1HtJrEzHmOXjn6weiQV-NJXvicFkUOzqs/view?usp=sharing", "_blank")
+  }
+
   return (
     <div className="fixed bottom-6 right-6 z-50">
       <Button
@@ -29,5 +33,21 @@ export function FloatingWhatsApp() {
         </svg>
       </Button>
     </div>
+
+    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40">
+        <button
+          onClick={handleDownloadBrochure}
+          className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-6 px-3 rounded-l-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-1 writing-mode-vertical"
+          title="Download Brochure"
+          aria-label="Download Brochure"
+        >
+          <span
+            className="text-xs font-bold tracking-wider"
+            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+          >
+            Brochure
+          </span>
+        </button>
+      </div>
   )
 }

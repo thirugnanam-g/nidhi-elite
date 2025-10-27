@@ -19,7 +19,7 @@ export function PlotsIntro() {
   return (
     <section
       id="plots"
-      className="relative w-full pb-12 pt-8 flex items-center bg-gradient-to-b from-background via-primary/5 to-background overflow-hidden"
+      className="relative w-full pb-8 pt-4 flex items-center bg-gradient-to-b from-background via-primary/5 to-background overflow-hidden"
     >
       {/* Soft glow background */}
       <div className="absolute top-0 right-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-primary/10 blur-3xl rounded-full opacity-20" />
