@@ -9,6 +9,7 @@ import { Suspense } from "react"
 import { GoogleAnalytics } from "@/components/google-analytics"
 import { AnalyticsTracker } from "@/components/analytics-tracker"
 import { ConversionTracking } from "@/components/conversion-tracking"
+import { FontLoader } from "@/components/font-loader" // ✅ client-safe font loader
 import "./globals.css"
 
 const inter = Inter({
@@ -128,28 +129,15 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-
         <link rel="canonical" href="https://nidhielite.com/" />
 
+        {/* ✅ Safe preloads (no onLoad) */}
         <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/playfair.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
-          as="style"
-          onLoad={(e: any) => ((e.onload = null), (e.rel = "stylesheet"))}
-        />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
-
+        {/* ✅ Network preconnects */}
         <link rel="preconnect" href="https://dylrlrpqagnbcblddglk.supabase.co" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://dylrlrpqagnbcblddglk.supabase.co" />
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
@@ -165,12 +153,10 @@ export default function RootLayout({
         <meta name="distribution" content="global" />
         <meta name="coverage" content="Worldwide" />
         <meta name="theme-color" content="#E9C46A" />
-
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Nidhi Elite" />
-
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
         <meta name="author" content="Nidhi Elite" />
@@ -180,6 +166,10 @@ export default function RootLayout({
       <body className={`font-sans ${inter.variable} ${playfair.variable} ${GeistMono.variable}`}>
         <GoogleAnalytics />
 
+        {/* ✅ Client-side font loader (replaces old onLoad logic) */}
+        <FontLoader />
+
+        {/* ✅ Structured data scripts */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -261,30 +251,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
               itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: "https://nidhielite.com/",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "Plots",
-                  item: "https://nidhielite.com/#plots",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 3,
-                  name: "Villas",
-                  item: "https://nidhielite.com/#customized-villas",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 4,
-                  name: "Location",
-                  item: "https://nidhielite.com/#location",
-                },
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://nidhielite.com/" },
+                { "@type": "ListItem", position: 2, name: "Plots", item: "https://nidhielite.com/#plots" },
+                { "@type": "ListItem", position: 3, name: "Villas", item: "https://nidhielite.com/#customized-villas" },
+                { "@type": "ListItem", position: 4, name: "Location", item: "https://nidhielite.com/#location" },
               ],
             }),
           }}
