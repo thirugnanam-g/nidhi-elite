@@ -1,48 +1,52 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  CheckCircle,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-} from "lucide-react"
+import { MapPin, Phone, Mail, Clock, CheckCircle, Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" })
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success">("idle")
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const googleFormUrl =
-      "https://docs.google.com/forms/d/e/1FAIpQLSdIEGQHhcbpcmKL6yQYmAM08YailWGjMvBPf60YUf8waWA_Jg/formResponse"
 
-    const formDataToSubmit = new FormData()
-    formDataToSubmit.append("entry.1234567890", formData.name)
-    formDataToSubmit.append("entry.0987654321", formData.email)
-    formDataToSubmit.append("entry.1111111111", formData.phone)
-    formDataToSubmit.append("entry.2222222222", formData.message)
+    try {
+      const googleFormUrl =
+        "https://docs.google.com/forms/d/e/1FAIpQLSdIEGQHhcbpcmKL6yQYmAM08YailWGjMvBPf60YUf8waWA_Jg/formResponse"
 
-    fetch(googleFormUrl, { method: "POST", body: formDataToSubmit, mode: "no-cors" }).then(() => {
+      const formDataToSubmit = new FormData()
+      formDataToSubmit.append("entry.1234567890", formData.name)
+      formDataToSubmit.append("entry.0987654321", formData.email)
+      formDataToSubmit.append("entry.1111111111", formData.phone)
+      formDataToSubmit.append("entry.2222222222", formData.message)
+
+      const response = await fetch(googleFormUrl, {
+        method: "POST",
+        body: formDataToSubmit,
+        mode: "no-cors",
+      })
+
+      // With no-cors, we can't check response status, so we assume success
       setSubmitStatus("success")
       setFormData({ name: "", email: "", phone: "", message: "" })
       setTimeout(() => setSubmitStatus("idle"), 3000)
-    })
+    } catch (error) {
+      console.error("[v0] Form submission error:", error)
+      setSubmitStatus("error")
+      setTimeout(() => setSubmitStatus("idle"), 3000)
+    }
   }
 
   return (
@@ -58,7 +62,7 @@ export function ContactSection() {
         {/* Header */}
         <div className="text-center mb-6">
           <h2 className="text-3xl sm:text-4xl font-serif font-light text-foreground leading-tight">
-            Let’s Build Your <span className="text-primary italic font-semibold">Dream Home</span> Together
+            Let's Build Your <span className="text-primary italic font-semibold">Dream Home</span> Together
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto mt-1">
             Ready to make <strong>Nidhi Elite</strong> your home? Get in touch to schedule a visit or learn more about
@@ -117,6 +121,13 @@ export function ContactSection() {
                 <div className="mb-3 p-2.5 bg-green-50 border border-green-200 rounded-lg flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600" />
                   <p className="text-green-800 text-sm">Message sent successfully!</p>
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div className="mb-3 p-2.5 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-red-600" />
+                  <p className="text-red-800 text-sm">Error sending message. Please try again.</p>
                 </div>
               )}
 

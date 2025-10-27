@@ -1,69 +1,41 @@
+export const SUPABASE_PROJECT_ID = "dylrlrpqagnbcblddglk"
+export const SUPABASE_BUCKET = "assets"
+export const SUPABASE_BASE_URL = `https://${SUPABASE_PROJECT_ID}.supabase.co/storage/v1/object/public/${SUPABASE_BUCKET}`
+
 export const IMAGE_URLS: Record<string, string> = {
   // Logo and branding
-  "/images/butterfly-logo.jpg": process.env.SUPABASE_NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/butterfly-logo.jpg`
-    : "/images/butterfly-logo.jpg",
+  "/images/butterfly-logo.jpg": `${SUPABASE_BASE_URL}/butterfly-logo.jpg`,
+  "/images/nidhi-elite-og-image.jpg": `${SUPABASE_BASE_URL}/nidhi-elite-og-image.jpg`,
 
   // Hero and main images
-  "/images/hero-bg.jpeg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/hero-bg.jpeg`
-    : "/images/hero-bg.jpeg",
+  "/images/hero-bg.jpeg": `${SUPABASE_BASE_URL}/hero-bg.jpeg`,
 
   // Site and layout images
-  "/images/site-layout.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/site-layout.jpg`
-    : "/images/site-layout.jpg",
-  "/images/nidhi-elite-hosur-layout.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/nidhi-elite-hosur-layout.jpg`
-    : "/images/nidhi-elite-hosur-layout.jpg",
+  "/images/site-layout.jpg": `${SUPABASE_BASE_URL}/site-layout.jpg`,
+  "/images/nidhi-elite-hosur-layout.jpg": `${SUPABASE_BASE_URL}/nidhi-elite-hosur-layout.jpg`,
 
   // Villa and property images
-  "/images/minimal-villa-exterior-render.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/minimal-villa-exterior-render.jpg`
-    : "/images/minimal-villa-exterior-render.jpg",
+  "/images/minimal-villa-exterior-render.jpg": `${SUPABASE_BASE_URL}/minimal-villa-exterior-render.jpg`,
 
   // Floor plans
-  "/images/east-floor-plan.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/east-floor-plan.jpg`
-    : "/images/east-floor-plan.jpg",
-  "/images/north-floor-plan.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/north-floor-plan.jpg`
-    : "/images/north-floor-plan.jpg",
-  "/images/west-floor-plan.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/west-floor-plan.jpg`
-    : "/images/west-floor-plan.jpg",
+  "/images/east-floor-plan.jpg": `${SUPABASE_BASE_URL}/east-floor-plan.jpg`,
+  "/images/north-floor-plan.jpg": `${SUPABASE_BASE_URL}/north-floor-plan.jpg`,
+  "/images/west-floor-plan.jpg": `${SUPABASE_BASE_URL}/west-floor-plan.jpg`,
 
   // Approval logos
-  "/images/tnrera-logo.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/tnrera-logo.jpg`
-    : "/images/tnrera-logo.jpg",
-  "/images/hntda-logo.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/hntda-logo.jpg`
-    : "/images/hntda-logo.jpg",
-  "/images/rera-approved.png": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/rera-approved.png`
-    : "/images/rera-approved.png",
-  "/images/hntda-approved.png": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/hntda-approved.png`
-    : "/images/hntda-approved.png",
-  "/images/hntda-approved.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/hntda-approved.jpg`
-    : "/images/hntda-approved.jpg",
-  "/images/rera-approved.jpg": process.env.NEXT_PUBLIC_SUPABASE_URL
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/rera-approved.jpg`
-    : "/images/rera-approved.jpg",
+  "/images/tnrera-logo.jpg": `${SUPABASE_BASE_URL}/tnrera-logo.jpg`,
+  "/images/hntda-logo.jpg": `${SUPABASE_BASE_URL}/hntda-logo.jpg`,
+  "/images/rera-approved.png": `${SUPABASE_BASE_URL}/rera-approved.png`,
+  "/images/hntda-approved.png": `${SUPABASE_BASE_URL}/hntda-approved.png`,
+  "/images/hntda-approved.jpg": `${SUPABASE_BASE_URL}/hntda-approved.jpg`,
+  "/images/rera-approved.jpg": `${SUPABASE_BASE_URL}/rera-approved.jpg`,
 
   // Gallery images (IMG-20250929-WA0001 through WA0050)
   ...Object.fromEntries(
     Array.from({ length: 50 }, (_, i) => {
       const num = String(i + 1).padStart(4, "0")
       const path = `/images/IMG-20250929-WA${num}.jpg`
-      return [
-        path,
-        process.env.NEXT_PUBLIC_SUPABASE_URL
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/assets/images/IMG-20250929-WA${num}.jpg`
-          : path,
-      ]
+      return [path, `${SUPABASE_BASE_URL}/IMG-20250929-WA${num}.jpg`]
     }),
   ),
 }
@@ -76,7 +48,6 @@ export function getSupabaseImageUrl(imagePath: string, options?: { width?: numbe
   const baseUrl = getImageUrl(imagePath)
   if (!baseUrl.includes("supabase")) return baseUrl
 
-  // Add cache busting and optimization params
   const params = new URLSearchParams()
   if (options?.width) params.append("width", options.width.toString())
   if (options?.height) params.append("height", options.height.toString())

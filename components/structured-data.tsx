@@ -4,7 +4,7 @@ export function StructuredData() {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://nidhielite.com/#organization",
+        "@id": "https://v0-nidhi-elite.vercel.app/#organization",
         name: "Nidhi Elite",
         alternateName: [
           "Nidhi Elite Villas",
@@ -12,12 +12,12 @@ export function StructuredData() {
           "Nidhi Elite Luxury Homes",
           "Nidhi Elite Plots Hosur",
         ],
-        url: "https://nidhielite.com",
+        url: "https://v0-nidhi-elite.vercel.app",
         logo: {
           "@type": "ImageObject",
-          url: "https://nidhielite.com/images/butterfly-logo.png",
-          width: 200,
-          height: 200,
+          url: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
+          width: 400,
+          height: 400,
         },
         sameAs: [
           "https://www.facebook.com/profile.php?id=61580792931426",
@@ -27,7 +27,7 @@ export function StructuredData() {
         ],
         contactPoint: {
           "@type": "ContactPoint",
-          telephone: "+91-93602-99919",
+          telephone: "+91-9360299919",
           contactType: "Sales",
           areaServed: "IN",
           availableLanguage: ["English", "Tamil"],
@@ -48,28 +48,28 @@ export function StructuredData() {
       },
       {
         "@type": "WebSite",
-        "@id": "https://nidhielite.com/#website",
-        url: "https://nidhielite.com",
+        "@id": "https://v0-nidhi-elite.vercel.app/#website",
+        url: "https://v0-nidhi-elite.vercel.app",
         name: "Nidhi Elite - Premium Luxury Plots & Customized Villas",
         description:
           "Discover luxury living at Nidhi Elite — premium plots and customized villas in Hosur with HNTDA and TNRERA approvals, close to Bangalore.",
-        publisher: { "@id": "https://nidhielite.com/#organization" },
+        publisher: { "@id": "https://v0-nidhi-elite.vercel.app/#organization" },
         potentialAction: [
           {
             "@type": "SearchAction",
-            target: "https://nidhielite.com/search?q={search_term_string}",
+            target: "https://v0-nidhi-elite.vercel.app/search?q={search_term_string}",
             "query-input": "required name=search_term_string",
           },
         ],
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://nidhielite.com/#localbusiness",
+        "@id": "https://v0-nidhi-elite.vercel.app/#localbusiness",
         name: "Nidhi Elite",
-        image: "https://nidhielite.com/images/IMG-20250929-WA0003.jpg",
-        telephone: "+91-93602-99919",
+        image: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
+        telephone: "+91-9360299919",
         priceRange: "₹₹₹",
-        url: "https://nidhielite.com",
+        url: "https://v0-nidhi-elite.vercel.app",
         description:
           "HNTDA and TNRERA approved luxury villa and plot project located in Hosur, offering premium amenities and easy access to Bangalore.",
         geo: {
@@ -86,38 +86,45 @@ export function StructuredData() {
           postalCode: "635110",
           addressCountry: "IN",
         },
-        areaServed: "Bangalore, Hosur, Krishnagiri",
+        areaServed: ["Bangalore", "Hosur", "Krishnagiri", "Tamil Nadu"],
         makesOffer: {
           "@type": "Offer",
-          url: "https://nidhielite.com",
+          url: "https://v0-nidhi-elite.vercel.app",
           priceCurrency: "INR",
           availability: "https://schema.org/InStock",
+        },
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.8",
+          ratingCount: "150",
+          bestRating: "5",
+          worstRating: "1",
         },
       },
       {
         "@type": "Product",
-        "@id": "https://nidhielite.com/#plots",
+        "@id": "https://v0-nidhi-elite.vercel.app/#plots",
         name: "Nidhi Elite Luxury Plots & Customized Villas",
         description:
           "HNTDA and TNRERA approved luxury plots and customized villas in Hosur. Strategically located near Electronic City and Bangalore, with top-class connectivity and amenities.",
         category: "Real Estate",
         brand: { "@type": "Brand", name: "Nidhi Elite" },
         image: [
-          "https://nidhielite.com/images/IMG-20250929-WA0003.jpg",
-          "https://nidhielite.com/images/IMG-20250929-WA0008.jpg",
+          "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
+          "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/nidhi-elite-og-image.jpg",
         ],
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "INR",
           lowPrice: "5000000",
           highPrice: "15000000",
-          offerCount: "50",
+          offerCount: "106",
           availability: "https://schema.org/InStock",
         },
       },
       {
         "@type": "FAQPage",
-        "@id": "https://nidhielite.com/#faq",
+        "@id": "https://v0-nidhi-elite.vercel.app/#faq",
         mainEntity: [
           {
             "@type": "Question",
@@ -155,43 +162,43 @@ export function StructuredData() {
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://nidhielite.com/#breadcrumb",
+        "@id": "https://v0-nidhi-elite.vercel.app/#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://nidhielite.com",
+            item: "https://v0-nidhi-elite.vercel.app",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Plots",
-            item: "https://nidhielite.com/#plots",
+            item: "https://v0-nidhi-elite.vercel.app/#plots",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: "Villas",
-            item: "https://nidhielite.com/#customized-villas",
+            item: "https://v0-nidhi-elite.vercel.app/#customized-villas",
           },
           {
             "@type": "ListItem",
             position: 4,
             name: "Amenities",
-            item: "https://nidhielite.com/#amenities",
+            item: "https://v0-nidhi-elite.vercel.app/#amenities",
           },
           {
             "@type": "ListItem",
             position: 5,
             name: "Location",
-            item: "https://nidhielite.com/#location",
+            item: "https://v0-nidhi-elite.vercel.app/#location",
           },
         ],
       },
       {
         "@type": "AggregateRating",
-        "@id": "https://nidhielite.com/#rating",
+        "@id": "https://v0-nidhi-elite.vercel.app/#rating",
         ratingValue: "4.8",
         ratingCount: "150",
         bestRating: "5",
