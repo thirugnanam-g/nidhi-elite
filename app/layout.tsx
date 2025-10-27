@@ -69,14 +69,14 @@ export const metadata: Metadata = {
     siteName: "Nidhi Elite",
     images: [
       {
-        url: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/nidhi-elite-og-image.jpg",
+        url: "https://nidhielite.com/images/nidhi-elite-og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Nidhi Elite - Premium Plots and Villas in Hosur",
         type: "image/jpeg",
       },
       {
-        url: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
+        url: "https://nidhielite.com/images/butterfly-logo.jpg",
         width: 400,
         height: 400,
         alt: "Nidhi Elite Logo",
@@ -178,7 +178,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Nidhi Elite",
               url: "https://nidhielite.com/",
-              logo: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
+              logo: "https://nidhielite.com/images/butterfly-logo.jpg",
               description:
                 "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
               address: {
@@ -214,7 +214,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "Nidhi Elite",
-              image: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
+              image: "https://nidhielite.com/images/butterfly-logo.jpg",
               description:
                 "Premium HNTDA & TNRERA approved residential plots and customized villas in Hosur near Bangalore",
               address: {
