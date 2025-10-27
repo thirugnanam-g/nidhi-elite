@@ -9,9 +9,10 @@ import { Suspense } from "react"
 import { GoogleAnalytics } from "@/components/google-analytics"
 import { AnalyticsTracker } from "@/components/analytics-tracker"
 import { ConversionTracking } from "@/components/conversion-tracking"
-import { FontLoader } from "@/components/font-loader" // ✅ client-safe font loader
+import { FontLoader } from "@/components/font-loader"
 import "./globals.css"
 
+// ✅ Font setup
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -24,6 +25,7 @@ const playfair = Playfair_Display({
   display: "swap",
 })
 
+// ✅ SEO Metadata
 export const metadata: Metadata = {
   title: {
     default: "Nidhi Elite | Premium Plots & Villas in Hosur",
@@ -53,15 +55,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Nidhi Elite" }],
   creator: "Nidhi Elite",
   publisher: "Nidhi Elite",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   metadataBase: new URL("https://nidhielite.com"),
-  alternates: {
-    canonical: "https://nidhielite.com/",
-  },
+  alternates: { canonical: "https://nidhielite.com/" },
   openGraph: {
     title: "Nidhi Elite | Premium Plots & Villas in Hosur",
     description: "HNTDA & TNRERA approved premium plots and villas in Hosur near Bangalore. Starting from ₹21 Lakhs.",
@@ -75,13 +70,6 @@ export const metadata: Metadata = {
         alt: "Nidhi Elite - Premium Plots and Villas in Hosur",
         type: "image/jpeg",
       },
-      {
-        url: "https://nidhielite.com/images/butterfly-logo.jpg",
-        width: 400,
-        height: 400,
-        alt: "Nidhi Elite Logo",
-        type: "image/jpeg",
-      },
     ],
     locale: "en_IN",
     type: "website",
@@ -90,9 +78,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nidhi Elite | Premium Plots & Villas in Hosur",
     description: "HNTDA & TNRERA approved premium plots and villas in Hosur near Bangalore.",
-    images: ["https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/nidhi-elite-og-image.jpg"],
+    images: ["https://nidhielite.com/images/nidhi-elite-og-image.jpg"],
     creator: "@nidhielite",
-    site: "@nidhielite",
   },
   robots: {
     index: true,
@@ -116,14 +103,14 @@ export const metadata: Metadata = {
   },
 }
 
+// ✅ Root Layout
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
+        {/* Favicons */}
         <link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon" />
         <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -131,13 +118,11 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="canonical" href="https://nidhielite.com/" />
 
-        {/* ✅ Safe preloads (no onLoad) */}
+        {/* ✅ Safe preloads */}
         <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/playfair.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
-        {/* ✅ Network preconnects */}
-        <link rel="preconnect" href="https://dylrlrpqagnbcblddglk.supabase.co" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://dylrlrpqagnbcblddglk.supabase.co" />
+        {/* ✅ Preconnects */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
@@ -147,11 +132,6 @@ export default function RootLayout({
         <meta name="geo.placename" content="Hosur, Tamil Nadu, India" />
         <meta name="geo.position" content="12.7409;77.8253" />
         <meta name="ICBM" content="12.7409,77.8253" />
-        <meta name="rating" content="General" />
-        <meta name="subject" content="Premium Plots and Customized Villas in Hosur near Bangalore" />
-        <meta name="copyright" content="© 2025 Nidhi Elite" />
-        <meta name="distribution" content="global" />
-        <meta name="coverage" content="Worldwide" />
         <meta name="theme-color" content="#E9C46A" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -165,96 +145,84 @@ export default function RootLayout({
 
       <body className={`font-sans ${inter.variable} ${playfair.variable} ${GeistMono.variable}`}>
         <GoogleAnalytics />
-
-        {/* ✅ Client-side font loader (replaces old onLoad logic) */}
         <FontLoader />
 
-        {/* ✅ Structured data scripts */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Nidhi Elite",
-              url: "https://nidhielite.com/",
-              logo: "https://nidhielite.com/images/butterfly-logo.jpg",
-              description:
-                "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Sy. No: 750, Poonapalli Village",
-                addressLocality: "Hosur",
-                addressRegion: "Tamil Nadu",
-                postalCode: "635110",
-                addressCountry: "India",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 12.7409,
-                longitude: 77.8253,
-              },
-              telephone: "+91-9360299919",
-              email: "nidhielitelayout@gmail.com",
-              priceRange: "₹21L - ₹42L+",
-              openingHours: "Mo-Sa 09:00-18:00",
-              sameAs: [
-                "https://www.instagram.com/nidhi.elite/",
-                "https://www.facebook.com/profile.php?id=61580792931426",
-                "https://www.youtube.com/@NidhiElite/videos",
-              ],
-            }),
-          }}
-        />
-
+        {/* ✅ Single unified schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "Nidhi Elite",
-              image: "https://nidhielite.com/images/butterfly-logo.jpg",
-              description:
-                "Premium HNTDA & TNRERA approved residential plots and customized villas in Hosur near Bangalore",
-              address: {
+              "@id": "https://nidhielite.com/#organization",
+              "name": "Nidhi Elite",
+              "url": "https://nidhielite.com/",
+              "logo": "https://nidhielite.com/images/butterfly-logo.jpg",
+              "image": "https://nidhielite.com/images/nidhi-elite-og-image.jpg",
+              "description":
+                "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur near Bangalore. Starting from ₹21 Lakhs with modern amenities and gated community.",
+              "priceRange": "₹21L - ₹42L+",
+              "telephone": "+91-9360299919",
+              "email": "nidhielitelayout@gmail.com",
+              "address": {
                 "@type": "PostalAddress",
-                streetAddress: "Sy. No: 750, Poonapalli Village",
-                addressLocality: "Hosur",
-                addressRegion: "Tamil Nadu",
-                postalCode: "635110",
-                addressCountry: "IN",
+                "streetAddress": "Sy. No: 750, Poonapalli Village",
+                "addressLocality": "Hosur",
+                "addressRegion": "Tamil Nadu",
+                "postalCode": "635110",
+                "addressCountry": "IN",
               },
-              telephone: "+91-9360299919",
-              url: "https://nidhielite.com/",
-              priceRange: "₹21L - ₹42L+",
-              areaServed: ["Hosur", "Bangalore", "Tamil Nadu", "Krishnagiri"],
-              openingHoursSpecification: {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                opens: "09:00",
-                closes: "18:00",
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 12.7409,
+                "longitude": 77.8253,
               },
-              aggregateRating: {
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                  ],
+                  "opens": "09:00",
+                  "closes": "18:00",
+                },
+              ],
+              "aggregateRating": {
                 "@type": "AggregateRating",
-                ratingValue: "4.8",
-                ratingCount: "150",
+                "ratingValue": "4.8",
+                "ratingCount": "150",
+              },
+              "sameAs": [
+                "https://www.instagram.com/nidhi.elite/",
+                "https://www.facebook.com/profile.php?id=61580792931426",
+                "https://www.youtube.com/@NidhiElite/videos",
+              ],
+              "brand": {
+                "@type": "Brand",
+                "name": "Nidhi Elite",
+                "logo": "https://nidhielite.com/images/butterfly-logo.jpg",
               },
             }),
           }}
         />
 
+        {/* ✅ Breadcrumb schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: "https://nidhielite.com/" },
-                { "@type": "ListItem", position: 2, name: "Plots", item: "https://nidhielite.com/#plots" },
-                { "@type": "ListItem", position: 3, name: "Villas", item: "https://nidhielite.com/#customized-villas" },
-                { "@type": "ListItem", position: 4, name: "Location", item: "https://nidhielite.com/#location" },
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nidhielite.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Plots", "item": "https://nidhielite.com/#plots" },
+                { "@type": "ListItem", "position": 3, "name": "Villas", "item": "https://nidhielite.com/#customized-villas" },
+                { "@type": "ListItem", "position": 4, "name": "Location", "item": "https://nidhielite.com/#location" },
               ],
             }),
           }}
