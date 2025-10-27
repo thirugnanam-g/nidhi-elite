@@ -26,7 +26,7 @@ export function FloatingWhatsApp() {
         aria-label="Chat on WhatsApp"
       >
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-3OUWoO4i1wmHotYaNaDDCnkbaxVtbh.png"
+          src="/images/design-mode/image.png"
           alt="WhatsApp"
           width={56}
           height={56}
