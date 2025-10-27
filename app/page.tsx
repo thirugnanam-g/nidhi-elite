@@ -1,6 +1,5 @@
 "use client"
 
-import Head from "next/head"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { PlotsIntro } from "@/components/plots-intro"
@@ -21,35 +20,6 @@ import { TestimonialsSection } from "@/components/sections/testimonials"
 export default function Home() {
   return (
     <>
-      {/* SEO HEAD TAGS */}
-      <Head>
-        <title>Nidhi Elite | HNTDA & TNRERA Approved Plots and Villas in Hosur</title>
-        <meta
-          name="description"
-          content="Nidhi Elite offers HNTDA & TNRERA-approved residential plots and customizable luxury villas in Hosur. Located near Bangalore with modern amenities and 24/7 security."
-        />
-        <meta
-          name="keywords"
-          content="Nidhi Elite Hosur, HNTDA plots Hosur, villas near Bangalore, gated community plots Hosur, real estate Hosur, TNRERA approved plots, premium villas in Hosur"
-        />
-        <meta property="og:title" content="Nidhi Elite | Luxury Plots & Villas in Hosur" />
-        <meta
-          property="og:description"
-          content="Premium gated community offering HNTDA-approved plots and customizable villas near Electronic City, Bangalore. Book your dream home today!"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://nidhielite.com" />
-        <meta property="og:image" content="https://nidhielite.com/og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Nidhi Elite | Luxury Plots & Villas in Hosur" />
-        <meta
-          name="twitter:description"
-          content="Explore HNTDA-approved residential plots and luxury villas near Bangalore. Secure, connected, and surrounded by greenery."
-        />
-        <meta name="twitter:image" content="https://nidhielite.com/og-image.jpg" />
-        <link rel="canonical" href="https://nidhielite.com/" />
-      </Head>
-
       {/* Structured Data + Performance Enhancers */}
       <StructuredData />
       <PerformanceOptimizer />
@@ -132,7 +102,7 @@ export default function Home() {
           <ContactSection />
         </div>
 
-        {/* INTERNAL LINKS FOR SEO */}
+        {/* Internal links for SEO */}
         <nav
           aria-label="Quick Links"
           className="flex flex-wrap justify-center gap-x-3 gap-y-2 mt-8 mb-8 text-sm text-gray-700 px-4 border-t border-gray-200 pt-4"
@@ -153,49 +123,6 @@ export default function Home() {
             Hosur Location & Connectivity
           </a>
         </nav>
-
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: "https://nidhielite.com/",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "Plots",
-                  item: "https://nidhielite.com/#plots",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 3,
-                  name: "Villas",
-                  item: "https://nidhielite.com/#customized-villas",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 4,
-                  name: "Amenities",
-                  item: "https://nidhielite.com/#amenities",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 5,
-                  name: "Contact",
-                  item: "https://nidhielite.com/#contact",
-                },
-              ],
-            }),
-          }}
-        />
 
         <Footer />
         <FloatingWhatsApp />

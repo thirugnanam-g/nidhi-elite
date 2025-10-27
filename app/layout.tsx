@@ -25,11 +25,11 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nidhi Elite | Premium Plots & Villas in Hosur near Bangalore | TNRERA & HNTDA Approved",
+    default: "Nidhi Elite | Premium Plots & Villas in Hosur",
     template: "%s | Nidhi Elite",
   },
   description:
-    "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore. Starting from ₹21 Lakhs with modern amenities, gated community, and world-class facilities. Book your dream home today.",
+    "HNTDA & TNRERA approved premium plots and villas in Hosur near Bangalore. Starting from ₹21 Lakhs with modern amenities and gated community.",
   keywords: [
     "Nidhi Elite Hosur",
     "plots in Hosur",
@@ -57,15 +57,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://v0-nidhi-elite.vercel.app"),
+  metadataBase: new URL("https://nidhielite.com"),
   alternates: {
-    canonical: "https://v0-nidhi-elite.vercel.app/",
+    canonical: "https://nidhielite.com/",
   },
   openGraph: {
-    title: "Nidhi Elite | Premium Plots & Villas in Hosur near Bangalore",
-    description:
-      "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore. Starting from ₹21 Lakhs with modern amenities.",
-    url: "https://v0-nidhi-elite.vercel.app/",
+    title: "Nidhi Elite | Premium Plots & Villas in Hosur",
+    description: "HNTDA & TNRERA approved premium plots and villas in Hosur near Bangalore. Starting from ₹21 Lakhs.",
+    url: "https://nidhielite.com/",
     siteName: "Nidhi Elite",
     images: [
       {
@@ -89,7 +88,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Nidhi Elite | Premium Plots & Villas in Hosur",
-    description: "HNTDA & TNRERA approved premium plots and customized villas in Hosur near Bangalore.",
+    description: "HNTDA & TNRERA approved premium plots and villas in Hosur near Bangalore.",
     images: ["https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/nidhi-elite-og-image.jpg"],
     creator: "@nidhielite",
     site: "@nidhielite",
@@ -130,7 +129,23 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
-        <link rel="canonical" href="https://v0-nidhi-elite.vercel.app/" />
+        <link rel="canonical" href="https://nidhielite.com/" />
+
+        <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/playfair.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+          as="style"
+          onLoad={(e: any) => ((e.onload = null), (e.rel = "stylesheet"))}
+        />
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+            rel="stylesheet"
+          />
+        </noscript>
 
         <link rel="preconnect" href="https://dylrlrpqagnbcblddglk.supabase.co" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://dylrlrpqagnbcblddglk.supabase.co" />
@@ -160,8 +175,11 @@ export default function RootLayout({
         <meta name="revisit-after" content="7 days" />
         <meta name="author" content="Nidhi Elite" />
         <meta name="owner" content="Nidhi Elite" />
+      </head>
 
-        {/* 🔍 Schema Markup for Rich Snippets */}
+      <body className={`font-sans ${inter.variable} ${playfair.variable} ${GeistMono.variable}`}>
+        <GoogleAnalytics />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -169,7 +187,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Nidhi Elite",
-              url: "https://v0-nidhi-elite.vercel.app/",
+              url: "https://nidhielite.com/",
               logo: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
               description:
                 "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
@@ -218,7 +236,7 @@ export default function RootLayout({
                 addressCountry: "IN",
               },
               telephone: "+91-9360299919",
-              url: "https://v0-nidhi-elite.vercel.app/",
+              url: "https://nidhielite.com/",
               priceRange: "₹21L - ₹42L+",
               areaServed: ["Hosur", "Bangalore", "Tamil Nadu", "Krishnagiri"],
               openingHoursSpecification: {
@@ -247,34 +265,30 @@ export default function RootLayout({
                   "@type": "ListItem",
                   position: 1,
                   name: "Home",
-                  item: "https://v0-nidhi-elite.vercel.app/",
+                  item: "https://nidhielite.com/",
                 },
                 {
                   "@type": "ListItem",
                   position: 2,
                   name: "Plots",
-                  item: "https://v0-nidhi-elite.vercel.app/#plots",
+                  item: "https://nidhielite.com/#plots",
                 },
                 {
                   "@type": "ListItem",
                   position: 3,
                   name: "Villas",
-                  item: "https://v0-nidhi-elite.vercel.app/#customized-villas",
+                  item: "https://nidhielite.com/#customized-villas",
                 },
                 {
                   "@type": "ListItem",
                   position: 4,
                   name: "Location",
-                  item: "https://v0-nidhi-elite.vercel.app/#location",
+                  item: "https://nidhielite.com/#location",
                 },
               ],
             }),
           }}
         />
-      </head>
-
-      <body className={`font-sans ${inter.variable} ${playfair.variable} ${GeistMono.variable}`}>
-        <GoogleAnalytics />
 
         <Suspense fallback={null}>
           {children}
