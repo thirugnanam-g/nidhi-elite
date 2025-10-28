@@ -4,7 +4,7 @@ import { Download, MapPin, TreePine, CheckCircle } from "lucide-react"
 
 export function AboutSection() {
   const handleBrochureDownload = () => {
-    window.open("https://drive.google.com/file/d/1HtJrEzHmOXjn6weiQV-NJXvicFkUOzqs/view?usp=sharing", "_blank")
+    window.open("https://drive.google.com/file/d/1WOnlQfbloX_7USgCWPd38_lAGZ9tplko/view?usp=sharing", "_blank")
   }
 
   return (
