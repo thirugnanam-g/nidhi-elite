@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Nidhi Elite",
   },
   description:
-    "HNTDA & TNRERA approved luxury plots and villas in Hosur near Bangalore. Premium residential community with modern amenities starting from ₹21 Lakhs.",
+    "HNTDA & TNRERA approved luxury plots and villas in Hosur near Bangalore. Premium residential community with modern amenities and world-class facilities starting from ₹21 Lakhs.",
   keywords: [
     "Nidhi Elite Hosur",
     "plots in Hosur",
@@ -135,6 +135,8 @@ export default function RootLayout({
 
         {/* DNS Prefetch for analytics */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        <meta name="spf" content="v=spf1 include:_spf.google.com ~all" />
 
         {/* Geo Tags for Local SEO */}
         <meta name="geo.region" content="IN-TN" />
