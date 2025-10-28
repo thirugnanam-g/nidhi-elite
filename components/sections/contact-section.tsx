@@ -1,14 +1,12 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, Clock, CheckCircle, Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Twitter, CheckCircle } from "lucide-react"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" })
@@ -19,34 +17,26 @@ export function ContactSection() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    try {
-      const googleFormUrl =
-        "https://docs.google.com/forms/d/e/1FAIpQLSdIEGQHhcbpcmKL6yQYmAM08YailWGjMvBPf60YUf8waWA_Jg/formResponse"
+    const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@nidhielite.com"
 
-      const formDataToSubmit = new FormData()
-      formDataToSubmit.append("entry.1234567890", formData.name)
-      formDataToSubmit.append("entry.0987654321", formData.email)
-      formDataToSubmit.append("entry.1111111111", formData.phone)
-      formDataToSubmit.append("entry.2222222222", formData.message)
+    const subject = encodeURIComponent(`Contact Form Submission from ${formData.name}`)
+    const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
 
-      const response = await fetch(googleFormUrl, {
-        method: "POST",
-        body: formDataToSubmit,
-        mode: "no-cors",
-      })
+Message:
+${formData.message}
+    `)
 
-      // With no-cors, we can't check response status, so we assume success
-      setSubmitStatus("success")
-      setFormData({ name: "", email: "", phone: "", message: "" })
-      setTimeout(() => setSubmitStatus("idle"), 3000)
-    } catch (error) {
-      console.error("[v0] Form submission error:", error)
-      setSubmitStatus("error")
-      setTimeout(() => setSubmitStatus("idle"), 3000)
-    }
+    const mailtoUrl = `mailto:${contactEmail}?subject=${subject}&body=${body}`
+    window.location.href = mailtoUrl
+
+    setSubmitStatus("success")
+    setFormData({ name: "", email: "", phone: "", message: "" })
   }
 
   return (
@@ -78,7 +68,7 @@ export function ContactSection() {
               {[
                 { icon: MapPin, title: "Visit Us", text: "750, Poonapalli Village, Hosur, Tamil Nadu" },
                 { icon: Phone, title: "Call Us", text: "93602 99919" },
-                { icon: Mail, title: "Email Us", text: "Contact via form below" },
+                { icon: Mail, title: "Email Us", text: "nidhielite@gmail.com" },
                 { icon: Clock, title: "Office Hours", text: "Mon - Sun: 9:00 AM - 6:00 PM" },
               ].map(({ icon: Icon, title, text }, index) => (
                 <div key={index} className="flex items-start gap-2.5">
@@ -114,67 +104,85 @@ export function ContactSection() {
             </div>
           </Card>
 
-          {/* Right — Contact Form */}
-          <Card className="rounded-2xl shadow-xl border border-primary/20 bg-white/90 backdrop-blur-sm flex flex-col justify-between p-6 h-full">
-            <CardContent className="flex flex-col justify-between h-full p-0">
+          {/* Right — Simple Contact CTA */}
+          <Card className="rounded-2xl shadow-xl border border-primary/20 bg-white/90 backdrop-blur-sm flex flex-col">
+            <CardContent className="p-4 sm:p-6 lg:p-8">
               {submitStatus === "success" && (
-                <div className="mb-3 p-2.5 bg-green-50 border border-green-200 rounded-lg flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <p className="text-green-800 text-sm">Message sent successfully!</p>
+                <div className="mb-4 sm:mb-6 p-2.5 sm:p-3 lg:p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-2">
+                  <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-green-600 flex-shrink-0" />
+                  <p className="text-green-800 text-xs sm:text-sm">
+                    Your email client will open — send it to reach us directly!
+                  </p>
                 </div>
               )}
 
-              {submitStatus === "error" && (
-                <div className="mb-3 p-2.5 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-red-600" />
-                  <p className="text-red-800 text-sm">Error sending message. Please try again.</p>
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 lg:space-y-5">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <Label htmlFor="name" className="text-xs sm:text-sm">
+                    Full Name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Enter your full name"
+                    required
+                    className="text-xs sm:text-sm"
+                  />
                 </div>
-              )}
 
-              <form onSubmit={handleSubmit} className="flex flex-col justify-between h-full space-y-3">
-                <div className="flex-grow space-y-3">
-                  {[
-                    { id: "name", label: "Full Name", type: "text", placeholder: "Enter your full name" },
-                    { id: "phone", label: "Phone Number", type: "tel", placeholder: "Enter your phone number" },
-                    { id: "email", label: "Email Address", type: "email", placeholder: "Enter your email" },
-                  ].map(({ id, label, type, placeholder }) => (
-                    <div key={id} className="space-y-0.5">
-                      <Label htmlFor={id} className="text-sm font-medium">
-                        {label}
-                      </Label>
-                      <Input
-                        id={id}
-                        name={id}
-                        type={type}
-                        value={(formData as any)[id]}
-                        onChange={handleInputChange}
-                        placeholder={placeholder}
-                        required
-                        className="text-sm"
-                      />
-                    </div>
-                  ))}
+                <div className="space-y-1.5 sm:space-y-2">
+                  <Label htmlFor="phone" className="text-xs sm:text-sm">
+                    Phone Number
+                  </Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="Enter your phone number"
+                    required
+                    className="text-xs sm:text-sm"
+                  />
+                </div>
 
-                  <div className="space-y-0.5">
-                    <Label htmlFor="message" className="text-sm font-medium">
-                      Message
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell us your requirements..."
-                      rows={3}
-                      required
-                      className="text-sm"
-                    />
-                  </div>
+                <div className="space-y-1.5 sm:space-y-2">
+                  <Label htmlFor="email" className="text-xs sm:text-sm">
+                    Email Address
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Enter your email"
+                    required
+                    className="text-xs sm:text-sm"
+                  />
+                </div>
+
+                <div className="space-y-1.5 sm:space-y-2">
+                  <Label htmlFor="message" className="text-xs sm:text-sm">
+                    Message
+                  </Label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell us your requirements..."
+                    rows={3}
+                    required
+                    className="text-xs sm:text-sm w-full px-3 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-primary text-white hover:bg-primary/90 font-semibold py-2.5 text-sm mt-auto"
+                  className="w-full bg-primary text-white hover:bg-primary/90 font-semibold py-4 sm:py-5 text-xs sm:text-sm"
                 >
                   Send Message
                 </Button>

@@ -25,11 +25,11 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nidhi Elite | Plots & Villas in Hosur",
+    default: "Nidhi Elite | HNTDA & TNRERA Approved Plots & Villas in Hosur",
     template: "%s | Nidhi Elite",
   },
   description:
-    "HNTDA & TNRERA approved luxury plots and villas in Hosur near Bangalore. Premium residential community with modern amenities starting from ₹21 Lakhs onwards.",
+    "HNTDA & TNRERA approved luxury plots and villas in Hosur near Bangalore. Premium residential community with modern amenities starting from ₹21 Lakhs onwards. Book your dream home today.",
   keywords: [
     "Nidhi Elite Hosur",
     "plots in Hosur",
@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     "affordable villas Hosur",
     "villa plots Hosur",
     "residential community Hosur",
+    "Hosur metro connectivity",
+    "Hosur property investment",
+    "best plots in Hosur",
   ],
   authors: [{ name: "Nidhi Elite" }],
   creator: "Nidhi Elite",
@@ -58,8 +61,14 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://nidhielite.com"),
+  alternates: {
+    canonical: "https://nidhielite.com/",
+    languages: {
+      "en-IN": "https://nidhielite.com/",
+    },
+  },
   openGraph: {
-    title: "Nidhi Elite | Plots & Villas in Hosur",
+    title: "Nidhi Elite | HNTDA & TNRERA Approved Plots & Villas in Hosur",
     description:
       "HNTDA & TNRERA approved plots and villas in Hosur near Bangalore. Premium residential community from ₹21 Lakhs.",
     url: "https://nidhielite.com/",
@@ -85,7 +94,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nidhi Elite | Plots & Villas in Hosur",
+    title: "Nidhi Elite | HNTDA & TNRERA Approved Plots & Villas in Hosur",
     description: "HNTDA & TNRERA approved plots and villas in Hosur near Bangalore.",
     images: ["https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/nidhi-elite-og-image.jpg"],
     creator: "@nidhielite",
@@ -111,6 +120,10 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
     title: "Nidhi Elite",
   },
+  verification: {
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
+  },
 }
 
 export default function RootLayout({
@@ -121,6 +134,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://dylrlrpqagnbcblddglk.supabase.co" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
         {/* Favicon Links */}
         <link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon" />
         <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
@@ -185,6 +204,7 @@ export default function RootLayout({
                 longitude: 77.8253,
               },
               telephone: "+91-9360299919",
+              email: "nidhielite@gmail.com",
               priceRange: "₹21L - ₹42L+",
               openingHours: "Mo-Sa 09:00-18:00",
               sameAs: [

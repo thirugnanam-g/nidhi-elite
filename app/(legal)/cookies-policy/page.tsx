@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect } from "react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { FloatingWhatsApp } from "@/components/floating-whatsapp"
+import { Header } from "@/components/layout/header"
+import { Footer } from "@/components/layout/footer"
+import { FloatingWhatsApp } from "@/components/shared/floating-whatsapp"
 
 export default function CookiesPolicy() {
   useEffect(() => {

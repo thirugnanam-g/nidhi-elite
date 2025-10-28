@@ -2,10 +2,6 @@
 
 import { Header } from "@/components/layout/header"
 import { HeroSection } from "@/components/sections/hero-section"
-import { PlotsIntro } from "@/components/features/plots-intro"
-import { VillaIntro } from "@/components/features/villa-intro"
-import { Amenities } from "@/components/features/amenities"
-import { LocationConnectivity } from "@/components/sections/location-connectivity"
 import { ContactSection } from "@/components/sections/contact-section"
 import { Footer } from "@/components/layout/footer"
 import { StructuredData } from "@/components/seo/structured-data"
@@ -14,8 +10,24 @@ import { AccessibilityEnhancer } from "@/components/seo/accessibility-enhancer"
 import { SEOMonitor } from "@/components/seo/seo-monitor"
 import { FloatingWhatsApp } from "@/components/shared/floating-whatsapp"
 import { AboutSection } from "@/components/sections/about-section"
-import { AutoScrollGallery } from "@/components/sections/auto-scroll-gallery"
-import { TestimonialsSection } from "@/components/sections/testimonials"
+import { Suspense, lazy } from "react"
+
+const LazyPlotsIntro = lazy(() =>
+  import("@/components/features/plots-intro").then((mod) => ({ default: mod.PlotsIntro })),
+)
+const LazyVillaIntro = lazy(() =>
+  import("@/components/features/villa-intro").then((mod) => ({ default: mod.VillaIntro })),
+)
+const LazyAmenities = lazy(() => import("@/components/features/amenities").then((mod) => ({ default: mod.Amenities })))
+const LazyLocationConnectivity = lazy(() =>
+  import("@/components/sections/location-connectivity").then((mod) => ({ default: mod.LocationConnectivity })),
+)
+const LazyAutoScrollGallery = lazy(() =>
+  import("@/components/sections/auto-scroll-gallery").then((mod) => ({ default: mod.AutoScrollGallery })),
+)
+const LazyTestimonialsSection = lazy(() =>
+  import("@/components/sections/testimonials").then((mod) => ({ default: mod.TestimonialsSection })),
+)
 
 export default function Home() {
   return (
@@ -47,7 +59,9 @@ export default function Home() {
 
         {/* PLOTS */}
         <section id="plots" aria-label="HNTDA Approved Residential Plots in Hosur" className="relative scroll-mt-20">
-          <PlotsIntro />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyPlotsIntro />
+          </Suspense>
         </section>
 
         {/* VILLAS */}
@@ -56,12 +70,16 @@ export default function Home() {
           aria-label="Customizable Luxury Villas Near Bangalore"
           className="relative scroll-mt-20"
         >
-          <VillaIntro />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyVillaIntro />
+          </Suspense>
         </section>
 
         {/* AMENITIES */}
         <section id="amenities" aria-label="World-Class Amenities at Nidhi Elite" className="relative scroll-mt-20">
-          <Amenities />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyAmenities />
+          </Suspense>
         </section>
 
         {/* LOCATION */}
@@ -70,7 +88,9 @@ export default function Home() {
           aria-label="Prime Location and Connectivity from Hosur to Bangalore"
           className="bg-gray-50 relative scroll-mt-20"
         >
-          <LocationConnectivity />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyLocationConnectivity />
+          </Suspense>
         </section>
 
         {/* GALLERY */}
@@ -79,12 +99,16 @@ export default function Home() {
           aria-label="Real Site Images of Nidhi Elite Layout"
           className="bg-gray-50 relative scroll-mt-20"
         >
-          <AutoScrollGallery />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyAutoScrollGallery />
+          </Suspense>
         </section>
 
         {/* TESTIMONIALS */}
         <section id="testimonials" aria-label="Customer Reviews and Testimonials" className="relative scroll-mt-20">
-          <TestimonialsSection />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyTestimonialsSection />
+          </Suspense>
         </section>
 
         {/* CONTACT */}
