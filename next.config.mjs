@@ -113,6 +113,17 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/:path*',
+        destination: 'https://nidhielite.com/:path*',
+        permanent: true,
+        has: [
+          {
+            type: 'host',
+            value: 'www.nidhielite.com',
+          },
+        ],
+      },
     ]
   },
 }
