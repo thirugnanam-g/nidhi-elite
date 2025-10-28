@@ -3,7 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { CheckCircle, Home, Wrench, Users } from "lucide-react"
 import Image from "next/image"
-import { getImageUrl } from "@/lib/image-config"
+import { getImageUrl } from "@/lib/config/image-config"
 
 export function VillaIntro() {
   const features = [

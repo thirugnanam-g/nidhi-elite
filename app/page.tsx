@@ -1,18 +1,18 @@
 "use client"
 
-import { Header } from "@/components/header"
-import { HeroSection } from "@/components/hero-section"
-import { PlotsIntro } from "@/components/plots-intro"
-import { VillaIntro } from "@/components/villa-intro"
-import { Amenities } from "@/components/amenities"
-import { LocationConnectivity } from "@/components/location-connectivity"
-import { ContactSection } from "@/components/contact-section"
-import { Footer } from "@/components/footer"
-import { StructuredData } from "@/components/structured-data"
-import { PerformanceOptimizer } from "@/components/performance-optimizer"
-import { AccessibilityEnhancer } from "@/components/accessibility-enhancer"
-import { SEOMonitor } from "@/components/seo-monitor"
-import { FloatingWhatsApp } from "@/components/floating-whatsapp"
+import { Header } from "@/components/layout/header"
+import { HeroSection } from "@/components/sections/hero-section"
+import { PlotsIntro } from "@/components/features/plots-intro"
+import { VillaIntro } from "@/components/features/villa-intro"
+import { Amenities } from "@/components/features/amenities"
+import { LocationConnectivity } from "@/components/sections/location-connectivity"
+import { ContactSection } from "@/components/sections/contact-section"
+import { Footer } from "@/components/layout/footer"
+import { StructuredData } from "@/components/seo/structured-data"
+import { PerformanceOptimizer } from "@/components/seo/performance-optimizer"
+import { AccessibilityEnhancer } from "@/components/seo/accessibility-enhancer"
+import { SEOMonitor } from "@/components/seo/seo-monitor"
+import { FloatingWhatsApp } from "@/components/shared/floating-whatsapp"
 import { AboutSection } from "@/components/sections/about-section"
 import { AutoScrollGallery } from "@/components/sections/auto-scroll-gallery"
 import { TestimonialsSection } from "@/components/sections/testimonials"
@@ -31,98 +31,70 @@ export default function Home() {
         <Header />
 
         {/* HERO */}
-        <div id="home" aria-labelledby="hero-heading" className="relative overflow-hidden">
-          <h1 id="hero-heading" className="sr-only">
-            Nidhi Elite – HNTDA & TNRERA Approved Plots and Customizable Villas in Hosur
-          </h1>
+        <section
+          id="home"
+          aria-label="Nidhi Elite - HNTDA & TNRERA Approved Plots and Villas in Hosur"
+          className="relative overflow-hidden"
+        >
+          <h1 className="sr-only">Nidhi Elite – HNTDA & TNRERA Approved Plots and Customizable Villas in Hosur</h1>
           <HeroSection />
-        </div>
+        </section>
 
         {/* ABOUT */}
-        <div id="about" aria-labelledby="about-heading" className="relative scroll-mt-20">
-          <h2 id="about-heading" className="sr-only">
-            About Nidhi Elite – Leading Real Estate Developer in Hosur
-          </h2>
+        <section id="about" aria-label="About Nidhi Elite Real Estate Developer" className="relative scroll-mt-20">
           <AboutSection />
-        </div>
+        </section>
 
         {/* PLOTS */}
-        <div id="plots" aria-labelledby="plots-heading" className="relative scroll-mt-20">
-          <h2 id="plots-heading" className="sr-only">
-            HNTDA Approved Residential Plots for Sale in Hosur
-          </h2>
+        <section id="plots" aria-label="HNTDA Approved Residential Plots in Hosur" className="relative scroll-mt-20">
           <PlotsIntro />
-        </div>
+        </section>
 
         {/* VILLAS */}
-        <div id="customized-villas" aria-labelledby="villas-heading" className="relative scroll-mt-20">
-          <h2 id="villas-heading" className="sr-only">
-            Customizable Luxury Villas Near Bangalore
-          </h2>
+        <section
+          id="customized-villas"
+          aria-label="Customizable Luxury Villas Near Bangalore"
+          className="relative scroll-mt-20"
+        >
           <VillaIntro />
-        </div>
+        </section>
 
         {/* AMENITIES */}
-        <div id="amenities" aria-labelledby="amenities-heading" className="relative scroll-mt-20">
-          <h2 id="amenities-heading" className="sr-only">
-            World-Class Amenities at Nidhi Elite Hosur
-          </h2>
+        <section id="amenities" aria-label="World-Class Amenities at Nidhi Elite" className="relative scroll-mt-20">
           <Amenities />
-        </div>
+        </section>
 
         {/* LOCATION */}
-        <div id="location" aria-labelledby="location-heading" className="bg-gray-50 relative scroll-mt-20">
-          <h2 id="location-heading" className="sr-only">
-            Prime Location & Connectivity – Hosur to Bangalore
-          </h2>
+        <section
+          id="location"
+          aria-label="Prime Location and Connectivity from Hosur to Bangalore"
+          className="bg-gray-50 relative scroll-mt-20"
+        >
           <LocationConnectivity />
-        </div>
+        </section>
 
         {/* GALLERY */}
-        <div id="gallery" aria-labelledby="gallery-heading" className="bg-gray-50 relative scroll-mt-20">
-          <h2 id="gallery-heading" className="sr-only">
-            Real Images of Nidhi Elite Layout in Hosur
-          </h2>
+        <section
+          id="gallery"
+          aria-label="Real Site Images of Nidhi Elite Layout"
+          className="bg-gray-50 relative scroll-mt-20"
+        >
           <AutoScrollGallery />
-        </div>
+        </section>
 
         {/* TESTIMONIALS */}
-        <div id="testimonials" aria-labelledby="testimonials-heading" className="relative scroll-mt-20">
-          <h2 id="testimonials-heading" className="sr-only">
-            Nidhi Elite Reviews – What Our Clients Say
-          </h2>
+        <section id="testimonials" aria-label="Customer Reviews and Testimonials" className="relative scroll-mt-20">
           <TestimonialsSection />
-        </div>
+        </section>
 
         {/* CONTACT */}
-        <div id="contact" aria-labelledby="contact-heading" className="bg-gray-50 relative scroll-mt-20">
-          <h2 id="contact-heading" className="sr-only">
-            Contact Nidhi Elite for Brochure or Site Visit
-          </h2>
-          <ContactSection />
-        </div>
-
-        {/* Internal links for SEO */}
-        <nav
-          aria-label="Quick Links"
-          className="flex flex-wrap justify-center gap-x-3 gap-y-2 mt-8 mb-8 text-sm text-gray-700 px-4 border-t border-gray-200 pt-4"
+        <section
+          id="contact"
+          aria-label="Contact Nidhi Elite for Site Visit or Brochure"
+          className="bg-gray-50 relative scroll-mt-20"
         >
-          <a href="#plots" className="hover:text-primary transition-colors">
-            HNTDA Approved Plots for Sale in Hosur
-          </a>
-          <span>|</span>
-          <a href="#customized-villas" className="hover:text-primary transition-colors">
-            Customizable Luxury Villas Near Bangalore
-          </a>
-          <span>|</span>
-          <a href="#amenities" className="hover:text-primary transition-colors">
-            Modern Amenities & Facilities
-          </a>
-          <span>|</span>
-          <a href="#location" className="hover:text-primary transition-colors">
-            Hosur Location & Connectivity
-          </a>
-        </nav>
+          <ContactSection />
+        </section>
 
         <Footer />
         <FloatingWhatsApp />

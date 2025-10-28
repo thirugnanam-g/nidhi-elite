@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import { BookingModal } from "./booking-modal"
+import { BookingModal } from "@/components/shared/booking-modal"
 
 export function DreamVillaCTA() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
@@ -72,7 +72,7 @@ export function DreamVillaCTA() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
+                  className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 bg-transparent"
                   onClick={handleDownloadBrochure}
                 >
                   Download Brochure

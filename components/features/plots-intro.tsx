@@ -3,7 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { CheckCircle } from "lucide-react"
 import Image from "next/image"
-import { getImageUrl } from "@/lib/image-config"
+import { getImageUrl } from "@/lib/config/image-config"
 
 export function PlotsIntro() {
   const plotFeatures = [

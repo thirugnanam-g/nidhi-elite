@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { getImageUrl } from "@/lib/image-config"
+import { getImageUrl } from "@/lib/config/image-config"
 
 export function SitePlan() {
   const [isDownloading, setIsDownloading] = useState(false)

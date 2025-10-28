@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react"
-import { getImageUrl } from "@/lib/image-config"
+import { getImageUrl } from "@/lib/config/image-config"
 
 export function Footer() {
   const router = useRouter()

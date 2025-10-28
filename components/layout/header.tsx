@@ -3,9 +3,9 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Mail, Menu, X } from "lucide-react"
-import { BookingModal } from "./booking-modal"
+import { BookingModal } from "@/components/shared/booking-modal"
 import Image from "next/image"
-import { getImageUrl } from "@/lib/image-config"
+import { getImageUrl } from "@/lib/config/image-config"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 

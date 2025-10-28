@@ -11,7 +11,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel"
 import { Card } from "@/components/ui/card"
-import { getImageUrl } from "@/lib/image-config"
+import { getImageUrl } from "@/lib/config/image-config"
 
 export function AutoScrollGallery() {
   const [api, setApi] = React.useState<CarouselApi | null>(null)

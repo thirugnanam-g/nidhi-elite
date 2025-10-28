@@ -31,7 +31,16 @@ const nextConfig = {
   poweredByHeader: false,
   generateEtags: true,
   experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+    optimizePackageImports: [
+      'lucide-react', 
+      '@radix-ui/react-icons',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-slot',
+      'embla-carousel-react',
+      'class-variance-authority',
+      'clsx',
+      'tailwind-merge'
+    ],
   },
   async headers() {
     return [
@@ -64,7 +73,7 @@ const nextConfig = {
           },
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+            value: 'public, max-age=31536000, immutable, stale-while-revalidate=31536000',
           },
         ],
       },

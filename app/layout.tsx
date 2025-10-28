@@ -6,9 +6,9 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Suspense } from "react"
-import { GoogleAnalytics } from "@/components/google-analytics"
-import { AnalyticsTracker } from "@/components/analytics-tracker"
-import { ConversionTracking } from "@/components/conversion-tracking"
+import { GoogleAnalytics } from "@/components/analytics/google-analytics"
+import { AnalyticsTracker } from "@/components/analytics/analytics-tracker"
+import { ConversionTracking } from "@/components/analytics/conversion-tracking"
 import "./globals.css"
 
 const inter = Inter({
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Nidhi Elite",
   },
   description:
-    "HNTDA & TNRERA approved luxury plots and villas in Hosur near Bangalore. Premium residential community with modern amenities starting from ₹21 Lakhs.",
+    "HNTDA & TNRERA approved luxury plots and villas in Hosur near Bangalore. Premium residential community with modern amenities starting from ₹21 Lakhs onwards.",
   keywords: [
     "Nidhi Elite Hosur",
     "plots in Hosur",
@@ -130,11 +130,7 @@ export default function RootLayout({
 
         <link rel="canonical" href="https://nidhielite.com/" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* DNS Prefetch for analytics */}
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <meta name="spf" content="v=spf1 include:_spf.google.com ~all" />
 
         {/* Geo Tags for Local SEO */}
         <meta name="geo.region" content="IN-TN" />
