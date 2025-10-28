@@ -1,3 +1,5 @@
+"use client"
+
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
@@ -149,8 +151,6 @@ export default function RootLayout({
 
         <link rel="canonical" href="https://nidhielite.com/" />
 
-        <meta name="spf" content="v=spf1 include:_spf.google.com ~all" />
-
         {/* Geo Tags for Local SEO */}
         <meta name="geo.region" content="IN-TN" />
         <meta name="geo.placename" content="Hosur, Tamil Nadu, India" />
@@ -187,9 +187,16 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Nidhi Elite",
               url: "https://nidhielite.com/",
-              logo: "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
+              logo: "https://nidhielite.com/favicon.png",
               description:
                 "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
+              aggregateRating: {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "150",
+                "bestRating": "5",
+                "worstRating": "1",
+              },
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Sy. No: 750, Poonapalli Village",

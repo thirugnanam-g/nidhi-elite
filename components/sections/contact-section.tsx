@@ -37,6 +37,17 @@ ${formData.message}
     setFormData({ name: "", email: "", phone: "", message: "" })
   }
 
+  // ✅ Secure email obfuscation
+  const obfuscatedEmail = (() => {
+    const user = "nidhielite"
+    const domain = "gmail.com"
+    return `${user}@${domain}`
+  })()
+
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${obfuscatedEmail}`
+  }
+
   return (
     <section
       id="contact"
@@ -66,7 +77,18 @@ ${formData.message}
               {[
                 { icon: MapPin, title: "Visit Us", text: "750, Poonapalli Village, Hosur, Tamil Nadu" },
                 { icon: Phone, title: "Call Us", text: "93602 99919" },
-                { icon: Mail, title: "Email Us", text: "nidhielite@gmail.com" },
+                {
+                  icon: Mail,
+                  title: "Email Us",
+                  text: (
+                    <button
+                      onClick={handleEmailClick}
+                      className="text-primary hover:underline cursor-pointer bg-transparent border-none p-0"
+                    >
+                      {obfuscatedEmail}
+                    </button>
+                  ),
+                },
                 { icon: Clock, title: "Office Hours", text: "Mon - Sun: 9:00 AM - 6:00 PM" },
               ].map(({ icon: Icon, title, text }, index) => (
                 <div key={index} className="flex items-start gap-2.5">

@@ -14,7 +14,7 @@ nidhi-elite/
 │   │   │   └── page.tsx
 │   │   ├── privacy-policy/
 │   │   │   └── page.tsx
-│   │   └── terms-and-conditions/
+│   ��   └── terms-and-conditions/
 │   │       └── page.tsx
 │   ├── api/                     # API routes
 │   │   ├── contact/
