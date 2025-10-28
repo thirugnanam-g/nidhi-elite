@@ -1,223 +1,132 @@
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { ArrowRight, Zap, Shield, Rocket } from "lucide-react"
+"use client"
+
+import { Header } from "@/components/header"
+import { HeroSection } from "@/components/hero-section"
+import { PlotsIntro } from "@/components/plots-intro"
+import { VillaIntro } from "@/components/villa-intro"
+import { Amenities } from "@/components/amenities"
+import { LocationConnectivity } from "@/components/location-connectivity"
+import { ContactSection } from "@/components/contact-section"
+import { Footer } from "@/components/footer"
+import { StructuredData } from "@/components/structured-data"
+import { PerformanceOptimizer } from "@/components/performance-optimizer"
+import { AccessibilityEnhancer } from "@/components/accessibility-enhancer"
+import { SEOMonitor } from "@/components/seo-monitor"
+import { FloatingWhatsApp } from "@/components/floating-whatsapp"
+import { AboutSection } from "@/components/sections/about-section"
+import { AutoScrollGallery } from "@/components/sections/auto-scroll-gallery"
+import { TestimonialsSection } from "@/components/sections/testimonials"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
-      {/* Navigation Header */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-primary" />
-            <span className="text-xl font-bold text-foreground">BuildHub</span>
-          </div>
-          <div className="hidden gap-8 md:flex">
-            <a
-              href="#features"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Features
-            </a>
-            <a
-              href="#about"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Contact
-            </a>
-          </div>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Get Started</Button>
+    <>
+      {/* Structured Data + Performance Enhancers */}
+      <StructuredData />
+      <PerformanceOptimizer />
+      <AccessibilityEnhancer />
+      <SEOMonitor />
+
+      {/* MAIN CONTENT */}
+      <main className="min-h-screen bg-white text-gray-900" id="main-content" role="main">
+        <Header />
+
+        {/* HERO */}
+        <div id="home" aria-labelledby="hero-heading" className="relative overflow-hidden">
+          <h1 id="hero-heading" className="sr-only">
+            Nidhi Elite – HNTDA & TNRERA Approved Plots and Customizable Villas in Hosur
+          </h1>
+          <HeroSection />
+        </div>
+
+        {/* ABOUT */}
+        <div id="about" aria-labelledby="about-heading" className="relative scroll-mt-20">
+          <h2 id="about-heading" className="sr-only">
+            About Nidhi Elite – Leading Real Estate Developer in Hosur
+          </h2>
+          <AboutSection />
+        </div>
+
+        {/* PLOTS */}
+        <div id="plots" aria-labelledby="plots-heading" className="relative scroll-mt-20">
+          <h2 id="plots-heading" className="sr-only">
+            HNTDA Approved Residential Plots for Sale in Hosur
+          </h2>
+          <PlotsIntro />
+        </div>
+
+        {/* VILLAS */}
+        <div id="customized-villas" aria-labelledby="villas-heading" className="relative scroll-mt-20">
+          <h2 id="villas-heading" className="sr-only">
+            Customizable Luxury Villas Near Bangalore
+          </h2>
+          <VillaIntro />
+        </div>
+
+        {/* AMENITIES */}
+        <div id="amenities" aria-labelledby="amenities-heading" className="relative scroll-mt-20">
+          <h2 id="amenities-heading" className="sr-only">
+            World-Class Amenities at Nidhi Elite Hosur
+          </h2>
+          <Amenities />
+        </div>
+
+        {/* LOCATION */}
+        <div id="location" aria-labelledby="location-heading" className="bg-gray-50 relative scroll-mt-20">
+          <h2 id="location-heading" className="sr-only">
+            Prime Location & Connectivity – Hosur to Bangalore
+          </h2>
+          <LocationConnectivity />
+        </div>
+
+        {/* GALLERY */}
+        <div id="gallery" aria-labelledby="gallery-heading" className="bg-gray-50 relative scroll-mt-20">
+          <h2 id="gallery-heading" className="sr-only">
+            Real Images of Nidhi Elite Layout in Hosur
+          </h2>
+          <AutoScrollGallery />
+        </div>
+
+        {/* TESTIMONIALS */}
+        <div id="testimonials" aria-labelledby="testimonials-heading" className="relative scroll-mt-20">
+          <h2 id="testimonials-heading" className="sr-only">
+            Nidhi Elite Reviews – What Our Clients Say
+          </h2>
+          <TestimonialsSection />
+        </div>
+
+        {/* CONTACT */}
+        <div id="contact" aria-labelledby="contact-heading" className="bg-gray-50 relative scroll-mt-20">
+          <h2 id="contact-heading" className="sr-only">
+            Contact Nidhi Elite for Brochure or Site Visit
+          </h2>
+          <ContactSection />
+        </div>
+
+        {/* Internal links for SEO */}
+        <nav
+          aria-label="Quick Links"
+          className="flex flex-wrap justify-center gap-x-3 gap-y-2 mt-8 mb-8 text-sm text-gray-700 px-4 border-t border-gray-200 pt-4"
+        >
+          <a href="#plots" className="hover:text-primary transition-colors">
+            HNTDA Approved Plots for Sale in Hosur
+          </a>
+          <span>|</span>
+          <a href="#customized-villas" className="hover:text-primary transition-colors">
+            Customizable Luxury Villas Near Bangalore
+          </a>
+          <span>|</span>
+          <a href="#amenities" className="hover:text-primary transition-colors">
+            Modern Amenities & Facilities
+          </a>
+          <span>|</span>
+          <a href="#location" className="hover:text-primary transition-colors">
+            Hosur Location & Connectivity
+          </a>
         </nav>
-      </header>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
-            <div className="flex flex-col gap-6">
-              <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl text-balance">
-                  Build Something Amazing
-                </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Create beautiful, modern web experiences with our powerful tools and intuitive interface. Perfect for
-                  developers and designers alike.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                  Start Building
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-border text-foreground hover:bg-secondary bg-transparent"
-                >
-                  Learn More
-                </Button>
-              </div>
-            </div>
-            <div className="relative h-96 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 border border-border flex items-center justify-center">
-              <div className="text-center">
-                <Rocket className="h-16 w-16 text-primary mx-auto mb-4" />
-                <p className="text-muted-foreground">Your project preview here</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="border-t border-border bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">Powerful Features</h2>
-            <p className="text-lg text-muted-foreground">
-              Everything you need to build and deploy modern web applications
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: Zap,
-                title: "Lightning Fast",
-                description: "Optimized performance with instant load times and smooth interactions",
-              },
-              {
-                icon: Shield,
-                title: "Secure by Default",
-                description: "Enterprise-grade security features to protect your data and users",
-              },
-              {
-                icon: Rocket,
-                title: "Easy to Deploy",
-                description: "One-click deployment with automatic scaling and zero downtime",
-              },
-            ].map((feature, index) => {
-              const Icon = feature.icon
-              return (
-                <Card key={index} className="border-border bg-card p-6 hover:shadow-lg transition-shadow">
-                  <Icon className="h-8 w-8 text-primary mb-4" />
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section id="contact" className="px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl mb-4">Ready to Get Started?</h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Join thousands of developers building amazing projects with our platform
-          </p>
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-            Start Your Free Trial
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border bg-secondary/30 px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 md:grid-cols-4 mb-8">
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Product</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Security
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Careers
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Docs
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    API
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Support
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Terms
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2025 BuildHub. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </main>
+        <Footer />
+        <FloatingWhatsApp />
+      </main>
+    </>
   )
 }
