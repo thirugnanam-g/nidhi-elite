@@ -147,7 +147,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
-        <link rel="canonical" href="https://nidhielite.com/" />
 
         {/* Geo Tags for Local SEO */}
         <meta name="geo.region" content="IN-TN" />
