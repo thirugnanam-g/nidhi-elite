@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Twitter, CheckCircle } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube, CheckCircle } from "lucide-react"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" })
@@ -107,8 +107,7 @@ ${formData.message}
                 {[
                   { Icon: Facebook, href: "https://facebook.com" },
                   { Icon: Instagram, href: "https://instagram.com" },
-                  { Icon: Linkedin, href: "https://linkedin.com" },
-                  { Icon: Twitter, href: "https://twitter.com" },
+                  { Icon: Youtube, href: "https://www.youtube.com/@NidhiElite/videos" },
                 ].map(({ Icon, href }, index) => (
                   <a
                     key={index}

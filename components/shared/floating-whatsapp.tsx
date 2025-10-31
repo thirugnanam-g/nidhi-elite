@@ -38,7 +38,7 @@ export function FloatingWhatsApp() {
           title="Download Brochure"
         >
           <span
-            className="text-xs font-bold tracking-wider"
+            className="text-lg font-bold tracking-wider"
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             Brochure
