@@ -25,7 +25,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nidhi Elite | HNTDA & TNRERA Approved Plots & Villas in Hosur",
+    default: "Nidhi Elite | HNTDA & RERA Approved Plots & Villas in Hosur",
     template: "%s | Nidhi Elite",
   },
   description:
