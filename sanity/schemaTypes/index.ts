@@ -1,4 +1,5 @@
-import blog from "./blog"
-import author from "./author"
+import { type SchemaTypeDefinition } from 'sanity'
 
-export const schemaTypes = [blog, author]
+export const schema: { types: SchemaTypeDefinition[] } = {
+  types: [],
+}
