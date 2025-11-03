@@ -1,3 +1,5 @@
+"use client"
+
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
@@ -25,7 +27,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nidhi Elite | HNTDA & RERA Approved Plots & Villas in Hosur",
+    default: "Nidhi Elite | HNTDA & TNRERA Approved Plots & Villas in Hosur",
     template: "%s | Nidhi Elite",
   },
   description:
@@ -147,6 +149,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
+        <link rel="canonical" href="https://nidhielite.com/" />
 
         {/* Geo Tags for Local SEO */}
         <meta name="geo.region" content="IN-TN" />

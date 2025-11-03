@@ -52,8 +52,8 @@ export function Footer() {
       role="contentinfo"
       aria-label="Footer for Nidhi Elite website"
     >
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
@@ -78,7 +78,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit Nidhi Elite on ${social.name}`}
-                    className="w-9 h-9 bg-background/20 hover:bg-primary hover:text-primary-foreground rounded-full flex items-center justify-center transition-all duration-300"
+                    className="w-9 h-9 bg-background/20 hover:bg-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -91,35 +91,23 @@ export function Footer() {
           <nav aria-label="Footer navigation">
             <h4 className="font-semibold mb-4 text-base">Quick Links</h4>
             <ul className="space-y-2.5 text-sm opacity-80">
-              {[
-                "home",
-                "plots",
-                "customized-villas",
-                "amenities",
-                "location",
-                "about",
-                "contact",
-                "blog", // ✅ Added Blog
-              ].map((id) => (
+              {["home", "plots", "customized-villas", "amenities", "location", "about", "contact"].map((id) => (
                 <li key={id}>
                   <button
                     onClick={() => handleNavClick(id)}
-                    className="hover:text-primary transition-colors duration-200 text-left relative group"
+                    className="hover:text-primary transition-colors text-left hover:translate-x-1 duration-200"
                   >
-                    <span className="relative">
-                      {id.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
-                      <span className="absolute left-0 -bottom-[2px] w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full"></span>
-                    </span>
+                    {id.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
                   </button>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Contact + Terms */}
-          <div>
+          {/* Contact Info */}
+          <address className="not-italic">
             <h4 className="font-semibold mb-4 text-base">Contact</h4>
-            <ul className="space-y-3 text-sm opacity-80 mb-6">
+            <ul className="space-y-3 text-sm opacity-80">
               <li>
                 <a href="tel:+919360299919" className="hover:text-primary transition-colors flex items-center gap-2">
                   <Phone className="w-4 h-4 flex-shrink-0" />
@@ -141,38 +129,12 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span className="text-xs leading-relaxed">
-                  750, Poonapalli Village, Hosur, Tamil Nadu 635110
-                </span>
+                <span className="text-xs">750, Poonapalli Village, Hosur, TN 635110</span>
               </li>
             </ul>
+          </address>
 
-            {/* ✅ Terms & Policy placed here */}
-            <div>
-              <h4 className="font-semibold mb-3 text-base">Terms & Policy</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                {[
-                  { label: "Terms & Conditions", path: "/terms-and-conditions" },
-                  { label: "Privacy Policy", path: "/privacy-policy" },
-                  { label: "Cookies Policy", path: "/cookies-policy" },
-                ].map((item) => (
-                  <li key={item.path}>
-                    <button
-                      onClick={() => handleLegalPageClick(item.path)}
-                      className="hover:text-primary transition-colors duration-200 text-left relative group"
-                    >
-                      <span className="relative">
-                        {item.label}
-                        <span className="absolute left-0 -bottom-[2px] w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full"></span>
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Approvals */}
+          {/* Regulatory */}
           <div>
             <h4 className="font-semibold mb-4 text-base">Approvals</h4>
             <div className="space-y-3">
@@ -203,6 +165,31 @@ export function Footer() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="border-t border-background/20 pt-6 mb-6">
+          <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <button
+              onClick={() => handleLegalPageClick("/terms-and-conditions")}
+              className="hover:text-primary transition-colors hover:underline"
+            >
+              Terms & Conditions
+            </button>
+            <span className="opacity-40">|</span>
+            <button
+              onClick={() => handleLegalPageClick("/privacy-policy")}
+              className="hover:text-primary transition-colors hover:underline"
+            >
+              Privacy Policy
+            </button>
+            <span className="opacity-40">|</span>
+            <button
+              onClick={() => handleLegalPageClick("/cookies-policy")}
+              className="hover:text-primary transition-colors hover:underline"
+            >
+              Cookies Policy
+            </button>
           </div>
         </div>
 

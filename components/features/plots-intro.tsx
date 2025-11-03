@@ -44,7 +44,7 @@ export function PlotsIntro() {
             <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-full shadow-xl bg-background flex items-center justify-center">
               <div className="relative w-full h-full">
                 <Image
-                  src={`${getImageUrl("/images/site-layout.jpg")}?v=${Date.now()}`}
+                  src={getImageUrl("/images/site-layout.jpg") || "/placeholder.svg"}
                   alt="Nidhi Elite master plan and layout"
                   fill
                   loading="lazy"

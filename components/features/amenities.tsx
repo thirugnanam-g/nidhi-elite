@@ -10,7 +10,7 @@ export function Amenities() {
     { icon: Zap, title: "3 Phase EB Line" },
     { icon: CloudRain, title: "Rainwater Harvesting" },
     { icon: Waves, title: "Food Grade Water Pipe" },
-    { icon: Users, title: "Customized villa design " },
+    { icon: Users, title: "Community Hall" },
     { icon: Droplet, title: "Sewage Water Treatment" },
   ]
 
