@@ -14,7 +14,7 @@ export function FloatingWhatsApp() {
   }
 
   const handleDownloadBrochure = () => {
-    window.open("https://drive.google.com/file/d/1WOnlQfbloX_7USgCWPd38_lAGZ9tplko/view?usp=sharing", "_blank")
+    window.open("https://drive.google.com/file/d/1ETuVjkWigirvpTdUpS0vhCN-DmfSo_9W/view?usp=sharing", "_blank")
   }
 
   return (
@@ -38,7 +38,7 @@ export function FloatingWhatsApp() {
           title="Download Brochure"
         >
           <span
-            className="text-xs font-bold tracking-wider"
+            className="text-base font-bold tracking-wider"
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             Brochure

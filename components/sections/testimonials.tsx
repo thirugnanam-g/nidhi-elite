@@ -6,36 +6,36 @@ import { Star } from "lucide-react"
 export function TestimonialsSection() {
   const testimonials = [
     {
-      name: "Rajesh Kumar",
+      name: "Karthik Subramanian",
       role: "Plot Owner",
       content:
         "Nidhi Elite exceeded my expectations! The location is perfect, and the amenities are world-class. Highly recommended for anyone looking for premium plots near Bangalore.",
       rating: 5,
-      image: "RK",
+      image: "KS",
     },
     {
-      name: "Priya Sharma",
+      name: "Meena kumari",
       role: "Villa Owner",
       content:
         "The customized villa design process was seamless. The team understood our vision perfectly and delivered exactly what we wanted. Best investment decision!",
       rating: 5,
-      image: "PS",
+      image: "MK",
     },
     {
-      name: "Amit Patel",
+      name: "Suresh Kumar",
       role: "Plot Owner",
       content:
         "Outstanding customer service and transparent dealings. The HNTDA and TNRERA approvals gave me complete peace of mind. Truly a trustworthy developer.",
       rating: 5,
-      image: "AP",
+      image: "SK",
     },
     {
-      name: "Sneha Desai",
-      role: "Villa Owner",
+      name: "Anitha Raj",
+      role: "Plot Owner",
       content:
         "Living in Nidhi Elite feels like a dream. The gated community, security, and amenities make it a perfect place to raise a family. Worth every penny!",
       rating: 5,
-      image: "SD",
+      image: "AR",
     },
   ]
 
@@ -56,7 +56,7 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Testimonials Grid - Reduced padding and grid to fit in single viewport */}
+        {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {testimonials.map((testimonial, idx) => (
             <Card

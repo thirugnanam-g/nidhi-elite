@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import { Header } from "@/components/layout/header"
 import { HeroSection } from "@/components/sections/hero-section"
 import { ContactSection } from "@/components/sections/contact-section"
@@ -11,6 +12,7 @@ import { SEOMonitor } from "@/components/seo/seo-monitor"
 import { FloatingWhatsApp } from "@/components/shared/floating-whatsapp"
 import { AboutSection } from "@/components/sections/about-section"
 import { Suspense, lazy } from "react"
+import { usePathname } from "next/navigation"
 
 const LazyPlotsIntro = lazy(() =>
   import("@/components/features/plots-intro").then((mod) => ({ default: mod.PlotsIntro })),
@@ -18,7 +20,9 @@ const LazyPlotsIntro = lazy(() =>
 const LazyVillaIntro = lazy(() =>
   import("@/components/features/villa-intro").then((mod) => ({ default: mod.VillaIntro })),
 )
-const LazyAmenities = lazy(() => import("@/components/features/amenities").then((mod) => ({ default: mod.Amenities })))
+const LazyAmenities = lazy(() =>
+  import("@/components/features/amenities").then((mod) => ({ default: mod.Amenities })),
+)
 const LazyLocationConnectivity = lazy(() =>
   import("@/components/sections/location-connectivity").then((mod) => ({ default: mod.LocationConnectivity })),
 )
@@ -30,6 +34,38 @@ const LazyTestimonialsSection = lazy(() =>
 )
 
 export default function Home() {
+  const pathname = usePathname()
+
+  // ✅ Ensures hash navigation (e.g., /#location, /#contact) works after components finish loading
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const scrollToSection = () => {
+      const hash = window.location.hash
+      if (!hash) return
+
+      const sectionId = hash.substring(1)
+      const section = document.getElementById(sectionId)
+      if (section) {
+        const headerHeight = 80
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY - headerHeight
+        window.scrollTo({ top: sectionTop, behavior: "smooth" })
+      }
+    }
+
+    // ✅ Attempt scroll a few times in case lazy sections load later
+    const attempts = [300, 800, 1500]
+    const timers = attempts.map((delay) => setTimeout(scrollToSection, delay))
+
+    // ✅ Also handle hash changes after initial load
+    window.addEventListener("hashchange", scrollToSection)
+
+    return () => {
+      timers.forEach(clearTimeout)
+      window.removeEventListener("hashchange", scrollToSection)
+    }
+  }, [pathname])
+
   return (
     <>
       {/* Structured Data + Performance Enhancers */}

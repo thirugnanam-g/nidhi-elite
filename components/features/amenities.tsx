@@ -1,4 +1,4 @@
-import { Route, TreePine, Lightbulb, Droplets, Shield, Zap, CloudRain, Waves, Users, Droplet } from "lucide-react"
+import { Route, TreePine, Lightbulb, Droplets, Shield, Zap, CloudRain, Waves, PencilRuler, Droplet } from "lucide-react"
 
 export function Amenities() {
   const amenities = [
@@ -10,7 +10,7 @@ export function Amenities() {
     { icon: Zap, title: "3 Phase EB Line" },
     { icon: CloudRain, title: "Rainwater Harvesting" },
     { icon: Waves, title: "Food Grade Water Pipe" },
-    { icon: Users, title: "Community Hall" },
+    { icon: PencilRuler, title: "Customized villa design " },
     { icon: Droplet, title: "Sewage Water Treatment" },
   ]
 

@@ -37,7 +37,7 @@ export function VillaIntro() {
 
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-stretch">
           {/* Left — Villa Image */}
-          <div className="relative flex justify-center items-center order-1 lg:order-1 w-full h-[250px] sm:h-[350px] lg:h-[400px]">
+          <div className="relative flex justify-center items-center order-1 lg:order-1 w-full h-[250px] sm:h-[350px]">
             <Card className="relative border-0 rounded-2xl overflow-hidden w-full h-full shadow-xl">
               <Image
                 src={getImageUrl("/images/minimal-villa-exterior-render.jpg") || "/placeholder.svg"}
