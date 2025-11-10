@@ -9,9 +9,23 @@ export function Footer() {
   const router = useRouter()
 
   const handleNavClick = (sectionId: string) => {
+    // If it's the blog page, navigate instead of scroll
+    if (sectionId === "blog") {
+      router.push("/blog")
+      setTimeout(() => window.scrollTo(0, 0), 100)
+      return
+    }
+
+    // If the section exists on the same page, scroll
     const section = document.getElementById(sectionId)
-    if (section) section.scrollIntoView({ behavior: "smooth" })
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+    } else {
+      // If not on the homepage, navigate there with hash
+      router.push(`/#${sectionId}`)
+    }
   }
+
 
   const handleLegalPageClick = (path: string) => {
     router.push(path)
