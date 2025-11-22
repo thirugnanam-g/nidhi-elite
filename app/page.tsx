@@ -1,222 +1,164 @@
 "use client"
 
-import { ArrowRight, Zap, Users, Rocket } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useEffect } from "react"
+import { Header } from "@/components/layout/header"
+import { HeroSection } from "@/components/sections/hero-section"
+import { ContactSection } from "@/components/sections/contact-section"
+import { Footer } from "@/components/layout/footer"
+import { StructuredData } from "@/components/seo/structured-data"
+import { PerformanceOptimizer } from "@/components/seo/performance-optimizer"
+import { AccessibilityEnhancer } from "@/components/seo/accessibility-enhancer"
+import { SEOMonitor } from "@/components/seo/seo-monitor"
+import { FloatingWhatsApp } from "@/components/shared/floating-whatsapp"
+import { AboutSection } from "@/components/sections/about-section"
+import { Suspense, lazy } from "react"
+import { usePathname } from "next/navigation"
+
+const LazyPlotsIntro = lazy(() =>
+  import("@/components/features/plots-intro").then((mod) => ({ default: mod.PlotsIntro })),
+)
+const LazyVillaIntro = lazy(() =>
+  import("@/components/features/villa-intro").then((mod) => ({ default: mod.VillaIntro })),
+)
+const LazyAmenities = lazy(() =>
+  import("@/components/features/amenities").then((mod) => ({ default: mod.Amenities })),
+)
+const LazyLocationConnectivity = lazy(() =>
+  import("@/components/sections/location-connectivity").then((mod) => ({ default: mod.LocationConnectivity })),
+)
+const LazyAutoScrollGallery = lazy(() =>
+  import("@/components/sections/auto-scroll-gallery").then((mod) => ({ default: mod.AutoScrollGallery })),
+)
+const LazyTestimonialsSection = lazy(() =>
+  import("@/components/sections/testimonials").then((mod) => ({ default: mod.TestimonialsSection })),
+)
 
 export default function Home() {
+  const pathname = usePathname()
+
+  // ✅ Ensures hash navigation (e.g., /#location, /#contact) works after components finish loading
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const scrollToSection = () => {
+      const hash = window.location.hash
+      if (!hash) return
+
+      const sectionId = hash.substring(1)
+      const section = document.getElementById(sectionId)
+      if (section) {
+        const headerHeight = 80
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY - headerHeight
+        window.scrollTo({ top: sectionTop, behavior: "smooth" })
+      }
+    }
+
+    // ✅ Attempt scroll a few times in case lazy sections load later
+    const attempts = [300, 800, 1500]
+    const timers = attempts.map((delay) => setTimeout(scrollToSection, delay))
+
+    // ✅ Also handle hash changes after initial load
+    window.addEventListener("hashchange", scrollToSection)
+
+    return () => {
+      timers.forEach(clearTimeout)
+      window.removeEventListener("hashchange", scrollToSection)
+    }
+  }, [pathname])
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="text-2xl font-bold text-primary">Nidhielite</div>
-          <div className="flex items-center gap-8">
-            <a
-              href="#features"
-              className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
-            >
-              Features
-            </a>
-            <a
-              href="#pricing"
-              className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
-            >
-              Pricing
-            </a>
-            <Button size="sm">Get Started</Button>
-          </div>
-        </nav>
-      </header>
+    <>
+      {/* Structured Data + Performance Enhancers */}
+      <StructuredData />
+      <PerformanceOptimizer />
+      <AccessibilityEnhancer />
+      <SEOMonitor />
 
-      {/* Hero Section */}
-      <section className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
-        <div className="mb-8 inline-block rounded-full border border-border bg-secondary/50 px-4 py-2 text-sm font-medium text-secondary-foreground">
-          New: Infinite Canvas — Learn more
-        </div>
+      {/* MAIN CONTENT */}
+      <main className="min-h-screen bg-white text-gray-900" id="main-content" role="main">
+        <Header />
 
-        <div className="mb-8 max-w-3xl">
-          <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-6xl">
-            Super fast motion for every team
-          </h1>
-          <p className="mt-6 text-xl text-foreground/70">
-            Collaborate seamlessly and bring your ideas to life. Over 20,000 creative teams choose us.
-          </p>
-        </div>
+        {/* HERO */}
+        <section
+          id="home"
+          aria-label="Nidhi Elite - HNTDA & TNRERA Approved Plots and Villas in Hosur"
+          className="relative overflow-hidden"
+        >
+          <h1 className="sr-only">Nidhi Elite – HNTDA & TNRERA Approved Plots and Customizable Villas in Hosur</h1>
+          <HeroSection />
+        </section>
 
-        <div className="flex flex-col gap-4 sm:flex-row">
-          <Button size="lg" className="gap-2">
-            Try for free
-            <ArrowRight className="h-5 w-5" />
-          </Button>
-          <Button size="lg" variant="outline">
-            Watch demo
-          </Button>
-        </div>
+        {/* ABOUT */}
+        <section id="about" aria-label="About Nidhi Elite Real Estate Developer" className="relative scroll-mt-20">
+          <AboutSection />
+        </section>
 
-        {/* Social Proof */}
-        <div className="mt-16 border-t border-border pt-8">
-          <p className="mb-8 text-sm font-medium text-foreground/60">Trusted by leading teams</p>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:grid-cols-6">
-            {["Google", "TikTok", "Netflix", "Deliveroo", "Box", "eBay"].map((company) => (
-              <div
-                key={company}
-                className="text-sm font-semibold text-foreground/50 transition-colors hover:text-foreground"
-              >
-                {company}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* PLOTS */}
+        <section id="plots" aria-label="HNTDA Approved Residential Plots in Hosur" className="relative scroll-mt-20">
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyPlotsIntro />
+          </Suspense>
+        </section>
 
-      {/* Features Section */}
-      <section id="features" className="mx-auto max-w-6xl px-6 py-24">
-        <div className="mb-16">
-          <h2 className="text-balance text-3xl font-bold sm:text-4xl">Everything you need to succeed</h2>
-          <p className="mt-4 max-w-2xl text-lg text-foreground/70">
-            Powerful tools designed for modern teams to collaborate faster and ship better.
-          </p>
-        </div>
+        {/* VILLAS */}
+        <section
+          id="customized-villas"
+          aria-label="Customizable Luxury Villas Near Bangalore"
+          className="relative scroll-mt-20"
+        >
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyVillaIntro />
+          </Suspense>
+        </section>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              icon: Zap,
-              title: "Lightning Fast",
-              description: "Experience 6x faster deployment with our optimized platform.",
-            },
-            {
-              icon: Users,
-              title: "Team Collaboration",
-              description: "Real-time feedback and seamless teamwork across your organization.",
-            },
-            {
-              icon: Rocket,
-              title: "Scale Effortlessly",
-              description: "Build and scale your projects without worrying about infrastructure.",
-            },
-          ].map((feature, i) => {
-            const Icon = feature.icon
-            return (
-              <div
-                key={i}
-                className="rounded-lg border border-border bg-card p-8 transition-all hover:shadow-lg hover:shadow-primary/10"
-              >
-                <Icon className="mb-4 h-8 w-8 text-primary" />
-                <h3 className="mb-2 text-lg font-semibold">{feature.title}</h3>
-                <p className="text-foreground/70">{feature.description}</p>
-              </div>
-            )
-          })}
-        </div>
-      </section>
+        {/* AMENITIES */}
+        <section id="amenities" aria-label="World-Class Amenities at Nidhi Elite" className="relative scroll-mt-20">
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyAmenities />
+          </Suspense>
+        </section>
 
-      {/* CTA Section */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
-        <div className="rounded-lg border border-border bg-gradient-to-br from-primary/10 to-primary/5 px-8 py-16 text-center sm:px-12">
-          <h2 className="text-balance text-3xl font-bold sm:text-4xl">Ready to get started?</h2>
-          <p className="mt-4 text-lg text-foreground/70">
-            Join thousands of teams already using Nidhielite to build faster.
-          </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <Button size="lg">Start Free Trial</Button>
-            <Button size="lg" variant="outline">
-              Contact Sales
-            </Button>
-          </div>
-        </div>
-      </section>
+        {/* LOCATION */}
+        <section
+          id="location"
+          aria-label="Prime Location and Connectivity from Hosur to Bangalore"
+          className="bg-gray-50 relative scroll-mt-20"
+        >
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyLocationConnectivity />
+          </Suspense>
+        </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border bg-background/50">
-        <div className="mx-auto max-w-6xl px-6 py-12">
-          <div className="mb-8 grid gap-12 sm:grid-cols-4">
-            <div>
-              <h3 className="font-semibold">Product</h3>
-              <ul className="mt-4 space-y-2 text-sm text-foreground/70">
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    Security
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold">Company</h3>
-              <ul className="mt-4 space-y-2 text-sm text-foreground/70">
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    Careers
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold">Legal</h3>
-              <ul className="mt-4 space-y-2 text-sm text-foreground/70">
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    Terms
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold">Follow</h3>
-              <ul className="mt-4 space-y-2 text-sm text-foreground/70">
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition-colors hover:text-foreground">
-                    GitHub
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border pt-8 text-center text-sm text-foreground/50">
-            <p>&copy; 2025 Nidhielite. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+        {/* GALLERY */}
+        <section
+          id="gallery"
+          aria-label="Real Site Images of Nidhi Elite Layout"
+          className="bg-gray-50 relative scroll-mt-20"
+        >
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyAutoScrollGallery />
+          </Suspense>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section id="testimonials" aria-label="Customer Reviews and Testimonials" className="relative scroll-mt-20">
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+            <LazyTestimonialsSection />
+          </Suspense>
+        </section>
+
+        {/* CONTACT */}
+        <section
+          id="contact"
+          aria-label="Contact Nidhi Elite for Site Visit or Brochure"
+          className="bg-gray-50 relative scroll-mt-20"
+        >
+          <ContactSection />
+        </section>
+
+        <Footer />
+        <FloatingWhatsApp />
+      </main>
+    </>
   )
 }
