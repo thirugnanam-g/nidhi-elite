@@ -10,6 +10,7 @@ import { GoogleAnalytics } from "@/components/analytics/google-analytics"
 import { AnalyticsTracker } from "@/components/analytics/analytics-tracker"
 import { ConversionTracking } from "@/components/analytics/conversion-tracking"
 import "./globals.css"
+import Script from "next/script"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -147,7 +148,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
-
         {/* Geo Tags for Local SEO */}
         <meta name="geo.region" content="IN-TN" />
         <meta name="geo.placename" content="Hosur, Tamil Nadu, India" />
@@ -171,6 +171,30 @@ export default function RootLayout({
         <meta name="revisit-after" content="7 days" />
         <meta name="author" content="Nidhi Elite" />
         <meta name="owner" content="Nidhi Elite" />
+
+        {/* ✅ Meta Pixel Code */}
+        <Script id="facebook-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1960371824750038');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1960371824750038&ev=PageView&noscript=1"
+          />
+        </noscript>
       </head>
 
       <body className={`font-sans ${inter.variable} ${playfair.variable} ${GeistMono.variable}`}>
@@ -189,10 +213,10 @@ export default function RootLayout({
                 "HNTDA & TNRERA approved premium residential plots and customized villas in Hosur, near Bangalore.",
               aggregateRating: {
                 "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "ratingCount": "150",
-                "bestRating": "5",
-                "worstRating": "1",
+                ratingValue: "4.8",
+                ratingCount: "150",
+                bestRating: "5",
+                worstRating: "1",
               },
               address: {
                 "@type": "PostalAddress",
@@ -228,50 +252,6 @@ export default function RootLayout({
           <ConversionTracking />
         </Suspense>
       </body>
-    </html>
-  )
-}
-// app/layout.tsx
-import "./globals.css"
-import { Inter } from "next/font/google"
-import Script from "next/script"
-
-const inter = Inter({ subsets: ["latin"] })
-
-export const metadata = {
-  title: "Nidhi Elite | Luxury Plots & Villas in Hosur",
-  description: "DTCP & RERA approved plots and customized villas near Hosur.",
-}
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        {/* ✅ Meta Pixel Code */}
-        <Script id="facebook-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1960371824750038');
-            fbq('track', 'PageView');
-          `}
-        </Script>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1960371824750038&ev=PageView&noscript=1"
-          />
-        </noscript>
-      </head>
-      <body className={inter.className}>{children}</body>
     </html>
   )
 }
