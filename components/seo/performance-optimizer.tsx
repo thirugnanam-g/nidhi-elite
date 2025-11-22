@@ -5,22 +5,6 @@ import { useEffect } from "react"
 export function PerformanceOptimizer() {
   useEffect(() => {
     // Preload critical resources
-    const preloadCriticalImages = () => {
-      const criticalImages = [
-        "/images/butterfly-logo.png",
-        "/images/IMG-20250929-WA0008.jpg",
-        "https://dylrlrpqagnbcblddglk.supabase.co/storage/v1/object/public/assets/butterfly-logo.jpg",
-      ]
-
-      criticalImages.forEach((src) => {
-        const link = document.createElement("link")
-        link.rel = "preload"
-        link.as = "image"
-        link.href = src
-        link.fetchPriority = "high"
-        document.head.appendChild(link)
-      })
-    }
 
     // Optimize third-party scripts
     const optimizeThirdPartyScripts = () => {
@@ -73,13 +57,11 @@ export function PerformanceOptimizer() {
     const lazyLoadNonCritical = () => {
       if ("requestIdleCallback" in window) {
         requestIdleCallback(() => {
-          preloadCriticalImages()
           optimizeThirdPartyScripts()
           optimizeCoreWebVitals()
         })
       } else {
         setTimeout(() => {
-          preloadCriticalImages()
           optimizeThirdPartyScripts()
           optimizeCoreWebVitals()
         }, 100)
@@ -89,18 +71,18 @@ export function PerformanceOptimizer() {
     lazyLoadNonCritical()
 
     // Monitor performance metrics
-    if ("PerformanceObserver" in window) {
-      try {
-        const observer = new PerformanceObserver((list) => {
-          for (const entry of list.getEntries()) {
-            console.log("[v0] Performance:", entry.name, entry.duration)
-          }
-        })
-        observer.observe({ entryTypes: ["navigation", "resource", "paint"] })
-      } catch (e) {
-        console.log("[v0] Performance monitoring not available")
-      }
-    }
+    // if ("PerformanceObserver" in window) {
+    //   try {
+    //     const observer = new PerformanceObserver((list) => {
+    //       for (const entry of list.getEntries()) {
+    //         console.log("[v0] Performance:", entry.name, entry.duration)
+    //       }
+    //     })
+    //     observer.observe({ entryTypes: ["navigation", "resource", "paint"] })
+    //   } catch (e) {
+    //     console.log("[v0] Performance monitoring not available")
+    //   }
+    // }
   }, [])
 
   return null
