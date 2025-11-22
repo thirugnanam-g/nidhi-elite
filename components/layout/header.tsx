@@ -20,7 +20,7 @@ export function Header() {
   const handleBookNowClick = () => {
     const phoneNumber = "919360299919"
     const message = encodeURIComponent(
-      "Hi! I'm interested in Nidhi Elite plots and customized villas. Please provide more information."
+      "Hi! I'm interested in Nidhi Elite plots and customized villas. Please provide more information.",
     )
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
     window.open(whatsappUrl, "_blank")
@@ -74,6 +74,7 @@ export function Header() {
                     height={28}
                     className="object-contain"
                     priority
+                    quality={75} // Added loading optimization
                   />
                 </div>
               </div>
@@ -81,9 +82,7 @@ export function Header() {
                 <h1 className="text-lg md:text-xl font-serif font-semibold text-foreground tracking-tight leading-tight">
                   Nidhi Elite
                 </h1>
-                <p className="hidden md:block text-xs text-muted-foreground font-medium">
-                  Luxury Plots & Villas
-                </p>
+                <p className="hidden md:block text-xs text-muted-foreground font-medium">Luxury Plots & Villas</p>
               </div>
             </Link>
 
@@ -117,7 +116,7 @@ export function Header() {
                     {item.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                   </button>
-                )
+                ),
               )}
             </nav>
 
@@ -190,7 +189,7 @@ export function Header() {
                     >
                       {item.label}
                     </button>
-                  )
+                  ),
                 )}
 
                 <Button

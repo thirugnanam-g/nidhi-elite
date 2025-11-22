@@ -172,8 +172,7 @@ export default function RootLayout({
         <meta name="author" content="Nidhi Elite" />
         <meta name="owner" content="Nidhi Elite" />
 
-        {/* ✅ Meta Pixel Code */}
-        <Script id="facebook-pixel" strategy="afterInteractive">
+        <Script id="facebook-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -199,6 +198,16 @@ export default function RootLayout({
 
       <body className={`font-sans ${inter.variable} ${playfair.variable} ${GeistMono.variable}`}>
         <GoogleAnalytics />
+
+        <Script id="schema-js" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'GA_TRACKING_ID');
+          `}
+        </Script>
 
         <script
           type="application/ld+json"

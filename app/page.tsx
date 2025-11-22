@@ -20,9 +20,7 @@ const LazyPlotsIntro = lazy(() =>
 const LazyVillaIntro = lazy(() =>
   import("@/components/features/villa-intro").then((mod) => ({ default: mod.VillaIntro })),
 )
-const LazyAmenities = lazy(() =>
-  import("@/components/features/amenities").then((mod) => ({ default: mod.Amenities })),
-)
+const LazyAmenities = lazy(() => import("@/components/features/amenities").then((mod) => ({ default: mod.Amenities })))
 const LazyLocationConnectivity = lazy(() =>
   import("@/components/sections/location-connectivity").then((mod) => ({ default: mod.LocationConnectivity })),
 )
@@ -95,7 +93,7 @@ export default function Home() {
 
         {/* PLOTS */}
         <section id="plots" aria-label="HNTDA Approved Residential Plots in Hosur" className="relative scroll-mt-20">
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+          <Suspense fallback={<div className="h-96 bg-gradient-to-b from-gray-100 to-gray-50 animate-pulse" />}>
             <LazyPlotsIntro />
           </Suspense>
         </section>
@@ -106,14 +104,14 @@ export default function Home() {
           aria-label="Customizable Luxury Villas Near Bangalore"
           className="relative scroll-mt-20"
         >
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+          <Suspense fallback={<div className="h-96 bg-gradient-to-b from-gray-100 to-gray-50 animate-pulse" />}>
             <LazyVillaIntro />
           </Suspense>
         </section>
 
         {/* AMENITIES */}
         <section id="amenities" aria-label="World-Class Amenities at Nidhi Elite" className="relative scroll-mt-20">
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse" />}>
+          <Suspense fallback={<div className="h-96 bg-gradient-to-b from-gray-100 to-gray-50 animate-pulse" />}>
             <LazyAmenities />
           </Suspense>
         </section>
