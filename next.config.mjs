@@ -30,6 +30,12 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = [...(config.externals || []), 'sanity', '@sanity/vision', '@sanity/eslint-config-studio']
+    }
+    return config
+  },
   experimental: {
     optimizePackageImports: [
       'lucide-react', 
@@ -41,6 +47,7 @@ const nextConfig = {
       'clsx',
       'tailwind-merge'
     ],
+    serverExternalPackages: ['sanity', '@sanity/vision'],
   },
   async headers() {
     return [
